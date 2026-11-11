@@ -1,0 +1,115 @@
+---
+/**
+ * Linha do tempo em duas trilhas (Nação à esquerda, Rural à direita; marcos comuns no centro).
+ * No celular vira uma coluna única com etiquetas. O filtro só aparece com JavaScript;
+ * sem ele, todos os marcos ficam visíveis.
+ */
+import { marcos } from '../data/linha-do-tempo';
+import { fontePorId } from '../data/fontes';
+
+const nomes = { nacao: 'Nação', rural: 'Rural', ambas: 'As duas' } as const;
+---
+
+<section class="ldt largo" aria-labelledby="ldt-titulo">
+  <h2 id="ldt-titulo">Linha do tempo</h2>
+  <p class="ldt-intro">Os marcos marcados como "antes do maracatu" são as coroações de reis negros, uma das raízes do maracatu nação. Elas aconteciam antes de a palavra "maracatu" aparecer nos documentos.</p>
+
+  <div class="ldt-filtro" role="group" aria-label="Mostrar marcos de" hidden>
+    <button type="button" class="botao" aria-pressed="true" data-filtro="todas">As duas trilhas</button>
+    <button type="button" class="botao" aria-pressed="false" data-filtro="nacao">Só Nação</button>
+    <button type="button" class="botao" aria-pressed="false" data-filtro="rural">Só Rural</button>
+  </div>
+  <p class="sr-only" aria-live="polite" id="ldt-status"></p>
+
+  <ol class="ldt-lista">
+    {marcos.map((m) => {
+      const f = m.fonte ? fontePorId(m.fonte) : undefined;
+      return (
+        <li class:list={['marco', `marco--${m.trilha}`]} data-trilha={m.trilha}>
+          <p class="marco-ano">{m.ano}</p>
+          <div class="marco-cartao">
+            <p class="marco-meta">
+              <span class:list={['etiqueta', `etiqueta--${m.trilha}`]}>{nomes[m.trilha]}</span>
+              {m.antes && <span class="marco-antes">antes do maracatu</span>}
+            </p>
+            <h3>{m.titulo}</h3>
+            <p>{m.texto}</p>
+            {f && <p class="marco-fonte">Fonte: {f.url ? <a href={f.url} rel="noopener">{f.autor}</a> : f.autor}</p>}
+          </div>
+        </li>
+      );
+    })}
+  </ol>
+</section>
+
+<script>
+  const raiz = document.querySelector<HTMLElement>('.ldt');
+  const grupo = raiz?.querySelector<HTMLElement>('.ldt-filtro');
+  const status = document.getElementById('ldt-status');
+  if (raiz && grupo) {
+    grupo.hidden = false;
+    const botoes = [...grupo.querySelectorAll<HTMLButtonElement>('button')];
+    const itens = [...raiz.querySelectorAll<HTMLElement>('.marco')];
+    botoes.forEach((b) => b.addEventListener('click', () => {
+      const f = b.dataset.filtro;
+      botoes.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      let n = 0;
+      itens.forEach((i) => {
+        const mostrar = f === 'todas' || i.dataset.trilha === f || i.dataset.trilha === 'ambas';
+        i.hidden = !mostrar;
+        if (mostrar) n++;
+      });
+      if (status) status.textContent = `${n} marcos visíveis.`;
+    }));
+  }
+</script>
+
+<style>
+  .ldt { margin-top: var(--e-7); }
+  .ldt h2 { padding-top: var(--e-4); border-top: 2px solid var(--tinta); }
+  .ldt-intro { max-width: var(--medida); margin-top: var(--e-3); }
+  .ldt-filtro { display: flex; flex-wrap: wrap; gap: var(--e-2); margin-top: var(--e-4); }
+  .ldt-filtro[hidden] { display: none; }
+
+  .ldt-lista { list-style: none; margin: var(--e-5) 0 0; padding: 0; position: relative; }
+  .ldt-lista::before {
+    content: ''; position: absolute; top: 0; bottom: 0; left: 0.55rem;
+    border-left: 3px dotted var(--linha);
+  }
+  .marco { position: relative; padding-left: 2.2rem; margin-bottom: var(--e-5); }
+  .marco[hidden] { display: none; }
+  .marco::before {
+    content: ''; position: absolute; left: 0; top: 0.35rem;
+    width: 1.1rem; height: 1.1rem; border-radius: 50%;
+    border: 3px solid var(--papel);
+    background: var(--tinta-suave);
+  }
+  .marco--nacao::before { background: var(--encarnado); border-radius: 2px; transform: rotate(45deg) scale(0.85); }
+  .marco--rural::before { background: var(--magenta); }
+  .marco-ano { font-family: var(--fonte-titulo); font-size: var(--t-2); line-height: 1.2; }
+  .marco-cartao { margin-top: var(--e-2); display: grid; gap: var(--e-2); max-width: 34rem; }
+  .marco-meta { display: flex; flex-wrap: wrap; gap: var(--e-2); align-items: center; }
+  .marco-antes { font-size: var(--t-0); font-style: italic; color: var(--tinta-suave); }
+  .marco h3 { font-family: var(--fonte-texto); font-weight: 700; font-size: var(--t-1); }
+  .marco-fonte { font-size: var(--t-0); color: var(--tinta-suave); }
+
+  /* Desktop: três colunas (Nação | eixo | Rural); marcos comuns atravessam o eixo */
+  @media (min-width: 60rem) {
+    .ldt-lista::before { left: 50%; transform: translateX(-50%); }
+    .marco { padding-left: 0; display: grid; grid-template-columns: 1fr 4rem 1fr; align-items: start; }
+    .marco::before { left: 50%; transform: translateX(-50%); }
+    .marco--nacao::before { transform: translateX(-50%) rotate(45deg) scale(0.85); }
+    .marco-ano { grid-row: 1; }
+    .marco--nacao .marco-ano, .marco--nacao .marco-cartao { grid-column: 1; text-align: right; justify-self: end; }
+    .marco--nacao .marco-meta { justify-content: flex-end; }
+    .marco--rural .marco-ano, .marco--rural .marco-cartao { grid-column: 3; }
+    .marco--ambas .marco-ano { grid-column: 1 / -1; text-align: center; background: var(--papel); justify-self: center; padding-inline: var(--e-3); position: relative; margin-top: 1.6rem; }
+    .marco--ambas .marco-cartao {
+      grid-column: 1 / -1; justify-self: center; text-align: center;
+      background: var(--papel); border: 2px solid var(--tinta); border-radius: var(--raio);
+      padding: var(--e-4); position: relative;
+    }
+    .marco--ambas .marco-meta { justify-content: center; }
+    .marco-cartao { grid-row: 2; }
+  }
+</style>

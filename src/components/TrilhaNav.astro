@@ -1,0 +1,47 @@
+---
+// Navegação local entre as páginas de uma mesma tradição.
+import { url } from '../lib/url';
+import { trilhaNacao, trilhaRural } from '../data/navegacao';
+interface Props { trilha: 'nacao' | 'rural'; rota: string }
+const { trilha, rota } = Astro.props;
+const lista = trilha === 'nacao' ? trilhaNacao : trilhaRural;
+const nome = trilha === 'nacao' ? 'Maracatu Nação' : 'Maracatu Rural';
+---
+
+<nav class="trilha" aria-label={`Páginas do ${nome}`}>
+  <ol>
+    {lista.map((p) => (
+      <li><a href={url(p.rota)} aria-current={p.rota === rota ? 'page' : undefined}>{p.curto}</a></li>
+    ))}
+  </ol>
+</nav>
+
+<style>
+  .trilha ol {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; flex-wrap: wrap; gap: var(--e-2);
+    counter-reset: trilha;
+  }
+  .trilha li { counter-increment: trilha; }
+  .trilha a {
+    display: inline-flex; align-items: center; gap: var(--e-2);
+    min-height: 44px;
+    padding: var(--e-1) var(--e-4) var(--e-1) var(--e-2);
+    border: 1.5px solid var(--acento);
+    border-radius: 999px;
+    color: var(--tinta);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: var(--t-0);
+    background: var(--papel);
+  }
+  .trilha a::before {
+    content: counter(trilha);
+    display: grid; place-items: center;
+    width: 1.7rem; height: 1.7rem; border-radius: 50%;
+    background: var(--acento); color: var(--papel);
+    font-weight: 700;
+  }
+  .trilha a[aria-current='page'] { background: var(--acento); color: var(--papel); }
+  .trilha a[aria-current="page"]::before { background: var(--papel); color: var(--acento-texto); }
+</style>

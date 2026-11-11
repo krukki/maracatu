@@ -1,0 +1,148 @@
+---
+/**
+ * Mapa ilustrado: onde vivem as duas tradições.
+ * Contornos: OpenStreetMap (ODbL), gerados por scripts/gerar-mapa.mjs.
+ * Alternativa em texto: a lista de lugares logo abaixo do desenho.
+ */
+import mapa from '../data/mapa.json';
+import { lugares } from '../data/lugares';
+
+const { detalhe, localizador } = mapa;
+const [lon0, lat0, lon1, lat1] = detalhe.caixa;
+const k = Math.cos(((lat0 + lat1) / 2) * Math.PI / 180);
+const escala = detalhe.largura / ((lon1 - lon0) * k);
+const proj = (lon: number, lat: number) => [(lon - lon0) * k * escala, (lat1 - lat) * escala];
+
+const regiaoNacao = ['Recife', 'Olinda', 'Igarassu', 'Jaboatão dos Guararapes', 'Paulista', 'Abreu e Lima', 'Itapissuma', 'Ilha de Itamaracá'];
+const comGrupoRural = new Set(lugares.filter((l) => l.tradicao === 'rural').map((l) => l.nome));
+const comGrupoNacao = new Set(lugares.filter((l) => l.tradicao === 'nacao').map((l) => l.nome));
+
+const pontos = lugares.map((l) => {
+  const [x, y] = proj(l.lon, l.lat);
+  // Recife e Olinda têm as duas tradições: os marcadores ficam lado a lado
+  const desloc = l.nome === 'Recife' || l.nome === 'Olinda' ? (l.tradicao === 'nacao' ? 9 : -9) : 0;
+  return { ...l, x: x + desloc, y };
+});
+const nacao = lugares.filter((l) => l.tradicao === 'nacao');
+const rural = lugares.filter((l) => l.tradicao === 'rural');
+---
+
+<figure class="mapa largo">
+  <div class="mapa-quadro">
+    <svg viewBox={`0 0 ${detalhe.largura} ${detalhe.altura}`} role="img" aria-labelledby="mapa-titulo mapa-desc">
+      <title id="mapa-titulo">Mapa da Região Metropolitana do Recife e da Zona da Mata Norte de Pernambuco</title>
+      <desc id="mapa-desc">O Maracatu Nação está em Recife, Olinda, Igarassu e Jaboatão dos Guararapes, no litoral. O Maracatu Rural está nos municípios da Zona da Mata Norte, a oeste e ao norte, como Nazaré da Mata, Aliança, Carpina e Goiana, e também em Olinda e no Recife. A lista completa está logo abaixo do mapa.</desc>
+      <rect width="100%" height="100%" class="mar" />
+      {detalhe.terra.map((d) => <path d={d} class="terra" />)}
+      <path d={detalhe.mar} class="mar" />
+      <g class="municipios">
+        {detalhe.municipios.map((m) => (
+          <path
+            d={m.d}
+            class:list={[
+              'mun',
+              regiaoNacao.includes(m.nome) && 'mun--rmr',
+              comGrupoRural.has(m.nome) && !comGrupoNacao.has(m.nome) && 'mun--rural',
+              comGrupoNacao.has(m.nome) && 'mun--nacao',
+            ]}
+          />
+        ))}
+      </g>
+      <text x={detalhe.largura - 16} y={detalhe.altura * 0.62} class="rotulo-oceano" text-anchor="end">Oceano</text>
+      <text x={detalhe.largura - 16} y={detalhe.altura * 0.62 + 22} class="rotulo-oceano" text-anchor="end">Atlântico</text>
+      <text x="200" y="40" class="rotulo-estado">Paraíba</text>
+      <g class="pontos">
+        {pontos.map((p) => (
+          p.tradicao === 'nacao' ? (
+            <g transform={`translate(${p.x.toFixed(1)} ${p.y.toFixed(1)})`}>
+              <rect x="-7" y="-7" width="14" height="14" transform="rotate(45)" class="pt-nacao" />
+              <text x="14" y="5" class="rotulo rotulo--nacao">{p.nome === 'Jaboatão dos Guararapes' ? 'Jaboatão' : p.nome}</text>
+            </g>
+          ) : (
+            <g transform={`translate(${p.x.toFixed(1)} ${p.y.toFixed(1)})`}>
+              <circle r="8" class="pt-rural" />
+              <circle r="3" cx="-2" cy="-2" class="pt-brilho" />
+              {!(p.nome === 'Recife' || p.nome === 'Olinda') && (
+                <text x={p.rotulo === 'direita' ? 13 : -13} y="5" text-anchor={p.rotulo === 'direita' ? 'start' : 'end'} class="rotulo rotulo--rural">{p.nome}</text>
+              )}
+            </g>
+          )
+        ))}
+      </g>
+      <g class="localizador" transform={`translate(16 ${detalhe.altura - 16 - localizador.altura * 0.36}) scale(0.36)`}>
+        <rect x="-12" y="-12" width={localizador.largura + 24} height={localizador.altura + 24} class="loc-fundo" />
+        <path d={localizador.estado} class="loc-estado" />
+        <rect x={localizador.recorte[0]} y={localizador.recorte[1]} width={localizador.recorte[2]} height={localizador.recorte[3]} class="loc-recorte" />
+      </g>
+      <text x="16" y={detalhe.altura - 22 - localizador.altura * 0.36} class="rotulo-loc">Pernambuco</text>
+    </svg>
+  </div>
+  <figcaption>
+    <span class="leg"><span class="leg-nacao" aria-hidden="true"></span> Maracatu Nação</span>
+    <span class="leg"><span class="leg-rural" aria-hidden="true"></span> Maracatu Rural (baque solto)</span>
+    <span class="leg-fonte">Contornos: © colaboradores do OpenStreetMap (ODbL). Só aparecem municípios com grupos citados nas fontes deste site; há grupos em outras cidades.</span>
+  </figcaption>
+  <details class="mapa-lista">
+    <summary>Ver a lista de lugares em texto</summary>
+    <div class="mapa-colunas">
+      <div>
+        <h3>Maracatu Nação</h3>
+        <ul>{nacao.map((l) => <li><strong>{l.nome}:</strong> {l.grupos}.</li>)}</ul>
+      </div>
+      <div>
+        <h3>Maracatu Rural</h3>
+        <ul>{rural.map((l) => <li><strong>{l.nome}:</strong> {l.grupos}.</li>)}</ul>
+      </div>
+    </div>
+  </details>
+</figure>
+
+<style>
+  .mapa { margin: 0; max-width: 48rem; }
+  .mapa-quadro { border: 2px solid var(--tinta); border-radius: var(--raio); overflow: hidden; background: var(--papel); }
+  .mapa svg { display: block; width: 100%; height: auto; }
+  .mar { fill: color-mix(in srgb, var(--azul-real) 12%, var(--papel)); }
+  .terra { fill: var(--papel); stroke: var(--tinta-suave); stroke-width: 1.2; }
+  .mun { fill: var(--papel-2); stroke: var(--linha); stroke-width: 1; }
+  .mun--rmr { fill: color-mix(in srgb, var(--encarnado) 10%, var(--papel)); }
+  .mun--nacao { fill: color-mix(in srgb, var(--encarnado) 22%, var(--papel)); stroke: var(--encarnado); }
+  .mun--rural { fill: color-mix(in srgb, var(--magenta) 16%, var(--papel)); stroke: var(--magenta); }
+  .pt-nacao { fill: var(--encarnado); stroke: var(--papel); stroke-width: 2.5; }
+  .pt-rural { fill: var(--magenta); stroke: var(--papel); stroke-width: 2.5; }
+  .pt-brilho { fill: #fff; opacity: 0.6; }
+  .rotulo {
+    font-family: var(--fonte-texto);
+    font-size: 17px;
+    font-weight: 700;
+    paint-order: stroke;
+    stroke: var(--papel);
+    stroke-width: 4px;
+    stroke-linejoin: round;
+  }
+  @media (max-width: 40rem) {
+    .rotulo { font-size: 25px; stroke-width: 6px; }
+    .rotulo-oceano { font-size: 24px; }
+    .rotulo-estado, .rotulo-loc { font-size: 20px; }
+  }
+  .rotulo--nacao { fill: var(--encarnado); }
+  .rotulo--rural { fill: var(--magenta); }
+  .rotulo-estado { font-family: var(--fonte-texto); font-size: 14px; font-weight: 700; fill: var(--tinta-suave); letter-spacing: 0.04em; }
+  .rotulo-oceano { font-family: var(--fonte-titulo); font-size: 18px; fill: var(--tinta-suave); }
+  .loc-fundo { fill: var(--papel); stroke: var(--tinta); stroke-width: 3; }
+  .loc-estado { fill: var(--papel-2); stroke: var(--tinta-suave); stroke-width: 2; }
+  .loc-recorte { fill: none; stroke: var(--tinta); stroke-width: 5; }
+  .rotulo-loc { font-family: var(--fonte-texto); font-size: 13px; font-weight: 700; fill: var(--tinta); }
+
+  figcaption { display: flex; flex-wrap: wrap; gap: var(--e-2) var(--e-4); margin-top: var(--e-2); align-items: center; }
+  .leg { display: inline-flex; align-items: center; gap: var(--e-2); font-weight: 700; color: var(--tinta); }
+  .leg-nacao { width: 0.8rem; height: 0.8rem; background: var(--encarnado); transform: rotate(45deg); }
+  .leg-rural { width: 0.95rem; height: 0.95rem; border-radius: 50%; background: var(--magenta); }
+  .leg-fonte { flex-basis: 100%; }
+
+  .mapa-lista { margin-top: var(--e-3); }
+  .mapa-lista summary { cursor: pointer; font-weight: 700; min-height: 44px; display: flex; align-items: center; color: var(--acento-texto); }
+  .mapa-colunas { display: grid; gap: var(--e-4); margin-top: var(--e-3); }
+  @media (min-width: 40rem) { .mapa-colunas { grid-template-columns: 1fr 1fr; } }
+  .mapa-colunas h3 { font-size: var(--t-1); font-family: var(--fonte-texto); font-weight: 700; margin-bottom: var(--e-2); }
+  .mapa-colunas ul { margin: 0; padding-left: 1.1em; display: grid; gap: var(--e-2); font-size: var(--t-0); }
+</style>

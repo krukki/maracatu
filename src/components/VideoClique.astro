@@ -1,0 +1,94 @@
+---
+/**
+ * Vídeo que só carrega ao clicar (privacidade e desempenho).
+ * Antes do clique: capa desenhada aqui mesmo, sem nada vindo do YouTube.
+ * Sem JavaScript: o botão vira um link comum para o vídeo no YouTube.
+ */
+import { videos } from '../data/videos';
+interface Props { video: keyof typeof videos | string; legenda?: string }
+const { video, legenda } = Astro.props;
+const v = videos[video];
+if (!v) throw new Error(`Vídeo não encontrado: ${video}`);
+const assistir = `https://www.youtube.com/watch?v=${v.id}`;
+---
+
+<figure class="video largo" data-video={v.id} data-tradicao={v.tradicao}>
+  <div class="video-quadro">
+    <a class="video-capa" href={assistir} rel="noopener" data-titulo={v.titulo}>
+      <span class="video-play" aria-hidden="true"></span>
+      <span class="video-texto">
+        <span class="video-titulo">{v.titulo}</span>
+        <span class="video-meta">Canal {v.canal}, {v.duracao}. Assistir aqui<span class="sr-only"> (carrega o vídeo do YouTube)</span></span>
+      </span>
+    </a>
+  </div>
+  <figcaption>{legenda ?? `Vídeo do canal ${v.canal} no YouTube.`} O vídeo só carrega quando você clica; depois disso, o YouTube pode registrar a visita.</figcaption>
+</figure>
+
+<script>
+  document.querySelectorAll<HTMLAnchorElement>('.video-capa').forEach((capa) => {
+    capa.addEventListener('click', (e) => {
+      const fig = capa.closest<HTMLElement>('.video');
+      const id = fig?.dataset.video;
+      if (!id) return;
+      e.preventDefault();
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+      iframe.title = capa.dataset.titulo ?? 'Vídeo';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.loading = 'lazy';
+      capa.replaceWith(iframe);
+      iframe.focus();
+    });
+  });
+</script>
+
+<style>
+  .video { margin: 0; max-width: 52rem; }
+  .video-quadro {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--tinta);
+    border-radius: var(--raio);
+    overflow: hidden;
+  }
+  .video-quadro :global(iframe) { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .video-capa {
+    position: absolute; inset: 0;
+    display: flex; align-items: flex-end; gap: var(--e-4);
+    padding: var(--e-5);
+    color: #f6efe2;
+    text-decoration: none;
+    background:
+      radial-gradient(circle at 75% 30%, color-mix(in srgb, var(--acento) 55%, transparent), transparent 60%),
+      #1b1614;
+  }
+  [data-tradicao='mangue'] .video-capa {
+    background: radial-gradient(circle at 75% 30%, #4a6b2a, transparent 60%), #1b1614;
+  }
+  .video-play {
+    flex: none;
+    width: 4rem; height: 4rem; border-radius: 50%;
+    background: #f6efe2;
+    position: relative;
+    transition: transform 0.15s;
+  }
+  .video-play::after {
+    content: ''; position: absolute; left: 54%; top: 50%;
+    transform: translate(-50%, -50%);
+    border-left: 1.2rem solid #1b1614;
+    border-block: 0.75rem solid transparent;
+  }
+  .video-capa:hover .video-play { transform: scale(1.06); }
+  .video-texto { display: grid; gap: var(--e-1); }
+  .video-titulo { font-family: var(--fonte-titulo); font-size: var(--t-2); line-height: 1.15; }
+  .video-meta { font-size: var(--t-0); text-decoration: underline; text-underline-offset: 0.2em; }
+  .video figcaption { margin-top: var(--e-2); }
+  @media (max-width: 30rem) {
+    .video-capa { padding: var(--e-4); gap: var(--e-3); }
+    .video-play { width: 3rem; height: 3rem; }
+    .video-play::after { border-left-width: 0.9rem; border-block-width: 0.55rem; }
+    .video-titulo { font-size: var(--t-1); }
+  }
+</style>

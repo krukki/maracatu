@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Motivo from '../components/Motivo.astro';
+import Mapa from '../components/Mapa.astro';
+import { url } from '../lib/url';
+---
+
+<BaseLayout
+  titulo="Dois Baques"
+  descricao="Site educativo sobre o Maracatu Nação (baque virado) e o Maracatu Rural (baque solto), duas tradições afro-brasileiras e populares de Pernambuco, com história, personagens, instrumentos e fontes."
+  rota="/"
+>
+  <section class="capa" aria-labelledby="titulo-site">
+    <div class="capa-topo">
+      <h1 id="titulo-site">Dois Baques</h1>
+      <p class="capa-sub">Maracatu Nação e Maracatu Rural de Pernambuco: duas tradições com o mesmo nome e histórias próprias.</p>
+    </div>
+
+    <div class="metades">
+      <article class="metade metade--nacao" data-baque="nacao" aria-labelledby="capa-nacao">
+        <div class="metade-motivo"><Motivo tipo="nacao" altura={128} /></div>
+        <div class="metade-texto">
+          <p class="metade-baque">Baque virado</p>
+          <h2 id="capa-nacao">Maracatu Nação</h2>
+          <p>Um grande batuque de alfaias e uma corte real que saem de comunidades negras do Recife, de Olinda e de Igarassu, ligadas aos terreiros.</p>
+          <a class="metade-link" href={url('/nacao/')}>Conhecer o Maracatu Nação</a>
+        </div>
+      </article>
+      <span class="costura" aria-hidden="true"></span>
+      <article class="metade metade--rural" data-baque="rural" aria-labelledby="capa-rural">
+        <div class="metade-motivo"><Motivo tipo="rural" altura={128} /></div>
+        <div class="metade-texto">
+          <p class="metade-baque">Baque solto</p>
+          <h2 id="capa-rural">Maracatu Rural</h2>
+          <p>Caboclos de lança, um terno de percussão e sopros e mestres que improvisam versos, nascidos nos engenhos de cana da Zona da Mata Norte.</p>
+          <a class="metade-link" href={url('/rural/')}>Conhecer o Maracatu Rural</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <div class="conteudo inicio">
+    <section class="bloco" aria-labelledby="t-diferente">
+      <h2 id="t-diferente">Não é a mesma coisa</h2>
+      <dl class="diferencas">
+        <div>
+          <dt>O som</dt>
+          <dd><span class="lado lado--nacao">Nação:</span> só percussão, com muitos tambores tocando juntos. <span class="lado lado--rural">Rural:</span> um terno pequeno, com trombones e clarinetes.</dd>
+        </div>
+        <div>
+          <dt>Quem está no centro</dt>
+          <dd><span class="lado lado--nacao">Nação:</span> a corte, com rei e rainha sob o pálio. <span class="lado lado--rural">Rural:</span> o caboclo de lança, com gola bordada e guiada.</dd>
+        </div>
+        <div>
+          <dt>De onde vem</dt>
+          <dd><span class="lado lado--nacao">Nação:</span> das coroações de reis negros nas cidades do litoral. <span class="lado lado--rural">Rural:</span> das festas dos trabalhadores da cana.</dd>
+        </div>
+      </dl>
+      <p><a href={url('/comparativo/')}>Ver todas as diferenças no comparativo</a></p>
+    </section>
+
+    <section class="bloco" aria-labelledby="t-onde">
+      <h2 id="t-onde">Onde cada um vive</h2>
+      <p class="bloco-intro">O Maracatu Nação está nas comunidades do Recife e das cidades vizinhas, no litoral. O Maracatu Rural está nos municípios da Zona da Mata Norte, onde há canaviais, e também em Olinda e no Recife.</p>
+      <Mapa />
+    </section>
+
+    <section class="bloco patrimonio" aria-labelledby="t-patrimonio">
+      <h2 id="t-patrimonio">Patrimônio do Brasil desde 3 de dezembro de 2014</h2>
+      <p>No mesmo dia, o Iphan registrou o Maracatu Nação e o Maracatu de Baque Solto como Patrimônio Cultural do Brasil, cada um com seu próprio registro. É o reconhecimento oficial de que são duas tradições diferentes e igualmente importantes.</p>
+    </section>
+
+    <section class="bloco" aria-labelledby="t-comecar">
+      <h2 id="t-comecar">Por onde começar</h2>
+      <ul class="caminhos">
+        <li>
+          <a href={url('/historia/')}>
+            <span class="caminho-titulo">História e origens</span>
+            <span class="caminho-texto">Das coroações de reis negros aos engenhos de cana, com linha do tempo.</span>
+          </a>
+        </li>
+        <li>
+          <a href={url('/raizes-religiosas/')}>
+            <span class="caminho-titulo">Raízes religiosas</span>
+            <span class="caminho-texto">Terreiros de Xangô, Jurema Sagrada e o que é segredo.</span>
+          </a>
+        </li>
+        <li>
+          <a href={url('/alem-de-pernambuco/')}>
+            <span class="caminho-titulo">Além de Pernambuco</span>
+            <span class="caminho-texto">O Mangue Beat e os grupos de percussão pelo mundo.</span>
+          </a>
+        </li>
+        <li>
+          <a href={url('/fontes/')}>
+            <span class="caminho-titulo">Glossário e fontes</span>
+            <span class="caminho-texto">As palavras dos maracatus e de onde vem cada informação.</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .capa { border-bottom: 2px solid var(--tinta); }
+  .capa-topo {
+    max-width: var(--largura);
+    margin-inline: auto;
+    padding: var(--e-6) var(--gutter) var(--e-5);
+    text-align: center;
+  }
+  .capa h1 {
+    font-size: clamp(3.4rem, 15vw, 9.5rem);
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+  }
+  .capa-sub { max-width: 34ch; margin: var(--e-4) auto 0; font-size: var(--t-2); line-height: 1.4; }
+
+  .metades { display: grid; grid-template-columns: 1fr; }
+  .costura {
+    height: 6px;
+    background: repeating-linear-gradient(90deg, var(--tinta) 0 6px, transparent 6px 10px);
+  }
+  .metade { display: grid; align-content: start; }
+  .metade-motivo { overflow: hidden; }
+  .metade-texto { padding: var(--e-5) var(--gutter) var(--e-6); display: grid; gap: var(--e-3); max-width: 34rem; }
+  .metade-baque { font-weight: 700; color: var(--acento-texto); }
+  .metade h2 { font-size: clamp(var(--t-4), 6vw, var(--t-5)); }
+  .metade-link {
+    justify-self: start;
+    display: inline-flex; align-items: center; min-height: 48px;
+    padding: var(--e-2) var(--e-5);
+    background: var(--acento); color: var(--papel);
+    border-radius: 999px; font-weight: 700; text-decoration: none;
+  }
+  .metade-link:hover { text-decoration: underline; }
+
+  @media (min-width: 52rem) {
+    .metades { grid-template-columns: 1fr 6px 1fr; }
+    .costura { height: auto; background: repeating-linear-gradient(180deg, var(--tinta) 0 6px, transparent 6px 10px); }
+    .metade--nacao .metade-texto { justify-self: end; text-align: right; }
+    .metade--nacao .metade-link { justify-self: end; }
+    .metade-texto { padding-inline: var(--e-6); }
+  }
+
+  /* O único momento orquestrado do site: os dois motivos pulsam uma vez, como dois baques */
+  @media (prefers-reduced-motion: no-preference) {
+    .metade-motivo :global(svg) { transform-origin: center; animation: baque 0.7s cubic-bezier(.2,.9,.3,1.4) both; }
+    .metade--nacao .metade-motivo :global(svg) { animation-delay: 0.25s; }
+    .metade--rural .metade-motivo :global(svg) { animation-delay: 0.75s; }
+    @keyframes baque {
+      0% { transform: scaleY(0.2); opacity: 0; }
+      60% { transform: scaleY(1.08); opacity: 1; }
+      100% { transform: scaleY(1); opacity: 1; }
+    }
+  }
+
+  .inicio .bloco { margin-top: var(--e-7); max-width: 60rem; }
+  .bloco h2 { padding-top: var(--e-4); border-top: 2px solid var(--tinta); margin-bottom: var(--e-4); max-width: 24ch; }
+  .bloco-intro { max-width: var(--medida); margin-bottom: var(--e-4); }
+  .diferencas { margin: 0 0 var(--e-4); display: grid; gap: var(--e-4); }
+  @media (min-width: 52rem) { .diferencas { grid-template-columns: repeat(3, 1fr); gap: var(--e-6); } }
+  .diferencas dt { font-family: var(--fonte-titulo); font-size: var(--t-2); margin-bottom: var(--e-2); }
+  .diferencas dd { margin: 0; }
+  .lado { font-weight: 700; }
+  .lado--nacao { color: var(--encarnado); }
+  .lado--rural { color: var(--magenta); }
+  .patrimonio p { max-width: var(--medida); font-size: var(--t-2); line-height: 1.45; }
+  .caminhos { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--e-3); }
+  @media (min-width: 40rem) { .caminhos { grid-template-columns: 1fr 1fr; } }
+  .caminhos a {
+    display: grid; gap: var(--e-1); height: 100%;
+    padding: var(--e-4); border-left: 4px solid var(--tinta);
+    color: var(--tinta); text-decoration: none; background: var(--papel-2);
+  }
+  .caminhos a:hover .caminho-titulo { text-decoration: underline; }
+  .caminho-titulo { font-family: var(--fonte-titulo); font-size: var(--t-2); }
+  .caminho-texto { font-size: var(--t-0); color: var(--tinta-suave); }
+</style>

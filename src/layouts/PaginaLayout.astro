@@ -1,0 +1,33 @@
+---
+/**
+ * Layout das páginas de conteúdo (MDX). O texto de cada página fica em src/pages/**.mdx;
+ * o "frontmatter" do MDX traz título, resumo, descrição e tradição.
+ */
+import BaseLayout from './BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import ListaNotas from '../components/ListaNotas.astro';
+import NavPaginas from '../components/NavPaginas.astro';
+import { paginas } from '../data/navegacao';
+
+const { frontmatter } = Astro.props as {
+  frontmatter: { titulo: string; resumo: string; descricao: string; baque: 'nacao' | 'rural' | 'comum'; rota: string };
+};
+const { titulo, resumo, descricao, baque, rota } = frontmatter;
+const migalhas = rota.split('/').filter(Boolean).slice(0, -1).map((_, i, arr) => {
+  const r = `/${arr.slice(0, i + 1).join('/')}/`;
+  return { nome: paginas.find((p) => p.rota === r)?.titulo ?? r, rota: r };
+});
+// Renderiza o conteúdo antes da lista de fontes, para que as chamadas <Fonte/> já estejam numeradas.
+const corpo = await Astro.slots.render('default');
+---
+
+<BaseLayout titulo={titulo} descricao={descricao} baque={baque} rota={rota} migalhas={migalhas}>
+  <PageHero titulo={titulo} resumo={resumo} baque={baque} rota={rota} />
+  <div class="conteudo">
+    <div class="prosa">
+      <Fragment set:html={corpo} />
+    </div>
+    <ListaNotas />
+    <NavPaginas rota={rota} />
+  </div>
+</BaseLayout>

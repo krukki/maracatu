@@ -1,0 +1,136 @@
+---
+/**
+ * Ilustração anotada do caboclo de lança (desenho original, estilizado).
+ * As partes numeradas são descritas na lista ao lado, que é a alternativa em texto do desenho.
+ */
+const id = 'gola-pad';
+const partes = [
+  { n: 1, nome: 'Chapéu e cabeleira', texto: 'chapéu coberto de fitas finas e brilhantes, que caem como uma cabeleira e se movem a cada giro.' },
+  { n: 2, nome: 'Óculos escuros e rosto pintado', texto: 'completam a figura e escondem parte do rosto.' },
+  { n: 3, nome: 'Cravo branco', texto: 'levado na boca. Faz parte da proteção do caboclo; como é preparado, cada um guarda para si.' },
+  { n: 4, nome: 'Gola', texto: 'peça bordada à mão, com lantejoulas e miçangas sobre tecido, que cobre ombros, peito e costas.' },
+  { n: 5, nome: 'Surrão', texto: 'armação presa às costas, coberta de lã, que carrega os chocalhos. O som marca os passos e as corridas.' },
+  { n: 6, nome: 'Guiada', texto: 'lança de madeira com cerca de 2 metros, coberta de fitas coloridas.' },
+];
+---
+
+<figure class="caboclo largo">
+  <div class="caboclo-desenho">
+    <svg viewBox="0 0 320 430" role="img" aria-labelledby="caboclo-titulo caboclo-desc">
+      <title id="caboclo-titulo">Desenho estilizado de um caboclo de lança</title>
+      <desc id="caboclo-desc">Figura de frente com chapéu de fitas, óculos escuros, um cravo branco na boca, a gola bordada de lantejoulas sobre os ombros, os chocalhos do surrão aparecendo na cintura e a guiada, uma lança coberta de fitas, na mão direita. Seis números indicam as partes, explicadas na lista ao lado.</desc>
+      <defs>
+        <pattern id={id} width="16" height="14" patternUnits="userSpaceOnUse">
+          <rect width="16" height="14" fill="#3b0d2a" />
+          <circle cx="4" cy="4" r="4.2" fill="#c2187a" stroke="#3b0d2a" stroke-width="0.6" />
+          <circle cx="12" cy="4" r="4.2" fill="#0e8c8c" stroke="#3b0d2a" stroke-width="0.6" />
+          <circle cx="0" cy="11" r="4.2" fill="#f2b705" stroke="#3b0d2a" stroke-width="0.6" />
+          <circle cx="8" cy="11" r="4.2" fill="#c2187a" stroke="#3b0d2a" stroke-width="0.6" />
+          <circle cx="16" cy="11" r="4.2" fill="#f2b705" stroke="#3b0d2a" stroke-width="0.6" />
+          <circle cx="3" cy="3" r="1" fill="#fff" opacity="0.6" />
+          <circle cx="11" cy="3" r="1" fill="#fff" opacity="0.6" />
+        </pattern>
+      </defs>
+
+      <!-- Guiada -->
+      <path d="M78 420 L262 40" class="c-haste" />
+      <g class="c-fitas">
+        <path d="M262 40 q-30 40 -14 96" class="c-f1" /><path d="M258 48 q-44 30 -40 92" class="c-f2" />
+        <path d="M262 40 q8 44 30 70" class="c-f3" /><path d="M266 34 q22 22 34 34" class="c-f1" />
+        <path d="M254 56 q-20 40 0 90" class="c-f3" />
+      </g>
+
+      <!-- Pernas e corpo -->
+      <path d="M130 300 l-8 110 h22 l14 -100 l14 100 h22 l-8 -110 z" class="c-calca" />
+      <rect x="120" y="230" width="80" height="80" rx="12" class="c-blusa" />
+
+      <!-- Chocalhos do surrão -->
+      <g class="c-chocalho">
+        <path d="M104 262 l-6 22 h20 l-4 -22 z" /><path d="M128 270 l-6 22 h20 l-4 -22 z" />
+        <path d="M178 270 l-6 22 h20 l-4 -22 z" /><path d="M204 262 l-6 22 h20 l-4 -22 z" />
+      </g>
+
+      <!-- Gola -->
+      <path d="M78 160 q82 -40 164 0 l10 72 q-92 46 -184 0 z" fill={`url(#${id})`} class="c-gola" />
+      <path d="M134 152 q26 18 52 0" class="c-gola-gola" />
+
+      <!-- Braço e mão na guiada -->
+      <path d="M226 190 q30 30 26 70" class="c-braco" />
+      <circle cx="250" cy="262" r="10" class="c-mao" />
+
+      <!-- Cabeça -->
+      <circle cx="160" cy="118" r="28" class="c-rosto" />
+      <path d="M140 126 q6 8 12 0 M168 126 q6 8 12 0" class="c-pintura" />
+      <rect x="138" y="106" width="18" height="12" rx="5" class="c-oculos" />
+      <rect x="164" y="106" width="18" height="12" rx="5" class="c-oculos" />
+      <path d="M156 111 h8" class="c-oculos-ponte" />
+      <path d="M160 136 q-3 6 -1 12" class="c-cravo-haste" />
+      <path d="M151 134 q2 -6 5 -2 q2 -6 5 -1 q3 -5 5 1 q4 -2 3 4 q-8 5 -18 -2 z" class="c-cravo" />
+
+      <!-- Chapéu e cabeleira -->
+      <path d="M126 96 q34 -50 68 0 z" class="c-chapeu" />
+      <path d="M118 96 h84" class="c-aba" />
+      <g class="c-cabeleira">
+        <path d="M122 98 v96" class="c-f1" /><path d="M130 98 v110" class="c-f2" /><path d="M190 98 v110" class="c-f3" /><path d="M198 98 v96" class="c-f1" />
+        <path d="M114 98 v80" class="c-f3" /><path d="M206 98 v80" class="c-f2" />
+      </g>
+
+      <!-- Números -->
+      <g class="c-num">
+        <g transform="translate(60 70)"><circle r="13" /><text y="5">1</text></g>
+        <path d="M73 72 L124 86" class="c-guia" />
+        <g transform="translate(60 118)"><circle r="13" /><text y="5">2</text></g>
+        <path d="M73 116 L136 112" class="c-guia" />
+        <g transform="translate(60 160)"><circle r="13" /><text y="5">3</text></g>
+        <path d="M73 158 L150 138" class="c-guia" />
+        <g transform="translate(36 206)"><circle r="13" /><text y="5">4</text></g>
+        <path d="M49 204 L92 196" class="c-guia" />
+        <g transform="translate(60 286)"><circle r="13" /><text y="5">5</text></g>
+        <path d="M73 284 L100 276" class="c-guia" />
+        <g transform="translate(286 150)"><circle r="13" /><text y="5">6</text></g>
+        <path d="M273 152 L246 148" class="c-guia" />
+      </g>
+    </svg>
+  </div>
+  <figcaption>
+    <p class="caboclo-titulo">As partes do caboclo de lança</p>
+    <ol class="caboclo-lista">
+      {partes.map((p) => <li><strong>{p.nome}:</strong> {p.texto}</li>)}
+    </ol>
+    <p class="caboclo-nota">Desenho estilizado feito para este site. As cores e os bordados mudam de grupo para grupo e de brincante para brincante.</p>
+  </figcaption>
+</figure>
+
+<style>
+  .caboclo { margin: var(--e-4) 0; display: grid; gap: var(--e-5); max-width: 60rem; }
+  @media (min-width: 48rem) { .caboclo { grid-template-columns: minmax(16rem, 22rem) 1fr; align-items: center; } }
+  .caboclo-desenho { background: var(--papel-2); border-radius: var(--raio); padding: var(--e-4); }
+  .caboclo svg { display: block; width: 100%; height: auto; max-height: 34rem; margin-inline: auto; }
+  .caboclo figcaption { font-size: var(--t-1); color: var(--tinta); }
+  .caboclo-titulo { font-family: var(--fonte-titulo); font-size: var(--t-2); margin-bottom: var(--e-3); }
+  .caboclo-lista { margin: 0; padding-left: 1.4em; display: grid; gap: var(--e-2); }
+  .caboclo-lista li::marker { font-weight: 700; color: var(--acento-texto); }
+  .caboclo-nota { margin-top: var(--e-3); font-size: var(--t-0); color: var(--tinta-suave); }
+
+  .c-haste { stroke: #8a5a10; stroke-width: 6; stroke-linecap: round; }
+  .c-fitas path, .c-cabeleira path { fill: none; stroke-width: 4; stroke-linecap: round; }
+  .c-f1 { stroke: #c2187a; } .c-f2 { stroke: #0e8c8c; } .c-f3 { stroke: #f2b705; }
+  .c-calca { fill: #f3e2bf; stroke: var(--tinta); stroke-width: 2.5; }
+  .c-blusa { fill: #0e8c8c; stroke: var(--tinta); stroke-width: 2.5; }
+  .c-chocalho path { fill: #e3b451; stroke: var(--tinta); stroke-width: 2; }
+  .c-gola { stroke: var(--tinta); stroke-width: 3; }
+  .c-gola-gola { fill: none; stroke: #f2b705; stroke-width: 4; }
+  .c-braco { fill: none; stroke: #8a5a3a; stroke-width: 14; stroke-linecap: round; }
+  .c-mao { fill: #8a5a3a; }
+  .c-rosto { fill: #8a5a3a; stroke: var(--tinta); stroke-width: 2.5; }
+  .c-pintura { fill: none; stroke: #f2b705; stroke-width: 2.5; }
+  .c-oculos { fill: #1b1614; }
+  .c-oculos-ponte { stroke: #1b1614; stroke-width: 3; }
+  .c-cravo { fill: #fff; stroke: #8a8278; stroke-width: 1; }
+  .c-cravo-haste { fill: none; stroke: #3c7a3a; stroke-width: 2.5; }
+  .c-chapeu { fill: #c2187a; stroke: var(--tinta); stroke-width: 2.5; }
+  .c-aba { stroke: var(--tinta); stroke-width: 5; stroke-linecap: round; }
+  .c-num circle { fill: var(--tinta); }
+  .c-num text { fill: var(--papel); font: 700 15px var(--fonte-texto); text-anchor: middle; }
+  .c-guia { stroke: var(--tinta); stroke-width: 1.5; stroke-dasharray: 3 3; fill: none; }
+</style>

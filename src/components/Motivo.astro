@@ -1,0 +1,70 @@
+---
+/**
+ * Motivo gráfico de cada tradição, desenhado em SVG para este site.
+ * - nacao: o cordame da alfaia (as cordas em "V" entre os dois aros do tambor)
+ * - rural: as lantejoulas da gola do caboclo de lança, em escamas
+ * Decorativo: fica escondido de leitores de tela.
+ */
+interface Props {
+  tipo: 'nacao' | 'rural';
+  altura?: number;
+  class?: string;
+}
+const { tipo, altura = 64, class: classe = '' } = Astro.props;
+const id = `motivo-${tipo}-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<svg
+  class:list={['motivo', `motivo--${tipo}`, classe]}
+  width="100%"
+  height={altura}
+  aria-hidden="true"
+  focusable="false"
+  preserveAspectRatio="none"
+>
+  <defs>
+    {tipo === 'nacao' ? (
+      <pattern id={id} width="44" height="64" patternUnits="userSpaceOnUse">
+        <rect width="44" height="64" class="m-fundo" />
+        <rect width="44" height="9" class="m-aro" />
+        <rect y="55" width="44" height="9" class="m-aro" />
+        <path d="M0 9 L22 55 L44 9" class="m-corda" />
+        <path d="M0 9 L22 55 L44 9" class="m-corda-luz" />
+        <rect x="16" y="40" width="12" height="7" rx="1.5" class="m-tirante" />
+        <circle cx="11" cy="4.5" r="1.6" class="m-prego" />
+        <circle cx="33" cy="4.5" r="1.6" class="m-prego" />
+        <circle cx="11" cy="59.5" r="1.6" class="m-prego" />
+        <circle cx="33" cy="59.5" r="1.6" class="m-prego" />
+      </pattern>
+    ) : (
+      <pattern id={id} width="24" height="20" patternUnits="userSpaceOnUse">
+        <rect width="24" height="20" class="m-fundo" />
+        <circle cx="6" cy="5" r="6.2" class="m-l1" />
+        <circle cx="18" cy="5" r="6.2" class="m-l2" />
+        <circle cx="0" cy="15" r="6.2" class="m-l3" />
+        <circle cx="12" cy="15" r="6.2" class="m-l1" />
+        <circle cx="24" cy="15" r="6.2" class="m-l3" />
+        <circle cx="4.4" cy="3.4" r="1.4" class="m-brilho" />
+        <circle cx="16.4" cy="3.4" r="1.4" class="m-brilho" />
+        <circle cx="10.4" cy="13.4" r="1.4" class="m-brilho" />
+      </pattern>
+    )}
+  </defs>
+  <rect width="100%" height="100%" fill={`url(#${id})`} />
+</svg>
+
+<style>
+  .motivo { display: block; width: 100%; }
+  .motivo--nacao .m-fundo { fill: var(--encarnado-fixo, #b3261e); }
+  .motivo--nacao .m-aro { fill: var(--azul-fixo, #1f3a8a); }
+  .motivo--nacao .m-corda { fill: none; stroke: #8a5a10; stroke-width: 5; stroke-linejoin: round; }
+  .motivo--nacao .m-corda-luz { fill: none; stroke: #e8b84a; stroke-width: 2.5; stroke-linejoin: round; }
+  .motivo--nacao .m-tirante { fill: #f3e2bf; stroke: #6b4a12; stroke-width: 1; }
+  .motivo--nacao .m-prego { fill: #e8b84a; }
+
+  .motivo--rural .m-fundo { fill: #3b0d2a; }
+  .motivo--rural .m-l1 { fill: #c2187a; stroke: #3b0d2a; stroke-width: 0.8; }
+  .motivo--rural .m-l2 { fill: #0e8c8c; stroke: #3b0d2a; stroke-width: 0.8; }
+  .motivo--rural .m-l3 { fill: #f2b705; stroke: #3b0d2a; stroke-width: 0.8; }
+  .motivo--rural .m-brilho { fill: #fff; opacity: 0.55; }
+</style>

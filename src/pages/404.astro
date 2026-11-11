@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Motivo from '../components/Motivo.astro';
+import { url } from '../lib/url';
+---
+
+<BaseLayout titulo="Página não encontrada" descricao="O endereço digitado não existe neste site." rota="/404/">
+  <div class="faixas" aria-hidden="true"><Motivo tipo="nacao" altura={28} /><Motivo tipo="rural" altura={28} /></div>
+  <div class="conteudo erro">
+    <h1>Página não encontrada</h1>
+    <p>O endereço que você abriu não existe neste site. Ele pode ter sido digitado errado ou a página pode ter mudado de lugar.</p>
+    <ul>
+      <li><a href={url('/')}>Voltar ao início</a></li>
+      <li><a href={url('/nacao/')}>Maracatu Nação</a></li>
+      <li><a href={url('/rural/')}>Maracatu Rural</a></li>
+      <li><a href={url('/fontes/')}>Glossário e fontes</a></li>
+    </ul>
+  </div>
+</BaseLayout>
+
+<style>
+  .faixas { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .erro { display: grid; gap: var(--e-4); max-width: var(--medida); }
+  .erro ul { display: grid; gap: var(--e-2); padding-left: 1.2em; margin: 0; }
+</style>

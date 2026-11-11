@@ -1,0 +1,293 @@
+/* =========================================================
+   Dois Baques: design system
+   Cores, tipografia, espaçamento e base. Os componentes usam
+   apenas os tokens semânticos (--acento, --acento-texto...).
+   ========================================================= */
+
+@import '@fontsource/gloock/latin-400.css';
+@import '@fontsource/gloock/latin-ext-400.css';
+@import '@fontsource-variable/atkinson-hyperlegible-next/wght.css';
+
+:root {
+  /* Paleta base: tema claro */
+  --papel: #f6efe2;
+  --papel-2: #eee4d2;
+  --tinta: #1b1614;
+  --tinta-suave: #5f534b;
+  --linha: #d8ccb7;
+
+  /* Nação: baque virado */
+  --encarnado: #b3261e;
+  --ouro: #c8962a;
+  --azul-real: #1f3a8a;
+
+  /* Rural: baque solto */
+  --magenta: #c2187a;
+  --turquesa: #0e8c8c;
+  --turquesa-texto: #0a6b6b;
+  --amarelo: #f2b705;
+
+  /* Tokens semânticos (padrão: páginas comuns) */
+  --acento: var(--tinta);
+  --acento-texto: var(--tinta);
+  --acento-2: var(--tinta-suave);
+  --foco: var(--azul-real);
+
+  /* Tipografia */
+  --fonte-titulo: 'Gloock', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --fonte-texto: 'Atkinson Hyperlegible Next Variable', 'Segoe UI', system-ui, sans-serif;
+  --t-0: 0.875rem;   /* legenda */
+  --t-1: 1.0625rem;  /* corpo (celular) */
+  --t-2: 1.328rem;
+  --t-3: 1.66rem;
+  --t-4: 2.075rem;
+  --t-5: 2.594rem;
+  --t-6: 3.242rem;
+
+  /* Espaço */
+  --e-1: 0.25rem;
+  --e-2: 0.5rem;
+  --e-3: 0.75rem;
+  --e-4: 1rem;
+  --e-5: 1.5rem;
+  --e-6: 2rem;
+  --e-7: 3rem;
+  --e-8: 4.5rem;
+
+  --medida: 68ch;
+  --largura: 76rem;
+  --gutter: clamp(1rem, 4vw, 2rem);
+  --raio: 6px;
+
+  color-scheme: light;
+}
+
+/* Tema escuro: segue o sistema, a menos que a pessoa escolha "claro" */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema='claro']) {
+    --papel: #17120f;
+    --papel-2: #221b17;
+    --tinta: #f1e8d8;
+    --tinta-suave: #c4b6a6;
+    --linha: #3d332c;
+    --encarnado: #ec5a4e;
+    --ouro: #e3b451;
+    --azul-real: #94aef0;
+    --magenta: #f27bbb;
+    --turquesa: #47c9c9;
+    --turquesa-texto: #47c9c9;
+    --amarelo: #f5c537;
+    --foco: #94aef0;
+    color-scheme: dark;
+  }
+}
+:root[data-tema='escuro'] {
+  --papel: #17120f;
+  --papel-2: #221b17;
+  --tinta: #f1e8d8;
+  --tinta-suave: #c4b6a6;
+  --linha: #3d332c;
+  --encarnado: #ec5a4e;
+  --ouro: #e3b451;
+  --azul-real: #94aef0;
+  --magenta: #f27bbb;
+  --turquesa: #47c9c9;
+  --turquesa-texto: #47c9c9;
+  --amarelo: #f5c537;
+  --foco: #94aef0;
+  color-scheme: dark;
+}
+
+/* Cada página declara sua tradição no <body data-baque="..."> */
+[data-baque='nacao'] {
+  --acento: var(--encarnado);
+  --acento-texto: var(--encarnado);
+  --acento-2: var(--azul-real);
+  --foco: var(--azul-real);
+}
+[data-baque='rural'] {
+  --acento: var(--magenta);
+  --acento-texto: var(--magenta);
+  --acento-2: var(--turquesa-texto);
+  --foco: var(--turquesa-texto);
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--fonte-texto);
+  font-size: var(--t-1);
+  line-height: 1.6;
+  font-optical-sizing: auto;
+  text-rendering: optimizeLegibility;
+  overflow-wrap: break-word;
+}
+@media (min-width: 64rem) {
+  body { font-size: 1.125rem; }
+}
+img, svg, video { max-width: 100%; height: auto; }
+img { display: block; }
+
+h1, h2, h3, h4 {
+  font-family: var(--fonte-titulo);
+  font-weight: 400;
+  line-height: 1.1;
+  margin: 0;
+  text-wrap: balance;
+}
+h1 { font-size: clamp(var(--t-5), 7vw, var(--t-6) * 1.35); letter-spacing: -0.01em; }
+h2 { font-size: clamp(var(--t-3), 4vw, var(--t-4)); }
+h3 { font-size: var(--t-2); }
+h4 { font-size: var(--t-1); font-family: var(--fonte-texto); font-weight: 700; }
+p { margin: 0; text-wrap: pretty; }
+
+a {
+  color: var(--acento-texto);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+a:hover { text-decoration-thickness: 0.16em; }
+
+:focus-visible {
+  outline: 3px solid var(--foco);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection { background: var(--amarelo); color: #1b1614; }
+
+/* Link de pular para o conteúdo */
+.pular {
+  position: absolute;
+  left: var(--e-4);
+  top: -10rem;
+  z-index: 100;
+  background: var(--tinta);
+  color: var(--papel);
+  padding: var(--e-3) var(--e-4);
+  border-radius: var(--raio);
+  font-weight: 700;
+}
+.pular:focus { top: var(--e-4); }
+
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+/* ---------- Página de leitura ---------- */
+.conteudo {
+  width: 100%;
+  max-width: var(--largura);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  padding-block: var(--e-4) var(--e-8);
+}
+
+/* Prosa: coluna de leitura + coluna de margem (notas) a partir de 1024px */
+.prosa {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: var(--e-4);
+}
+@media (min-width: 64rem) {
+  .prosa {
+    grid-template-columns: minmax(0, var(--medida)) minmax(12rem, 1fr);
+    column-gap: var(--e-7);
+  }
+  .prosa > * { grid-column: 1; }
+  .prosa > .largo { grid-column: 1 / -1; }
+}
+.prosa > p, .prosa > ul, .prosa > ol { max-width: var(--medida); }
+.prosa > h2 {
+  margin-top: var(--e-7);
+  padding-top: var(--e-4);
+  border-top: 2px solid var(--acento);
+  max-width: var(--medida);
+}
+.prosa > h2:first-child { margin-top: 0; }
+.prosa > h3 { margin-top: var(--e-5); }
+.prosa > h2 + *, .prosa > h3 + * { margin-top: calc(var(--e-2) * -1); }
+.prosa ul, .prosa ol { padding-left: 1.25em; margin: 0; }
+.prosa li + li { margin-top: var(--e-2); }
+.prosa li::marker { color: var(--acento-texto); }
+.prosa strong { font-weight: 700; }
+.prosa blockquote {
+  margin: 0;
+  padding-left: var(--e-4);
+  border-left: 3px solid var(--acento);
+  font-style: italic;
+}
+
+.resumo {
+  font-size: var(--t-2);
+  line-height: 1.45;
+  max-width: 40ch;
+  color: var(--tinta);
+}
+
+.legenda, figcaption {
+  font-size: var(--t-0);
+  line-height: 1.45;
+  color: var(--tinta-suave);
+}
+
+/* Tabela simples (usada no glossário/fontes) */
+.tabela-rolagem { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; }
+th, td { text-align: left; vertical-align: top; padding: var(--e-3); border-bottom: 1px solid var(--linha); }
+th { font-weight: 700; }
+
+/* Etiqueta de tradição: cor + texto (cor nunca é o único sinal) */
+.etiqueta {
+  display: inline-block;
+  font-size: var(--t-0);
+  font-weight: 700;
+  line-height: 1.2;
+  padding: 0.2em 0.55em;
+  border-radius: 999px;
+  border: 1.5px solid currentColor;
+  white-space: nowrap;
+}
+.etiqueta--nacao { color: var(--encarnado); }
+.etiqueta--rural { color: var(--magenta); }
+.etiqueta--ambas { color: var(--tinta-suave); }
+
+/* Botões */
+.botao {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--e-2);
+  min-height: 44px;
+  padding: var(--e-2) var(--e-4);
+  border: 2px solid var(--tinta);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--tinta);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+}
+.botao[aria-pressed='true'] { background: var(--tinta); color: var(--papel); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  .site-cabecalho, .site-rodape, .nav-paginas, .tema-toggle { display: none !important; }
+  body { background: #fff; color: #000; }
+}

@@ -1,0 +1,27 @@
+---
+/**
+ * Destaque de cuidado. tipo="cruzamento" marca uma menção explícita à outra tradição
+ * (o teste automático de "não mistura" aceita termos da outra tradição só aqui dentro).
+ */
+interface Props { titulo: string; tipo?: 'cuidado' | 'cruzamento' | 'nota' }
+const { titulo, tipo = 'nota' } = Astro.props;
+---
+
+<aside class:list={['aviso', `aviso--${tipo}`]} data-cruzamento={tipo === 'cruzamento' ? '' : undefined}>
+  <p class="aviso-titulo">{titulo}</p>
+  <div class="aviso-corpo"><slot /></div>
+</aside>
+
+<style>
+  .aviso {
+    max-width: var(--medida);
+    padding: var(--e-4) var(--e-5);
+    border-left: 6px solid var(--acento);
+    background: var(--papel-2);
+    border-radius: 0 var(--raio) var(--raio) 0;
+  }
+  .aviso--cruzamento { border-left-style: double; border-left-width: 8px; }
+  .aviso-titulo { font-weight: 700; margin-bottom: var(--e-2); }
+  .aviso :global(a) { color: var(--tinta); text-decoration-color: var(--acento); text-decoration-thickness: 2px; }
+  .aviso-corpo > :global(* + *) { margin-top: var(--e-3); }
+</style>
