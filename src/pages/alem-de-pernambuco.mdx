@@ -1,7 +1,7 @@
 ---
 layout: ../layouts/PaginaLayout.astro
 titulo: "Além de Pernambuco e Mangue Beat"
-resumo: "O maracatu inspirou a música pop do Recife e chegou a grupos de percussão no Brasil e no mundo. São desdobramentos que não substituem as tradições."
+resumo: "O maracatu inspirou o Mangue Beat e grupos de percussão pelo mundo. São desdobramentos que não substituem as tradições."
 descricao: "A relação do Mangue Beat com o maracatu, os grupos percussivos de baque virado fora de Pernambuco, o debate sobre nação e grupo, e o maracatu cearense."
 baque: comum
 rota: /alem-de-pernambuco/
@@ -9,22 +9,48 @@ rota: /alem-de-pernambuco/
 import Fonte from '../components/Fonte.astro';
 import Aviso from '../components/Aviso.astro';
 import VideoClique from '../components/VideoClique.astro';
+import Destaques from '../components/Destaques.astro';
+import SaibaMais from '../components/SaibaMais.astro';
+import SecaoCor from '../components/SecaoCor.astro';
+
+<Destaques itens={[
+  { grande: '1992', texto: 'Manifesto do Mangue Beat, no Recife.' },
+  { grande: 'Alfaias no palco', texto: 'O mangue citou o maracatu, mas não o substituiu.' },
+  { grande: 'Pelo mundo', texto: 'Grupos de baque virado no Brasil e no exterior.' },
+  { grande: 'Nação ≠ grupo', texto: 'Tocar o ritmo não faz de um grupo uma nação.' },
+]} />
 
 <Aviso titulo="Desdobramento, não substituto" tipo="nota">
-  <p>Bandas, blocos e grupos de percussão que tocam maracatu ajudaram a tornar a tradição conhecida. Mas eles não são o Maracatu Nação nem o Maracatu Rural. As tradições continuam vivas nas comunidades que as criaram e as mantêm, com seus mestres, rainhas e fundamentos.</p>
+  <p>Bandas e grupos de percussão ajudaram a tornar o maracatu conhecido, mas não são o Maracatu Nação nem o Maracatu Rural. As tradições seguem vivas nas comunidades que as mantêm.</p>
 </Aviso>
 
 ## O Mangue Beat
 
-No começo dos anos 1990, uma cena de música jovem no Recife e em Olinda misturou rock, funk, hip-hop e música eletrônica com ritmos de Pernambuco. O manifesto do movimento, "Caranguejos com Cérebro", foi escrito por Fred Zero Quatro, da banda Mundo Livre S/A, com a ajuda de Renato L, e divulgado em julho de 1992.<Fonte id="fpe-manguebeat" /> Algumas fontes, como a Wikipédia, datam o manifesto de 1991.<Fonte id="wiki-manguebeat" />
+Rock, funk, hip-hop e eletrônica misturados aos ritmos de Pernambuco, no Recife dos anos 1990. O nome mais conhecido é **Chico Science** (1966–1997).<Fonte id="wiki-chico" />
+
+<SaibaMais sobre="o Mangue Beat">
+
+O manifesto do movimento, "Caranguejos com Cérebro", foi escrito por Fred Zero Quatro, da banda Mundo Livre S/A, com a ajuda de Renato L, e divulgado em julho de 1992.<Fonte id="fpe-manguebeat" /> Algumas fontes, como a Wikipédia, datam o manifesto de 1991.<Fonte id="wiki-manguebeat" />
 
 O nome mais conhecido da cena é **Chico Science** (1966–1997), que nasceu em Olinda e liderou a banda Chico Science & Nação Zumbi.<Fonte id="wiki-chico" /> O primeiro disco, *Da Lama ao Caos*, saiu em 1994.<Fonte id="cravo-chico" />
 
-### Qual foi a relação com o maracatu?
+</SaibaMais>
 
-Os tambores de Chico Science vieram do **Lamento Negro**, bloco afro do bairro de Peixinhos, em Olinda.<Fonte id="wiki-chico" /> Ou seja, a ponte com a percussão passou por um bloco afro, e não por uma nação de maracatu.
+<SecaoCor tom={1}>
+
+## E o maracatu?
+
+O mangue usou alfaias e frases do baque virado, mas não "tocava maracatu": citava e reinventava. Os tambores vieram de um bloco afro, o **Lamento Negro**, e não de uma nação.<Fonte id="wiki-chico" />
+
+<SaibaMais sobre="a relação do Mangue Beat com o maracatu">
+
+O Lamento Negro é um bloco afro do bairro de Peixinhos, em Olinda.
 
 A banda usava alfaias e frases rítmicas inspiradas no baque virado, misturadas a guitarras e bateria. Pesquisadores dizem que ela não "tocava maracatu": citava e reinventava elementos dele. O efeito, porém, foi grande. O sucesso do Mangue Beat chamou a atenção do Brasil para o maracatu e ajudou a transformá-lo em símbolo de Pernambuco.<Fonte id="lima-2014-hqd" />
+
+</SaibaMais>
+
+</SecaoCor>
 
 <Aviso titulo="Maracatu Atômico não é de Chico Science" tipo="nota">
   <p>A música "Maracatu Atômico" foi composta por Jorge Mautner e Nelson Jacobina e lançada em 1974. Chico Science & Nação Zumbi gravaram uma versão famosa em 1996.<Fonte id="wiki-maracatu-atomico" /></p>
@@ -38,7 +64,11 @@ A ligação mais forte entre a música dos anos 1990 e o maracatu rural é a de 
 
 ## Grupos de percussão pelo Brasil e pelo mundo
 
-Desde o fim dos anos 1990, o baque virado passou a ser ensinado a grupos de percussão fora de Pernambuco. O aprendizado acontece com visitas de mestres e de integrantes das nações e com "vivências", em que membros dos grupos passam um tempo nas comunidades.<Fonte id="anppom-2022" />
+Desde o fim dos anos 1990, o baque virado é ensinado a grupos de percussão fora de Pernambuco.<Fonte id="anppom-2022" />
+
+<SaibaMais sobre="os grupos percussivos">
+
+ O aprendizado acontece com visitas de mestres e de integrantes das nações e com "vivências", em que membros dos grupos passam um tempo nas comunidades.
 
 Em 2014, o historiador Ivaldo Marciano de França Lima listou grupos percussivos no Rio de Janeiro, em São Paulo, no Paraná, em Santa Catarina, no Rio Grande do Sul, em Minas Gerais, na Paraíba e no Ceará, e em países como Alemanha e França.<Fonte id="lima-2014-hqd" /> Alguns exemplos:
 
@@ -48,16 +78,25 @@ Em 2014, o historiador Ivaldo Marciano de França Lima listou grupos percussivos
 
 Quase todos tocam o baque virado. Não encontramos grupos de baque solto fora de Pernambuco: o maracatu rural circula principalmente com os próprios grupos da Zona da Mata e de Olinda.
 
+</SaibaMais>
+
+<SecaoCor tom={2}>
+
 ## Nação ou grupo?
 
-Para mestres e pesquisadores, há uma diferença importante:
 
 - **Nação** é uma comunidade: tem território, corte, linhagem e vínculo com o fundamento religioso.
 - **Grupo percussivo** toca o ritmo, o baque virado, sem esse conjunto.
 
+<SaibaMais sobre="o debate entre nações e grupos">
+
 Segundo Lima, os integrantes dos grupos percussivos costumam ser "jovens, brancos e pertencentes às camadas médias urbanas", enquanto as nações vêm de comunidades negras da periferia.<Fonte id="lima-2014-hqd" /> Isso abre um debate sobre apropriação cultural, sobre quem ganha visibilidade e dinheiro e sobre quem ensina. O pesquisador Ernesto Ignacio de Carvalho estudou essas tensões numa dissertação de 2007.<Fonte id="carvalho-2007" />
 
 O Mestre Walter França, do Recife, criticou em 2026 os grupos que usam o nome "nação" sem acompanhar o fundamento. Sobre um grupo conhecido, disse: "ele não acompanha. Isso é um grupo."<Fonte id="bdf-walter-franca" /> É a opinião de um mestre, não uma regra oficial, mas resume uma preocupação comum.
+
+</SaibaMais>
+
+</SecaoCor>
 
 ## Se você toca maracatu fora de Pernambuco
 

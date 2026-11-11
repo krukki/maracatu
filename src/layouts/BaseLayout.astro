@@ -3,6 +3,9 @@ import '../styles/global.css';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import { url } from '../lib/url';
+import { ClientRouter } from 'astro:transitions';
+import fonteTitulo from '@fontsource/gloock/files/gloock-latin-400-normal.woff2?url';
+import fonteTexto from '@fontsource-variable/atkinson-hyperlegible-next/files/atkinson-hyperlegible-next-latin-wght-normal.woff2?url';
 
 interface Props {
   titulo: string;
@@ -10,8 +13,10 @@ interface Props {
   baque?: 'nacao' | 'rural' | 'comum';
   rota: string;
   migalhas?: { nome: string; rota: string }[];
+  /** Página de tom calmo (conteúdo religioso): animações mínimas */
+  calmo?: boolean;
 }
-const { titulo, descricao, baque = 'comum', rota, migalhas = [] } = Astro.props;
+const { titulo, descricao, baque = 'comum', rota, migalhas = [], calmo = false } = Astro.props;
 const NOME = 'Dois Baques';
 const tituloCompleto = rota === '/' ? `${NOME}: Maracatu Nação e Maracatu Rural de Pernambuco` : `${titulo} | ${NOME}`;
 const canonica = new URL(url(rota), Astro.site).href;
@@ -60,6 +65,8 @@ const jsonLd = rota === '/'
     <title>{tituloCompleto}</title>
     <meta name="description" content={descricao} />
     <link rel="canonical" href={canonica} />
+    <link rel="preload" href={fonteTitulo} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={fonteTexto} as="font" type="font/woff2" crossorigin />
     <link rel="icon" href={url('/favicon.svg')} type="image/svg+xml" />
     <link rel="sitemap" href={url('/sitemap-index.xml')} />
     <meta name="theme-color" content="#f6efe2" media="(prefers-color-scheme: light)" />
@@ -78,15 +85,26 @@ const jsonLd = rota === '/'
     <meta name="twitter:card" content="summary_large_image" />
 
     <script is:inline>
-      // Aplica o tema salvo antes de pintar a página (evita "piscar").
-      try {
-        const t = localStorage.getItem('tema');
-        if (t === 'claro' || t === 'escuro') document.documentElement.dataset.tema = t;
-      } catch (e) { /* armazenamento indisponível */ }
+      // Aplica o tema salvo antes de pintar a página (evita "piscar") e de novo a cada troca de página.
+      (function () {
+        function aplicar(raiz) {
+          try {
+            var t = localStorage.getItem('tema');
+            if (t === 'claro' || t === 'escuro') raiz.dataset.tema = t;
+          } catch (e) { /* armazenamento indisponível */ }
+          raiz.classList.add('js');
+        }
+        aplicar(document.documentElement);
+        if (!window.__temaPronto) {
+          window.__temaPronto = true;
+          document.addEventListener('astro:after-swap', function () { aplicar(document.documentElement); });
+        }
+      })();
     </script>
+    <ClientRouter />
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
-  <body data-baque={baque}>
+  <body data-baque={baque} data-calmo={calmo ? '' : undefined}>
     <a class="pular" href="#conteudo">Pular para o conteúdo</a>
     <SiteHeader rota={rota} />
     <main id="conteudo" tabindex="-1">

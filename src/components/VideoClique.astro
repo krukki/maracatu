@@ -26,7 +26,7 @@ const assistir = `https://www.youtube.com/watch?v=${v.id}`;
 </figure>
 
 <script>
-  document.querySelectorAll<HTMLAnchorElement>('.video-capa').forEach((capa) => {
+  document.addEventListener('astro:page-load', () => document.querySelectorAll<HTMLAnchorElement>('.video-capa').forEach((capa) => {
     capa.addEventListener('click', (e) => {
       const fig = capa.closest<HTMLElement>('.video');
       const id = fig?.dataset.video;
@@ -41,7 +41,7 @@ const assistir = `https://www.youtube.com/watch?v=${v.id}`;
       capa.replaceWith(iframe);
       iframe.focus();
     });
-  });
+  }));
 </script>
 
 <style>

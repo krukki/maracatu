@@ -1,25 +1,42 @@
 ---
 layout: ../layouts/PaginaLayout.astro
 titulo: "Raízes religiosas"
-resumo: "Nenhum dos dois maracatus é uma religião, mas os dois têm fundamento religioso. Uma parte desse fundamento é pública; outra é segredo de quem é iniciado."
+resumo: "Não são religiões, mas os dois maracatus têm fundamento religioso. Uma parte é pública; outra é segredo de quem é iniciado."
 descricao: "A ligação do Maracatu Nação com os terreiros de Xangô, Jurema e Umbanda, a ligação do Maracatu Rural com a Jurema Sagrada, a perseguição e como falar com respeito."
 baque: comum
 rota: /raizes-religiosas/
+calmo: true
 ---
 import Fonte from '../components/Fonte.astro';
 import Termo from '../components/Termo.astro';
 import Aviso from '../components/Aviso.astro';
 import Figura from '../components/Figura.astro';
+import Destaques from '../components/Destaques.astro';
+import SaibaMais from '../components/SaibaMais.astro';
+import SecaoCor from '../components/SecaoCor.astro';
 
 <Aviso titulo="Antes de ler" tipo="cuidado">
   <p>Esta página fala de religiões vivas, praticadas hoje por milhares de pessoas em Pernambuco. Ela explica o que as próprias comunidades, o Iphan e os pesquisadores dizem publicamente. O que é reservado aos iniciados (preparos, obrigações, rituais fechados) não é descrito aqui, por respeito. Não é falta de informação: é escolha.</p>
 </Aviso>
 
+<Destaques itens={[
+  { grande: 'Xangô', texto: 'Candomblé nagô: raiz de muitas nações.', tradicao: 'nacao' },
+  { grande: 'Jurema', texto: 'Principal raiz religiosa do baque solto.', tradicao: 'rural' },
+  { grande: 'Segredo', texto: 'Parte do fundamento é só para iniciados.' },
+  { grande: 'Respeito', texto: 'Use o nome de cada religião.' },
+]} />
+
 ## "Não é religião, mas tem fundamento"
 
-Os maracatus saem às ruas no Carnaval, mas não são só festa. Por trás de cada nação e de cada grupo de baque solto há um <Termo id="fundamento">fundamento</Termo>, uma base espiritual que protege o grupo e dá sentido ao que ele faz. Os dois maracatus têm fundamentos diferentes, e é por isso que esta página os trata separadamente.
+Por trás de cada grupo há um <Termo id="fundamento">fundamento</Termo>: a base espiritual que protege e dá sentido ao que ele faz. Cada maracatu tem o seu.
+
+<SecaoCor tom={2} tradicao="nacao">
 
 ## No Maracatu Nação
+
+Terreiros de Xangô, Jurema e Umbanda, conforme a nação.<Fonte id="lima-2014-hqd" /> A calunga é o símbolo desse fundamento, e a Noite dos Tambores Silenciosos homenageia os ancestrais.
+
+<SaibaMais sobre="o fundamento no Maracatu Nação">
 
 ### Ligação com os terreiros
 
@@ -39,9 +56,19 @@ Na segunda-feira de Carnaval, as nações se reúnem no Pátio do Terço, no bai
 
 A cerimônia surgiu nos anos 1960. Desde os anos 1990, ganhou um caráter mais sagrado<Fonte id="dp-tambores-2026" />, conduzida por décadas pelo babalorixá Raminho de Oxóssi, que morreu em 8 de dezembro de 2024, aos 88 anos.<Fonte id="dp-raminho" /> Em 2025 e 2026, a cerimônia foi conduzida pelo babalorixá Jorge de Bessen.<Fonte id="dp-tambores-2026" />
 
+</SaibaMais>
+
+</SecaoCor>
+
 <Figura id="nacao-tambores-espera" />
 
+<SecaoCor tom={2} tradicao="rural">
+
 ## No Maracatu Rural
+
+A Jurema Sagrada é a principal raiz.<Fonte id="souza-tcc-ufpe" /> Antes do Carnaval, os caboclos passam por uma proteção espiritual, cujo preparo é segredo.<Fonte id="baraldi-2021" />
+
+<SaibaMais sobre="o fundamento no Maracatu Rural">
 
 ### A Jurema Sagrada
 
@@ -53,11 +80,21 @@ Antes do Carnaval, muitos brincantes, em especial os caboclos de lança, passam 
 
 Como essa preparação é feita é segredo. Os próprios brincantes dizem que cada caboclo prepara a sua do seu jeito.<Fonte id="souza-tcc-ufpe" /> Por isso, este site não descreve receitas, ervas, bebidas nem rituais.
 
+</SaibaMais>
+
+</SecaoCor>
+
 ## Perseguição ontem, racismo religioso hoje
+
+Maracatus e terreiros foram perseguidos pela polícia. Hoje são patrimônio do Brasil, mas o racismo religioso continua.<Fonte id="marcozero-evangelicos" />
+
+<SaibaMais sobre="a perseguição e o racismo religioso">
 
 No século XIX, a imprensa do Recife tratava os maracatus como "arruaça", e a polícia dispersava cortejos.<Fonte id="saeculum-guillen-lima" /> Nos anos 1930 e no Estado Novo, os terreiros de Xangô e de Jurema foram vigiados e reprimidos com violência: houve batidas, prisões e apreensão de objetos sagrados. Segundo a tradição oral recolhida pela historiadora Isabel Guillen, ter uma licença de maracatu chegou a ser uma forma de manter o culto vivo.<Fonte id="bdf-dona-santa" />
 
 Hoje os dois maracatus são patrimônio do Brasil, mas o racismo religioso continua. Reportagens registram nações que perdem integrantes convertidos e grupos que ouvem que o maracatu é "coisa do diabo".<Fonte id="marcozero-evangelicos" />
+
+</SaibaMais>
 
 ## Como falar com respeito
 

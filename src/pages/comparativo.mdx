@@ -1,7 +1,7 @@
 ---
 layout: ../layouts/PaginaLayout.astro
 titulo: "Nação e Rural, lado a lado"
-resumo: "Duas tradições de Pernambuco com o mesmo nome, maracatu, e quase tudo diferente: território, origem, música, personagens e fundamento."
+resumo: "O mesmo nome, quase tudo diferente. Toque nos cartões para comparar."
 descricao: "Tabela comparativa entre o Maracatu Nação (baque virado) e o Maracatu Rural (baque solto), e as palavras que existem nas duas tradições com sentidos diferentes."
 baque: comum
 rota: /comparativo/
@@ -9,12 +9,25 @@ rota: /comparativo/
 import Fonte from '../components/Fonte.astro';
 import Comparativo from '../components/Comparativo.astro';
 import Aviso from '../components/Aviso.astro';
+import CartoesComparativo from '../components/CartoesComparativo.astro';
+import SaibaMais from '../components/SaibaMais.astro';
+import SecaoCor from '../components/SecaoCor.astro';
 
-## Por que comparar
+## Vire os cartões
 
-Os dois maracatus foram registrados pelo Iphan no mesmo dia, 3 de dezembro de 2014, mas em registros separados, porque são manifestações diferentes.<Fonte id="palmares-2014" /> A tabela abaixo resume as principais diferenças. Os detalhes e as fontes de cada linha estão nas páginas de cada tradição: [Maracatu Nação](../nacao/) e [Maracatu Rural](../rural/).
+Registrados no mesmo dia pelo Iphan, mas em registros separados, porque são manifestações diferentes.<Fonte id="palmares-2014" />
+
+<CartoesComparativo aspectos={['Música', 'Figura central', 'Onde', 'Origem', 'Canto', 'Raiz religiosa']} />
+
+<SaibaMais rotulo="Ver a tabela completa">
+
+As fontes de cada linha estão nas páginas de cada tradição: [Maracatu Nação](../nacao/) e [Maracatu Rural](../rural/).
 
 <Comparativo />
+
+</SaibaMais>
+
+<SecaoCor tom={1}>
 
 ## O jeito mais fácil de diferenciar
 
@@ -22,15 +35,21 @@ Os dois maracatus foram registrados pelo Iphan no mesmo dia, 3 de dezembro de 20
 - **Olhe:** se há caboclos de lança com golas brilhantes e cabeleiras de fitas, é baque solto. Se o centro é a corte, com rei e rainha sob o pálio, é baque virado.
 - **Pergunte de onde é o grupo:** da Zona da Mata Norte, provavelmente baque solto; de uma comunidade do Recife ligada a um terreiro, provavelmente uma nação. Mas há grupos de baque solto no Recife e em Olinda, então vale perguntar ao próprio grupo.
 
+</SecaoCor>
+
 ## Palavras iguais, sentidos diferentes
 
-Algumas palavras aparecem nas duas tradições, mas não querem dizer a mesma coisa em cada uma.
+Algumas palavras existem nas duas tradições, com sentidos diferentes.
+
+<SaibaMais sobre="palavras que existem nas duas tradições">
 
 - **Dama do paço e calunga:** nas duas tradições, a dama do paço leva uma boneca sagrada. No Maracatu Nação, a calunga é o centro do fundamento da nação, ligada aos ancestrais e aos orixás. No baque solto, a boneca segue no miolo protegido pelos caboclos.
 - **Rei e rainha:** no Maracatu Nação, a corte é a razão de ser do cortejo, herdeira das coroações de Reis do Congo. No baque solto, o casal real segue no miolo, mas a figura principal é o caboclo de lança.
 - **Lanceiros e caboclos de lança:** os lanceiros de algumas nações fazem parte da guarda da corte. O caboclo de lança é outro personagem, exclusivo do baque solto.<Fonte id="reis-tcc-ufpe" />
 - **Mestre:** na nação, o mestre de batuque rege os tambores. No baque solto, o mestre é o poeta que improvisa os versos.
 - **Jurema:** é a principal raiz religiosa do baque solto, mas também está presente em algumas nações, ao lado do Xangô e da Umbanda.<Fonte id="lima-2014-hqd" />
+
+</SaibaMais>
 
 <Aviso titulo="Nenhuma é mais antiga, mais pura ou mais verdadeira" tipo="nota">
   <p>Não existe um maracatu "original" e outro "derivado". São duas tradições vivas, com história, mestres e fundamento próprios.</p>

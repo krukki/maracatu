@@ -2,179 +2,237 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Motivo from '../components/Motivo.astro';
 import Mapa from '../components/Mapa.astro';
+import Ilustracao from '../components/Ilustracao.astro';
 import { url } from '../lib/url';
+
+const diferencas = [
+  { titulo: 'O som', nacao: { icone: 'alfaia', texto: 'Só tambores' }, rural: { icone: 'trombone', texto: 'Tambores e sopros' } },
+  { titulo: 'No centro', nacao: { icone: 'coroa', texto: 'A corte real' }, rural: { icone: 'gola', texto: 'O caboclo de lança' } },
+  { titulo: 'De onde vem', nacao: { icone: 'casario', texto: 'Cidade e terreiro' }, rural: { icone: 'cana', texto: 'Engenho e canavial' } },
+] as const;
+
+const caminhos = [
+  { rota: '/historia/', titulo: 'História', texto: 'Das coroações de reis negros aos engenhos de cana.' },
+  { rota: '/comparativo/', titulo: 'Comparativo', texto: 'Vire os cartões e veja as diferenças.' },
+  { rota: '/raizes-religiosas/', titulo: 'Raízes religiosas', texto: 'Xangô, Jurema e o que é segredo.' },
+  { rota: '/alem-de-pernambuco/', titulo: 'Mangue Beat', texto: 'O maracatu nos palcos e pelo mundo.' },
+];
 ---
 
 <BaseLayout
   titulo="Dois Baques"
-  descricao="Site educativo sobre o Maracatu Nação (baque virado) e o Maracatu Rural (baque solto), duas tradições afro-brasileiras e populares de Pernambuco, com história, personagens, instrumentos e fontes."
+  descricao="Maracatu Nação e Maracatu Rural: duas tradições de Pernambuco, com história, personagens, instrumentos e fontes. Site educativo em português."
   rota="/"
 >
   <section class="capa" aria-labelledby="titulo-site">
     <div class="capa-topo">
-      <h1 id="titulo-site">Dois Baques</h1>
-      <p class="capa-sub">Maracatu Nação e Maracatu Rural de Pernambuco: duas tradições com o mesmo nome e histórias próprias.</p>
+      <h1 id="titulo-site"><span class="golpe golpe--1">Dois</span> <span class="golpe golpe--2">Baques</span></h1>
+      <p class="capa-sub">Dois maracatus de Pernambuco. O mesmo nome, histórias diferentes.</p>
     </div>
 
     <div class="metades">
-      <article class="metade metade--nacao" data-baque="nacao" aria-labelledby="capa-nacao">
-        <div class="metade-motivo"><Motivo tipo="nacao" altura={128} /></div>
-        <div class="metade-texto">
-          <p class="metade-baque">Baque virado</p>
-          <h2 id="capa-nacao">Maracatu Nação</h2>
-          <p>Um grande batuque de alfaias e uma corte real que saem de comunidades negras do Recife, de Olinda e de Igarassu, ligadas aos terreiros.</p>
-          <a class="metade-link" href={url('/nacao/')}>Conhecer o Maracatu Nação</a>
-        </div>
-      </article>
+      <a class="metade metade--nacao" data-baque="nacao" href={url('/nacao/')}>
+        <span class="metade-motivo"><Motivo tipo="nacao" altura={128} animado /></span>
+        <span class="metade-texto">
+          <span class="metade-baque">Baque virado</span>
+          <span class="metade-nome">Maracatu Nação</span>
+          <span class="metade-frase">Batuque de alfaias e corte real, nas comunidades do Recife e de Olinda.</span>
+          <span class="metade-cta">Entrar no baque virado</span>
+        </span>
+      </a>
       <span class="costura" aria-hidden="true"></span>
-      <article class="metade metade--rural" data-baque="rural" aria-labelledby="capa-rural">
-        <div class="metade-motivo"><Motivo tipo="rural" altura={128} /></div>
-        <div class="metade-texto">
-          <p class="metade-baque">Baque solto</p>
-          <h2 id="capa-rural">Maracatu Rural</h2>
-          <p>Caboclos de lança, um terno de percussão e sopros e mestres que improvisam versos, nascidos nos engenhos de cana da Zona da Mata Norte.</p>
-          <a class="metade-link" href={url('/rural/')}>Conhecer o Maracatu Rural</a>
-        </div>
-      </article>
+      <a class="metade metade--rural" data-baque="rural" href={url('/rural/')}>
+        <span class="metade-motivo"><Motivo tipo="rural" altura={128} animado /></span>
+        <span class="metade-texto">
+          <span class="metade-baque">Baque solto</span>
+          <span class="metade-nome">Maracatu Rural</span>
+          <span class="metade-frase">Caboclos de lança, sopros e versos de improviso, nos canaviais da Zona da Mata.</span>
+          <span class="metade-cta">Entrar no baque solto</span>
+        </span>
+      </a>
     </div>
   </section>
 
   <div class="conteudo inicio">
     <section class="bloco" aria-labelledby="t-diferente">
       <h2 id="t-diferente">Não é a mesma coisa</h2>
-      <dl class="diferencas">
-        <div>
-          <dt>O som</dt>
-          <dd><span class="lado lado--nacao">Nação:</span> só percussão, com muitos tambores tocando juntos. <span class="lado lado--rural">Rural:</span> um terno pequeno, com trombones e clarinetes.</dd>
-        </div>
-        <div>
-          <dt>Quem está no centro</dt>
-          <dd><span class="lado lado--nacao">Nação:</span> a corte, com rei e rainha sob o pálio. <span class="lado lado--rural">Rural:</span> o caboclo de lança, com gola bordada e guiada.</dd>
-        </div>
-        <div>
-          <dt>De onde vem</dt>
-          <dd><span class="lado lado--nacao">Nação:</span> das coroações de reis negros nas cidades do litoral. <span class="lado lado--rural">Rural:</span> das festas dos trabalhadores da cana.</dd>
-        </div>
-      </dl>
-      <p><a href={url('/comparativo/')}>Ver todas as diferenças no comparativo</a></p>
+      <ul class="dif">
+        {diferencas.map((d) => (
+          <li class="dif-cartao rev">
+            <p class="dif-titulo">{d.titulo}</p>
+            <div class="dif-lados">
+              <div class="dif-lado dif-lado--nacao" data-baque="nacao">
+                <span class="dif-icone"><Ilustracao nome={d.nacao.icone} /></span>
+                <span class="dif-rotulo">Nação</span>
+                <span class="dif-texto">{d.nacao.texto}</span>
+              </div>
+              <div class="dif-lado dif-lado--rural" data-baque="rural">
+                <span class="dif-icone"><Ilustracao nome={d.rural.icone} /></span>
+                <span class="dif-rotulo">Rural</span>
+                <span class="dif-texto">{d.rural.texto}</span>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+      <p><a class="link-forte" href={url('/comparativo/')}>Ver todas as diferenças</a></p>
     </section>
 
     <section class="bloco" aria-labelledby="t-onde">
       <h2 id="t-onde">Onde cada um vive</h2>
-      <p class="bloco-intro">O Maracatu Nação está nas comunidades do Recife e das cidades vizinhas, no litoral. O Maracatu Rural está nos municípios da Zona da Mata Norte, onde há canaviais, e também em Olinda e no Recife.</p>
+      <p class="bloco-intro">Toque nas cidades do mapa.</p>
       <Mapa />
     </section>
 
-    <section class="bloco patrimonio" aria-labelledby="t-patrimonio">
-      <h2 id="t-patrimonio">Patrimônio do Brasil desde 3 de dezembro de 2014</h2>
-      <p>No mesmo dia, o Iphan registrou o Maracatu Nação e o Maracatu de Baque Solto como Patrimônio Cultural do Brasil, cada um com seu próprio registro. É o reconhecimento oficial de que são duas tradições diferentes e igualmente importantes.</p>
+    <section class="patrimonio largo rev" aria-labelledby="t-patrimonio">
+      <div class="pat-lado pat-lado--nacao"><span class="pat-nome">Maracatu Nação</span></div>
+      <div class="pat-centro">
+        <h2 id="t-patrimonio">Patrimônio do Brasil</h2>
+        <p class="pat-data">3 de dezembro de 2014</p>
+        <p>No mesmo dia, cada um com seu próprio registro no Iphan.</p>
+      </div>
+      <div class="pat-lado pat-lado--rural"><span class="pat-nome">Maracatu Rural</span></div>
     </section>
 
     <section class="bloco" aria-labelledby="t-comecar">
-      <h2 id="t-comecar">Por onde começar</h2>
+      <h2 id="t-comecar">Continue explorando</h2>
       <ul class="caminhos">
-        <li>
-          <a href={url('/historia/')}>
-            <span class="caminho-titulo">História e origens</span>
-            <span class="caminho-texto">Das coroações de reis negros aos engenhos de cana, com linha do tempo.</span>
-          </a>
-        </li>
-        <li>
-          <a href={url('/raizes-religiosas/')}>
-            <span class="caminho-titulo">Raízes religiosas</span>
-            <span class="caminho-texto">Terreiros de Xangô, Jurema Sagrada e o que é segredo.</span>
-          </a>
-        </li>
-        <li>
-          <a href={url('/alem-de-pernambuco/')}>
-            <span class="caminho-titulo">Além de Pernambuco</span>
-            <span class="caminho-texto">O Mangue Beat e os grupos de percussão pelo mundo.</span>
-          </a>
-        </li>
-        <li>
-          <a href={url('/fontes/')}>
-            <span class="caminho-titulo">Glossário e fontes</span>
-            <span class="caminho-texto">As palavras dos maracatus e de onde vem cada informação.</span>
-          </a>
-        </li>
+        {caminhos.map((c, i) => (
+          <li class="rev">
+            <a href={url(c.rota)} class={`caminho caminho--${i + 1}`}>
+              <span class="caminho-titulo">{c.titulo}</span>
+              <span class="caminho-texto">{c.texto}</span>
+            </a>
+          </li>
+        ))}
       </ul>
     </section>
   </div>
 </BaseLayout>
 
+<script>
+  // Paralaxe leve nas metades da capa (só com mouse e sem movimento reduzido)
+  document.addEventListener('astro:page-load', () => {
+    const capa = document.querySelector<HTMLElement>('.capa');
+    if (!capa || !matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)').matches) return;
+    capa.addEventListener('pointermove', (e) => {
+      const r = capa.getBoundingClientRect();
+      capa.style.setProperty('--px', String((e.clientX - r.left) / r.width - 0.5));
+      capa.style.setProperty('--py', String((e.clientY - r.top) / r.height - 0.5));
+    });
+    capa.addEventListener('pointerleave', () => { capa.style.setProperty('--px', '0'); capa.style.setProperty('--py', '0'); });
+  });
+</script>
+
 <style>
-  .capa { border-bottom: 2px solid var(--tinta); }
-  .capa-topo {
-    max-width: var(--largura);
-    margin-inline: auto;
-    padding: var(--e-6) var(--gutter) var(--e-5);
-    text-align: center;
-  }
-  .capa h1 {
-    font-size: clamp(3.4rem, 15vw, 9.5rem);
-    line-height: 0.92;
-    letter-spacing: -0.02em;
-  }
-  .capa-sub { max-width: 34ch; margin: var(--e-4) auto 0; font-size: var(--t-2); line-height: 1.4; }
+  /* ---------- Capa ---------- */
+  .capa { border-bottom: 3px solid var(--tinta); overflow: hidden; }
+  .capa-topo { max-width: var(--largura); margin-inline: auto; padding: var(--e-6) var(--gutter) var(--e-5); text-align: center; }
+  .capa h1 { font-size: clamp(3.6rem, 16vw, 10rem); line-height: 0.9; letter-spacing: -0.02em; }
+  .golpe { display: inline-block; }
+  .golpe--1 { color: var(--encarnado); }
+  .golpe--2 { color: var(--magenta); }
+  .capa-sub { max-width: 30ch; margin: var(--e-4) auto 0; font-size: var(--t-2); line-height: 1.35; }
 
   .metades { display: grid; grid-template-columns: 1fr; }
-  .costura {
-    height: 6px;
-    background: repeating-linear-gradient(90deg, var(--tinta) 0 6px, transparent 6px 10px);
+  .costura { height: 6px; background: repeating-linear-gradient(90deg, var(--tinta) 0 6px, transparent 6px 10px); }
+  .metade {
+    display: grid; align-content: start;
+    text-decoration: none; color: var(--sobre-forte);
+    background: var(--forte-1);
+    transition: background 0.3s;
   }
-  .metade { display: grid; align-content: start; }
-  .metade-motivo { overflow: hidden; }
-  .metade-texto { padding: var(--e-5) var(--gutter) var(--e-6); display: grid; gap: var(--e-3); max-width: 34rem; }
-  .metade-baque { font-weight: 700; color: var(--acento-texto); }
-  .metade h2 { font-size: clamp(var(--t-4), 6vw, var(--t-5)); }
-  .metade-link {
-    justify-self: start;
-    display: inline-flex; align-items: center; min-height: 48px;
+  .metade--rural { background: var(--forte-2); }
+  .metade-motivo { display: block; overflow: hidden; transform: translate(calc(var(--px, 0) * -14px), calc(var(--py, 0) * -6px)); transition: transform 0.2s ease-out; }
+  .metade-texto { padding: var(--e-5) var(--gutter) var(--e-6); display: grid; gap: var(--e-2); max-width: 34rem; }
+  .metade-baque { font-weight: 700; color: var(--sobre-forte); }
+  .metade-nome { font-family: var(--fonte-titulo); font-size: clamp(var(--t-4), 7vw, var(--t-6)); line-height: 1; }
+  .metade-frase { font-size: var(--t-1); }
+  .metade-cta {
+    justify-self: start; margin-top: var(--e-3);
+    display: inline-flex; align-items: center; gap: var(--e-2); min-height: 48px;
     padding: var(--e-2) var(--e-5);
-    background: var(--acento); color: var(--papel);
-    border-radius: 999px; font-weight: 700; text-decoration: none;
+    background: var(--sobre-forte); color: var(--escuro-fixo);
+    border-radius: 999px; font-weight: 700;
+    transition: transform 0.2s cubic-bezier(.2,.9,.3,1.4);
   }
-  .metade-link:hover { text-decoration: underline; }
+  .metade:hover .metade-cta, .metade:focus-visible .metade-cta { transform: scale(1.06) rotate(-1.5deg); }
+  .metade:focus-visible { outline-offset: -6px; outline-color: var(--sobre-forte); }
 
   @media (min-width: 52rem) {
     .metades { grid-template-columns: 1fr 6px 1fr; }
     .costura { height: auto; background: repeating-linear-gradient(180deg, var(--tinta) 0 6px, transparent 6px 10px); }
     .metade--nacao .metade-texto { justify-self: end; text-align: right; }
-    .metade--nacao .metade-link { justify-self: end; }
+    .metade--nacao .metade-cta { justify-self: end; }
     .metade-texto { padding-inline: var(--e-6); }
   }
 
-  /* O único momento orquestrado do site: os dois motivos pulsam uma vez, como dois baques */
+  /* O título entra em dois golpes, como duas batidas de tambor */
   @media (prefers-reduced-motion: no-preference) {
-    .metade-motivo :global(svg) { transform-origin: center; animation: baque 0.7s cubic-bezier(.2,.9,.3,1.4) both; }
-    .metade--nacao .metade-motivo :global(svg) { animation-delay: 0.25s; }
-    .metade--rural .metade-motivo :global(svg) { animation-delay: 0.75s; }
-    @keyframes baque {
-      0% { transform: scaleY(0.2); opacity: 0; }
-      60% { transform: scaleY(1.08); opacity: 1; }
-      100% { transform: scaleY(1); opacity: 1; }
+    .golpe { animation: golpe 0.7s cubic-bezier(.2,1.6,.4,1) both; }
+    .golpe--1 { animation-delay: 0.1s; }
+    .golpe--2 { animation-delay: 0.55s; }
+    .metade-motivo :global(svg.motivo--rural) { animation: entra-faixa 0.8s 0.9s cubic-bezier(.2,.9,.3,1.3) both; }
+    @keyframes golpe {
+      0% { transform: translateY(-0.5em) scale(1.5) rotate(-4deg); }
+      55% { transform: translateY(0.04em) scale(0.92); }
+      100% { transform: none; }
     }
+    @keyframes entra-faixa { from { transform: scaleY(0); } to { transform: none; } }
   }
 
-  .inicio .bloco { margin-top: var(--e-7); max-width: 60rem; }
-  .bloco h2 { padding-top: var(--e-4); border-top: 2px solid var(--tinta); margin-bottom: var(--e-4); max-width: 24ch; }
-  .bloco-intro { max-width: var(--medida); margin-bottom: var(--e-4); }
-  .diferencas { margin: 0 0 var(--e-4); display: grid; gap: var(--e-4); }
-  @media (min-width: 52rem) { .diferencas { grid-template-columns: repeat(3, 1fr); gap: var(--e-6); } }
-  .diferencas dt { font-family: var(--fonte-titulo); font-size: var(--t-2); margin-bottom: var(--e-2); }
-  .diferencas dd { margin: 0; }
-  .lado { font-weight: 700; }
-  .lado--nacao { color: var(--encarnado); }
-  .lado--rural { color: var(--magenta); }
-  .patrimonio p { max-width: var(--medida); font-size: var(--t-2); line-height: 1.45; }
+  /* ---------- Blocos ---------- */
+  .inicio .bloco { margin-top: var(--e-7); max-width: 64rem; }
+  .bloco h2 { margin-bottom: var(--e-4); font-size: clamp(var(--t-4), 7vw, var(--t-5)); }
+  .bloco-intro { margin-bottom: var(--e-4); font-size: var(--t-2); font-weight: 600; }
+
+  .dif { list-style: none; margin: 0 0 var(--e-4); padding: 0; display: grid; gap: var(--e-4); }
+  @media (min-width: 60rem) { .dif { grid-template-columns: repeat(3, 1fr); } }
+  .dif-titulo { font-family: var(--fonte-titulo); font-size: var(--t-3); margin-bottom: var(--e-2); }
+  .dif-lados { display: grid; grid-template-columns: 1fr 1fr; border-radius: 16px; overflow: hidden; }
+  .dif-lado { padding: var(--e-4) var(--e-3); display: grid; justify-items: center; text-align: center; gap: var(--e-1); color: var(--sobre-forte); }
+  .dif-lado--nacao { background: var(--nacao-f1); }
+  .dif-lado--rural { background: var(--rural-f2); }
+  .dif-icone { width: 4.5rem; height: 4.5rem; border-radius: 50%; background: #f6efe2; display: grid; place-items: center; padding: 0.6rem; color: #1b1614; --papel: #f6efe2; }
+  .dif-icone :global(svg) { width: 100%; height: 100%; }
+  .dif-rotulo { font-weight: 700; font-size: var(--t-0); margin-top: var(--e-2); }
+  .dif-texto { font-family: var(--fonte-titulo); font-size: var(--t-2); line-height: 1.1; }
+  @media (prefers-reduced-motion: no-preference) {
+    .dif-lado:hover .dif-icone { animation: tremer 0.5s ease-in-out; }
+  }
+  .link-forte { font-weight: 700; font-size: var(--t-2); }
+
+  .patrimonio {
+    margin-top: var(--e-8);
+    display: grid; grid-template-columns: 1fr; text-align: center;
+    border-radius: 20px; overflow: hidden;
+    color: var(--sobre-forte);
+  }
+  .pat-lado { padding: var(--e-4); font-weight: 700; }
+  .pat-lado--nacao { background: var(--nacao-f1); }
+  .pat-lado--rural { background: var(--rural-f2); }
+  .pat-centro { background: var(--escuro-fixo); color: #f6efe2; padding: var(--e-6) var(--e-4); display: grid; gap: var(--e-2); justify-items: center; }
+  .pat-centro h2 { font-size: clamp(var(--t-3), 5vw, var(--t-4)); }
+  .pat-data { font-family: var(--fonte-titulo); font-size: clamp(2.2rem, 9vw, 4.2rem); line-height: 1; color: #e8b84a; }
+  .pat-nome { font-family: var(--fonte-titulo); font-size: var(--t-2); }
+  @media (min-width: 52rem) {
+    .patrimonio { grid-template-columns: 1fr 2fr 1fr; align-items: stretch; }
+    .pat-lado { display: grid; place-items: center; }
+  }
+
   .caminhos { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--e-3); }
   @media (min-width: 40rem) { .caminhos { grid-template-columns: 1fr 1fr; } }
-  .caminhos a {
+  .caminho {
     display: grid; gap: var(--e-1); height: 100%;
-    padding: var(--e-4); border-left: 4px solid var(--tinta);
-    color: var(--tinta); text-decoration: none; background: var(--papel-2);
+    padding: var(--e-5) var(--e-4); border-radius: 16px;
+    text-decoration: none; color: var(--sobre-forte);
+    transition: transform 0.25s cubic-bezier(.2,.9,.3,1.3);
   }
-  .caminhos a:hover .caminho-titulo { text-decoration: underline; }
-  .caminho-titulo { font-family: var(--fonte-titulo); font-size: var(--t-2); }
-  .caminho-texto { font-size: var(--t-0); color: var(--tinta-suave); }
+  .caminho--1 { background: var(--nacao-f2); }
+  .caminho--2 { background: var(--escuro-fixo); color: #f6efe2; box-shadow: inset 0 0 0 2px var(--linha); }
+  .caminho--3 { background: #0a6b6b; color: #f6efe2; }
+  .caminho--4 { background: var(--rural-f1); }
+  .caminho:hover { transform: translateY(-4px) rotate(-0.8deg); }
+  .caminho-titulo { font-family: var(--fonte-titulo); font-size: var(--t-3); }
+  .caminho-texto { font-weight: 600; }
 </style>

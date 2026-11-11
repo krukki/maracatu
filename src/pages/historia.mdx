@@ -1,7 +1,7 @@
 ---
 layout: ../layouts/PaginaLayout.astro
 titulo: "História e origens"
-resumo: "Duas tradições com histórias próprias. Uma nasce das coroações de reis negros nas cidades do litoral; a outra, nos engenhos de cana da Zona da Mata Norte."
+resumo: "Duas histórias: uma nasce das coroações de reis negros nas cidades do litoral; a outra, nos engenhos de cana."
 descricao: "De onde vêm o Maracatu Nação e o Maracatu Rural, o que dizem os historiadores, a repressão, os nomes e o reconhecimento como patrimônio, com linha do tempo."
 baque: comum
 rota: /historia/
@@ -10,12 +10,29 @@ import Fonte from '../components/Fonte.astro';
 import Termo from '../components/Termo.astro';
 import Aviso from '../components/Aviso.astro';
 import LinhaDoTempo from '../components/LinhaDoTempo.astro';
+import Destaques from '../components/Destaques.astro';
+import SaibaMais from '../components/SaibaMais.astro';
+import SecaoCor from '../components/SecaoCor.astro';
+
+
+<Destaques itens={[
+  { grande: '1680', texto: 'Coroações de Reis do Congo já registradas no Recife.', tradicao: 'nacao' },
+  { grande: '1840', texto: 'Primeiro registro escrito da palavra maracatu.' },
+  { grande: '1914', texto: 'Cambindinha de Araçoiaba, o baque solto mais antigo.', tradicao: 'rural' },
+  { grande: '2014', texto: 'As duas tradições viram patrimônio do Brasil.' },
+]} />
 
 ## Duas histórias, não uma
 
-É comum ler que "o maracatu" surgiu em tal ano, em tal lugar. Mas existem dois maracatus em Pernambuco, e cada um tem sua história. O Maracatu Nação se formou nas cidades do litoral, em comunidades negras do Recife e de Olinda. O Maracatu Rural se formou no interior, entre os trabalhadores da cana da Zona da Mata Norte. Nesta página, as duas histórias aparecem lado a lado, sem se misturar.
+O Maracatu Nação se formou nas cidades do litoral. O Maracatu Rural, no interior, entre os trabalhadores da cana. Aqui, as duas histórias aparecem lado a lado, sem se misturar.
+
+<SecaoCor tom={2} tradicao="nacao" motivo="nacao">
 
 ## Maracatu Nação: antes do nome
+
+Irmandades negras coroavam um Rei e uma Rainha do Congo. No Recife, isso já aparece nos anos 1680.<Fonte id="silva-2011-clio" />
+
+<SaibaMais sobre="maracatu Nação: antes do nome">
 
 ### As coroações de reis negros
 
@@ -37,7 +54,17 @@ Historiadores mais recentes, como Marcelo Mac Cord, Ivaldo Marciano de França L
 
 Ninguém sabe ao certo de onde vem a palavra. Há quem defenda uma origem tupi e quem defenda origens africanas. O registro escrito mais antigo conhecido é de 22 de dezembro de 1840, no jornal Diário de Pernambuco, em tom de desprezo.<Fonte id="transatlantic-maracatu" />
 
+</SaibaMais>
+
+</SecaoCor>
+
+<SecaoCor tom={2} tradicao="rural" motivo="rural">
+
 ## Maracatu Rural: nos engenhos de cana
+
+Nasceu nas festas dos trabalhadores da cana, entre o fim do século XIX e o começo do XX.<Fonte id="souza-tcc-ufpe" />
+
+<SaibaMais sobre="maracatu Rural: nos engenhos de cana">
 
 O maracatu de baque solto se formou entre o fim do século XIX e o começo do século XX, nos engenhos de cana da Zona da Mata Norte. Era a festa de quem trabalhava no corte da cana, gente negra, indígena e mestiça, nos poucos momentos de descanso.<Fonte id="souza-tcc-ufpe" />
 
@@ -45,7 +72,15 @@ Pesquisadores ligam sua origem às **cambindas**, brincadeiras em que homens se 
 
 A partir dos anos 1930, com a crise no campo, muitos trabalhadores migraram para o Recife e Olinda e levaram o baque solto com eles.<Fonte id="transatlantic-maracatu" />
 
+</SaibaMais>
+
+</SecaoCor>
+
 ## Perseguição e controle
+
+Primeiro proibido; depois, controlado. Terreiros foram perseguidos pela polícia nos anos 1930 e no Estado Novo.<Fonte id="bdf-dona-santa" />
+
+<SaibaMais sobre="perseguição e controle">
 
 No século XIX, o maracatu aparece nos documentos principalmente como algo a proibir. Em 1861, uma postura municipal de Olinda proibiu "as danças dos pretos escravos, ou maracatu".<Fonte id="transatlantic-maracatu" />
 
@@ -53,19 +88,33 @@ Nos anos 1930 e durante o Estado Novo (1937–1945), a polícia perseguiu com fo
 
 Ao mesmo tempo, o Carnaval passou a ser organizado pela Federação Carnavalesca Pernambucana, criada em 1935. A Federação pressionou os grupos de baque solto a se parecer com os maracatus do Recife. Em 1957, o Maracatu Indiano foi levado a trocar o baque solto pelo virado.<Fonte id="maracatuteca-indiano" />
 
+</SaibaMais>
+
 ## Dois baques no papel
+
+Em 1955, o maestro Guerra-Peixe registrou a diferença entre baque virado e baque solto.<Fonte id="guerra-peixe-1955" />
+
+<SaibaMais sobre="dois baques no papel">
 
 Foi o maestro César Guerra-Peixe quem, no livro *Maracatus do Recife* (1955), registrou a diferença entre o "baque virado" e o "baque solto", que os brincantes chamavam de "maracatu de orquestra".<Fonte id="guerra-peixe-1955" /> Nos anos 1960, a antropóloga Katarina Real passou a usar "maracatu rural" para o baque solto.<Fonte id="real-1967" />
 
 Pesquisadores lembram que essa divisão também foi construída por estudiosos e depois adotada pelos próprios maracatuzeiros.<Fonte id="afroasia-guerra-peixe" /> Ela ajuda a entender, mas não conta tudo: cada grupo tem sua história.
 
+</SaibaMais>
+
 ## Quase desaparecer e renascer
+
+Crise nos anos 1960, novo fôlego a partir dos anos 1990.
+
+<SaibaMais sobre="quase desaparecer e renascer">
 
 Nos anos 1960, as nações estavam em crise. Quando Dona Santa, rainha do Elefante, morreu em 1962, a nação parou de desfilar, e em 1964 seu acervo foi doado ao museu do então Instituto Joaquim Nabuco.<Fonte id="cravo-elefante" />
 
 Na mesma época surgiu a Noite dos Tambores Silenciosos, homenagem aos ancestrais no Pátio do Terço, idealizada por Badia com Paulo Viana e Edvaldo Ramos. As fontes não concordam sobre o ano exato da primeira edição.<Fonte id="fpe-tambores" />
 
 A partir dos anos 1990, as nações voltaram a crescer, e o maracatu ganhou visibilidade nacional, em parte por causa do Mangue Beat. No baque solto, Mestre Salustiano organizou os grupos em uma associação e criou o Encontro de Maracatus, realizado desde 1990.<Fonte id="fpe-encontro-30" />
+
+</SaibaMais>
 
 ## Reconhecimento
 

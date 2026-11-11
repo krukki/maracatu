@@ -14,15 +14,17 @@ const nomeTradicao = baque === 'nacao' ? 'Maracatu Nação, de baque virado' : b
 ---
 
 <div class="hero" data-hero={baque}>
+  <div class="hero-faixa" transition:name="faixa">
   {baque === 'comum' ? (
     <div class="hero-faixas" aria-hidden="true">
-      <Motivo tipo="nacao" altura={28} />
+      <Motivo tipo="nacao" altura={28} animado />
       <span class="costura"></span>
-      <Motivo tipo="rural" altura={28} />
+      <Motivo tipo="rural" altura={28} animado />
     </div>
   ) : (
-    <Motivo tipo={baque} altura={baque === 'nacao' ? 64 : 60} />
+    <Motivo tipo={baque} altura={baque === 'nacao' ? 64 : 60} animado />
   )}
+  </div>
   <div class="hero-texto">
     {nomeTradicao && <p class="hero-tradicao">{rotulo ?? nomeTradicao}</p>}
     <h1>{titulo}</h1>

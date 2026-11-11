@@ -32,6 +32,8 @@
   --acento-texto: var(--tinta);
   --acento-2: var(--tinta-suave);
   --foco: var(--azul-real);
+  --forte-1: var(--escuro-fixo); --forte-2: var(--escuro-fixo); --forte-3: var(--nacao-f3); --forte-4: var(--papel-2);
+  --forte-2-acento: #e8b84a;
 
   /* Tipografia */
   --fonte-titulo: 'Gloock', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
@@ -59,6 +61,12 @@
   --gutter: clamp(1rem, 4vw, 2rem);
   --raio: 6px;
 
+
+  /* Cores fortes: seções e blocos de cor cheia (sempre com texto claro ou escuro fixo) */
+  --sobre-forte: #f6efe2;
+  --escuro-fixo: #1b1614;
+  --nacao-f1: #b3261e; --nacao-f2: #1f3a8a; --nacao-f3: #c8962a; --nacao-f2-acento: #e8b84a;
+  --rural-f1: #c2187a; --rural-f2: #3b0d2a; --rural-f3: #f2b705; --rural-f4: #0a6b6b; --rural-f2-acento: #f2b705;
   color-scheme: light;
 }
 
@@ -78,6 +86,9 @@
     --turquesa-texto: #47c9c9;
     --amarelo: #f5c537;
     --foco: #94aef0;
+    --sobre-forte: #f1e8d8;
+    --nacao-f1: #7a1610; --nacao-f2: #142a66; --nacao-f3: #e3b451; --nacao-f2-acento: #e3b451;
+    --rural-f1: #8e0f58; --rural-f2: #2a0820; --rural-f3: #f5c537; --rural-f4: #0a5555; --rural-f2-acento: #f5c537;
     color-scheme: dark;
   }
 }
@@ -95,17 +106,24 @@
   --turquesa-texto: #47c9c9;
   --amarelo: #f5c537;
   --foco: #94aef0;
+  --sobre-forte: #f1e8d8;
+  --nacao-f1: #7a1610; --nacao-f2: #142a66; --nacao-f3: #e3b451; --nacao-f2-acento: #e3b451;
+  --rural-f1: #8e0f58; --rural-f2: #2a0820; --rural-f3: #f5c537; --rural-f4: #0a5555; --rural-f2-acento: #f5c537;
   color-scheme: dark;
 }
 
 /* Cada página declara sua tradição no <body data-baque="..."> */
 [data-baque='nacao'] {
+  --forte-1: var(--nacao-f1); --forte-2: var(--nacao-f2); --forte-3: var(--nacao-f3); --forte-4: var(--papel-2);
+  --forte-2-acento: var(--nacao-f2-acento);
   --acento: var(--encarnado);
   --acento-texto: var(--encarnado);
   --acento-2: var(--azul-real);
   --foco: var(--azul-real);
 }
 [data-baque='rural'] {
+  --forte-1: var(--rural-f1); --forte-2: var(--rural-f2); --forte-3: var(--rural-f3); --forte-4: var(--rural-f4);
+  --forte-2-acento: var(--rural-f2-acento);
   --acento: var(--magenta);
   --acento-texto: var(--magenta);
   --acento-2: var(--turquesa-texto);
@@ -114,7 +132,8 @@
 
 /* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: clip; }
+body { overflow-x: clip; }
 body {
   margin: 0;
   background: var(--papel);
@@ -278,7 +297,49 @@ th { font-weight: 700; }
 }
 .botao[aria-pressed='true'] { background: var(--tinta); color: var(--papel); }
 
+/* ---------- Movimento ---------- */
+/* Revelação ao rolar (CSS puro). Só transformação, sem opacidade: o texto continua legível a qualquer momento. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .prosa > h2, .prosa > h3, .figura, .ficha, .aviso, .video, .caboclo, .comparativo, .saiba-mais, .mapa, .nav-paginas, .secao-corpo > *, .rev {
+      animation: revelar linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 70%;
+    }
+  }
+  .prosa a:not(.botao):not([class]):hover, .sm-corpo a:hover {
+    text-decoration: none;
+    background: radial-gradient(circle at 3px 50%, var(--acento) 2px, transparent 2.6px) left bottom / 8px 5px repeat-x;
+    padding-bottom: 3px;
+  }
+  .ficha:hover .ficha-ilustracao svg, .ficha:active .ficha-ilustracao svg { animation: tremer 0.5s ease-in-out; }
+}
+[data-calmo] { --rev-dist: 14px; --rev-escala: 1; }
+/* Página de tom calmo: sem loops nem inclinações, só a revelação suave */
+[data-calmo] .motivo--animado, [data-calmo] .motivo--animado .m-brilho-passa,
+[data-calmo] .destaque { animation: none !important; }
+[data-calmo] .destaque:hover { transform: none !important; }
+[data-calmo] .m-brilho-passa { display: none !important; }
+@keyframes revelar {
+  from { transform: translateY(var(--rev-dist, 56px)) scale(var(--rev-escala, 0.95)); }
+  to { transform: none; }
+}
+@keyframes tremer {
+  0%, 100% { transform: none; }
+  20% { transform: rotate(-6deg) scale(1.06); }
+  40% { transform: rotate(5deg) scale(1.04); }
+  60% { transform: rotate(-3deg); }
+  80% { transform: rotate(2deg); }
+}
+
+/* Transições entre páginas: a faixa da tradição desliza */
+::view-transition-old(faixa) { animation: faixa-sai 0.45s cubic-bezier(.4,0,.2,1) both; }
+::view-transition-new(faixa) { animation: faixa-entra 0.55s cubic-bezier(.2,.9,.3,1.2) both; }
+@keyframes faixa-sai { to { transform: translateX(-30%) scaleY(0.2); opacity: 0; } }
+@keyframes faixa-entra { from { transform: translateX(30%) scaleY(0.2); opacity: 0; } }
+
 @media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;

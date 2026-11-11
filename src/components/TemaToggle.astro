@@ -8,21 +8,18 @@
 </button>
 
 <script>
-  const botao = document.querySelector<HTMLButtonElement>('.tema-toggle');
   const raiz = document.documentElement;
   const escuroSistema = window.matchMedia('(prefers-color-scheme: dark)');
-
-  const temaAtual = () =>
-    raiz.dataset.tema ?? (escuroSistema.matches ? 'escuro' : 'claro');
-
+  const temaAtual = () => raiz.dataset.tema ?? (escuroSistema.matches ? 'escuro' : 'claro');
   function atualizar() {
+    const botao = document.querySelector<HTMLButtonElement>('.tema-toggle');
     if (!botao) return;
-    const proximo = temaAtual() === 'escuro' ? 'claro' : 'escuro';
-    botao.setAttribute('aria-label', `Usar tema ${proximo}`);
+    botao.setAttribute('aria-label', `Usar tema ${temaAtual() === 'escuro' ? 'claro' : 'escuro'}`);
     botao.dataset.tema = temaAtual();
   }
-
-  if (botao) {
+  document.addEventListener('astro:page-load', () => {
+    const botao = document.querySelector<HTMLButtonElement>('.tema-toggle');
+    if (!botao) return;
     botao.hidden = false;
     atualizar();
     botao.addEventListener('click', () => {
@@ -31,8 +28,8 @@
       try { localStorage.setItem('tema', novo); } catch { /* armazenamento indisponível */ }
       atualizar();
     });
-    escuroSistema.addEventListener('change', atualizar);
-  }
+  });
+  escuroSistema.addEventListener('change', atualizar);
 </script>
 
 <style>

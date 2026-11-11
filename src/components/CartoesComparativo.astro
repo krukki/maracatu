@@ -1,0 +1,78 @@
+---
+/**
+ * Cartões que "viram": cada aspecto mostra a Nação de um lado e o Rural do outro.
+ * Sem JavaScript, os dois lados aparecem um embaixo do outro.
+ */
+import { comparativo } from '../data/comparativo';
+interface Props { aspectos: string[] }
+const linhas = Astro.props.aspectos.map((a) => {
+  const l = comparativo.find((x) => x.aspecto === a);
+  if (!l) throw new Error(`Aspecto não encontrado: ${a}`);
+  return l;
+});
+---
+
+<ul class="cartoes largo">
+  {linhas.map((l, i) => (
+    <li class="cartao" data-lado="nacao">
+      <p class="cartao-aspecto" id={`aspecto-${i}`}>{l.aspecto}</p>
+      <div class="cartao-botoes" role="group" aria-labelledby={`aspecto-${i}`}>
+        <button type="button" class="cb cb--nacao" aria-pressed="true" data-ir="nacao">Nação</button>
+        <button type="button" class="cb cb--rural" aria-pressed="false" data-ir="rural">Rural</button>
+      </div>
+      <div class="cartao-cena">
+        <div class="cartao-interno">
+          <div class="face face--nacao"><span class="face-rotulo">Maracatu Nação</span><p>{l.nacao}</p></div>
+          <div class="face face--rural"><span class="face-rotulo">Maracatu Rural</span><p>{l.rural}</p></div>
+        </div>
+      </div>
+    </li>
+  ))}
+</ul>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    document.querySelectorAll<HTMLElement>('.cartao').forEach((c) => {
+      const botoes = c.querySelector<HTMLElement>('.cartao-botoes')!;
+      const faces = { nacao: c.querySelector<HTMLElement>('.face--nacao')!, rural: c.querySelector<HTMLElement>('.face--rural')! };
+      const mostrar = (lado: 'nacao' | 'rural') => {
+        c.dataset.lado = lado;
+        botoes.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.ir === lado)));
+        (['nacao', 'rural'] as const).forEach((k) => {
+          faces[k].toggleAttribute('inert', k !== lado);
+          faces[k].setAttribute('aria-hidden', String(k !== lado));
+        });
+      };
+      mostrar('nacao');
+      botoes.querySelectorAll<HTMLButtonElement>('button').forEach((b) => b.addEventListener('click', () => mostrar(b.dataset.ir as 'nacao' | 'rural')));
+    });
+  });
+</script>
+
+<style>
+  .cartoes { list-style: none; margin: var(--e-4) 0; padding: 0; display: grid; gap: var(--e-4); grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); max-width: 64rem; }
+  .cartao { display: grid; gap: var(--e-3); align-content: start; }
+  .cartao-aspecto { font-family: var(--fonte-titulo); font-size: var(--t-3); line-height: 1.1; }
+  .cartao-botoes { border: 2px solid var(--tinta); border-radius: 999px; padding: 3px; justify-self: start; }
+  .cartao-botoes { display: none; }
+  :global(html.js) .cartao-botoes { display: inline-flex; }
+  .cb { min-height: 40px; min-width: 5.5rem; border: 0; border-radius: 999px; background: transparent; font: inherit; font-weight: 700; color: var(--tinta); cursor: pointer; }
+  .cb--nacao[aria-pressed='true'] { background: var(--nacao-f1); color: var(--sobre-forte); }
+  .cb--rural[aria-pressed='true'] { background: var(--rural-f1); color: var(--sobre-forte); }
+  .face { border-radius: 16px; padding: var(--e-5) var(--e-4); color: var(--sobre-forte); display: grid; gap: var(--e-2); align-content: start; }
+  .face--nacao { background: var(--nacao-f1); }
+  .face--rural { background: var(--rural-f2); }
+  .face-rotulo { font-weight: 700; font-size: var(--t-0); }
+  .face p { font-size: var(--t-1); line-height: 1.45; }
+  .cartao-interno { display: grid; gap: var(--e-2); }
+
+  /* Com JS: cartão 3D que vira */
+  :global(html.js) .cartao .cartao-cena { perspective: 1200px; }
+  :global(html.js) .cartao .cartao-interno { display: grid; gap: 0; transform-style: preserve-3d; transition: transform 0.7s cubic-bezier(.2,.9,.3,1.15); }
+  :global(html.js) .cartao .face { grid-area: 1 / 1; backface-visibility: hidden; min-height: 11rem; }
+  :global(html.js) .cartao .face--rural { transform: rotateY(180deg); }
+  :global(html.js) .cartao[data-lado='rural'] .cartao-interno { transform: rotateY(180deg); }
+  @media (prefers-reduced-motion: reduce) {
+    :global(html.js) .cartao .cartao-interno { transition: none; }
+  }
+</style>
