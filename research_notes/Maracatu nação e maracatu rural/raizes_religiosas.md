@@ -1,0 +1,215 @@
+# Raízes e vínculos religiosos dos dois maracatus de Pernambuco
+
+> **Aviso de método (ler antes de usar).** Nesta sessão a leitura direta de páginas (WebFetch) estava bloqueada pela rede (redalyc.org, gov.br, diariodepernambuco.com.br, folhape.com.br não resolveram). Tudo abaixo vem de **trechos devolvidos pelo buscador**, não da leitura integral das páginas. Consequências: (1) as URLs são reais e apareceram nos resultados, mas **citações literais e números de página não foram conferidos**; (2) onde escrevo "atribuição a conferir", o buscador devolveu o trecho sem dizer de qual dos links ele saiu; (3) não use aspas no site sem abrir a fonte. Grau de confiança indicado em cada item: **alto** (várias fontes independentes ou fonte institucional primária), **médio** (uma fonte boa), **baixo** (uma fonte fraca, ou atribuição incerta). Estado em novembro de 2026.
+
+---
+
+## (A) MARACATU NAÇÃO / BAQUE VIRADO — vínculos com Xangô/Candomblé (nagô) e com a Jurema
+
+### Takeaway
+O maracatu nação é um cortejo carnavalesco, não uma religião, mas as nações têm fundamento religioso: ligam-se a terreiros, muitas rainhas são ialorixás, e a calunga é o ícone desse fundamento. O vínculo não é homogêneo: além do Xangô (nome regional do candomblé nagô), há nações ligadas à Jurema e à Umbanda.
+
+### Cited Findings
+
+**Natureza do vínculo ("não é religião, mas tem fundamento")**
+- [NAÇÃO] Ivaldo Marciano de França Lima sustenta que a relação entre maracatus-nação e religiões afro-brasileiras vai muito além do Carnaval e **não é homogênea**: ao lado dos xangôs estão presentes a Jurema e a Umbanda. Confiança: alta (tese repetida em mais de um texto do autor) — [Lima, revista Diálogos/UEM](https://www.redalyc.org/pdf/3055/305526866010.pdf); [Lima, Tempo e Argumento, 2019](https://www.redalyc.org/journal/3381/338160583019/html/)
+- [NAÇÃO] Reportagem do Marco Zero afirma que as nações estão ligadas ao candomblé e à Jurema Sagrada, e registra a fala de uma integrante segundo a qual um grupo sem vínculo com terreiro é grupo percussivo, não nação. Confiança: média — [Marco Zero, "Do terreiro à rua"](https://marcozero.org/do-terreiro-a-rua-maracatu-encanto-da-alegria-mostra-a-conexao-entre-religioes-afro-indigenas-e-o-carnaval/)
+- [NAÇÃO] Mestre Chacon Viana (Nação Porto Rico) define o maracatu como "candomblé na rua" (expressão dele, recuperada via buscador; conferir a redação exata). Confiança: média — [Marco Zero, "O drama íntimo dos maracatus..."](https://marcozero.org/o-drama-intimo-dos-maracatus-que-perdem-integrantes-para-os-cultos-evangelicos/)
+- [NAÇÃO] A mesma reportagem registra que existem grupos que se dizem seculares, embora o maracatu seja expressão cultural de religiões de matriz africana. Confiança: média — [Marco Zero](https://marcozero.org/o-drama-intimo-dos-maracatus-que-perdem-integrantes-para-os-cultos-evangelicos/)
+- [NAÇÃO] Artigo de geografia da UFPE observa que hoje a forma é muitas vezes praticada como manifestação performática, com vínculos religiosos mais intensos em alguns grupos. Confiança: média — [Revista de Geografia UFPE](https://periodicos.ufpe.br/revistas/revistageografia/article/download/264216/47828/274497)
+- [NAÇÃO] Lima distingue nações de "grupos percussivos" (fronteira de identidade). Confiança: média — [Afro-Ásia, 2014 (registro DOAJ)](https://doaj.org/article/74e67dfce341490f961bee3ac019c07c)
+
+**Nações e terreiros (exemplos verificados)**
+- [NAÇÃO] Sítio de Pai Adão / Ilê Obá Ogunté (Água Fria, Recife): terreiro de tradição nagô, Patrimônio Cultural do Brasil pelo Iphan; fundado por Inês Joaquina da Costa (Ifá Tinuké), data de 1875 em uma das fontes; hoje sob o babalorixá Manoel Papai; abriga afoxé e maracatu nação. Confiança: alta — [Secult-PE](https://www.cultura.pe.gov.br/terreiro-de-candomble-oba-ogunte-sitio-pai-adao-passa-por-obras-de-melhorias-e-restauro/); [Folha PE](https://www.folhape.com.br/noticias/terca-negra-celebra-matriarca-do-terreiro-sitio-de-pai-adao/122353/); [OxeRecife](https://oxerecife.com.br/sitio-de-pai-adao-na-terca-negra/)
+- [NAÇÃO] O terreiro comemorou 150 anos com programação aberta em novembro de 2025. Confiança: média — [Diario de Pernambuco, nov. 2025](https://www.diariodepernambuco.com.br/vida-urbana/2025/11/11700803-no-mes-da-consciencia-negra-sitio-de-pai-adao-abre-programacao-dos-seus-150-anos-nesta-quarta-19.html)
+- [NAÇÃO] Maracatu Nação Raízes de Pai Adão: fundado em 1998 por familiares de Pai Adão; cores azul e branco; orixá protetor Iemanjá. Confiança: média — [Inventário Cultural dos Maracatus Nação](https://inventariomaracatusnacao.blogspot.com/2012/03/maracatu-nacao-raizes-de-pai-adao.html); estudo acadêmico: [dissertação UFPE, Mirty Souza](https://repositorio.ufpe.br/bitstream/123456789/62264/1/DISSERTA%C3%87%C3%83O%20Mirty%20Katlhy%20da%20Silva%20Souza.pdf)
+- [NAÇÃO] Por tradição, os maracatus da zona norte passavam pelo terreiro em seus percursos de Carnaval. Confiança: baixa/média (agregador) — [iPatrimônio](https://www.ipatrimonio.org/recife-terreiro-oba-ogunte/)
+- [NAÇÃO] Nação Porto Rico (Pina, Recife): o terreiro Ylê Axé Oxóssi Guangoubira é apresentado pela própria nação como sua "sede espiritual". Confiança: alta (voz da comunidade) — [site da Nação Porto Rico](https://nacaoportorico.maracatu.org.br/yle-axe/)
+- [NAÇÃO] Encanto da Alegria: ligado ao terreiro Centro Espírita Cigana Saray, que é também a sede do grupo. Confiança: média — [Marco Zero](https://marcozero.org/do-terreiro-a-rua-maracatu-encanto-da-alegria-mostra-a-conexao-entre-religioes-afro-indigenas-e-o-carnaval/)
+- [NAÇÃO] Estrela Brilhante do Recife (Alto José do Pinho; 120 anos comemorados em julho de 2026): segundo o Iphan, citado pelo Brasil de Fato, a nação tem raízes na relação com o Xangô **e com a jurema**; o mestre diz que o maracatu funciona como candomblé fora do terreiro e que, no tempo da proibição, a brincadeira permitia cultuar dentro dos terreiros; a matéria nota que poucos batuqueiros/dançarinos têm vínculo religioso com a casa. Marivalda Maria dos Santos é ialorixá, rainha (desde 1993) e presidente. Confiança: média — [Brasil de Fato, jul. 2026](https://www.brasildefato.com.br/2026/07/16/maracatu-estrela-brilhante-celebra-120-anos-com-festival-de-quatro-dias-no-alto-jose-do-pinho/); [Diario de Pernambuco, 2019](https://www.diariodepernambuco.com.br/noticia/vidaurbana/2019/02/as-matriarcas-da-alegria-no-recife.html)
+- [NAÇÃO] Leão Coroado: Luiz de França (líder até 1997) é citado como babalorixá. Confiança: baixa (trecho do buscador, sem atribuição clara) — [Diario de Pernambuco, 2026](https://www.diariodepernambuco.com.br/vida-urbana/2026/02/11707533-carnaval-2026-recife-anuncia-programacao-da-noite-dos-tambores-silenciosos.html)
+
+**Rainhas como ialorixás**
+- [NAÇÃO] Elda Viana (Mãe Elda de Oxóssi), rainha do Porto Rico, liderou o Ylê Axé Oxóssi Guangoubira por mais de quatro décadas; foi coroada em 1980 pelo cônego Miguel Cavalcante na Igreja de N. S. do Rosário dos Homens Pretos. Confiança: alta — [Rainha Elda (site da nação)](https://nacaoportorico.maracatu.org.br/rainha-elda/); [Revista Afirmativa](https://revistaafirmativa.com.br/despedida-de-mae-elda-de-oxossi-ressoa-como-canto-ancestral-para-a-cultura-afro-brasileira/)
+- [NAÇÃO] Mãe Elda morreu em maio de 2025. **Divergência de idade:** 76 anos no título do Diario; 86 em outra matéria; nascimento em 1939 no Memória Feminista (o que dá 85/86). Não cravar idade. — [Diario de Pernambuco](https://www.diariodepernambuco.com.br/vida-urbana/2025/05/3893460-yalorixa-mae-elda-de-oxossi-morre-aos-76-anos.html); [Memória Feminista](https://memoriafeminista.com.br/mae-elda-de-oxossi-1939-2025/)
+- [NAÇÃO] Em 2002, Marivalda (Estrela Brilhante do Recife) foi coroada pela rainha Elda Viana e pelo babalorixá Raminho de Oxóssi. Confiança: média — [Cronologia, Nação Porto Rico](https://nacaoportorico.maracatu.org.br/cronologia/)
+- [NAÇÃO] Isabel Guillen mostra que Dona Santa e Madalena, como rainhas, consolidaram autoridade religiosa entre filhos de santo e **afilhados da jurema**. Confiança: média — [Guillen, Anpuh 2007](https://maracatuteca.com/wp-content/uploads/2025/04/Dona-Santa-e-Madalena-performance-e-memoria-de-matriarcas-e-rainhas-de-maracatu-Isabel-Guillen-Anpuh-2007-historia-e-estudos-maracatuteca.pdf); ver também [Guillen, "Rainhas coroadas", Fundaj](https://periodicos.fundaj.gov.br/CAD/article/download/1325/1045/1389)
+
+**Orixás e cores (só o que foi verificado)**
+- [NAÇÃO] Porto Rico: a nação é "comandada por Ogum", cores verde e vermelho, porque o fundador Eudes Chagas era de Ogum; Mãe Elda era filha de Oxóssi (com Iansã). **Portanto NÃO é Oxum**, como a pauta sugeria. Confiança: média (atribuição do trecho a conferir entre os dois links) — [Portal Cultura PE](https://www.cultura.pe.gov.br/nacao-porto-rico-no-baque-das-ondas/); [site da nação](https://nacaoportorico.maracatu.org.br/rainha-elda/)
+- [NAÇÃO] Raízes de Pai Adão: Iemanjá, azul e branco (acima).
+- [NAÇÃO] Um depoimento atribuído a Mestre Fernandinho descreve uma calunga que é a matriarca da Jurema da casa e representa Iansã, orixá regente daquele maracatu (nação não identificada no trecho). Confiança: baixa — [Anpuh 2024](https://anpuh.org.br/uploads/anais-simposios/pdf/2024-08/1723626000_1d17ff04ca0c203500f98de6f422097d.pdf)
+
+**Calunga**
+- [NAÇÃO] Iphan: boneca de feições negras, de madeira ou pano, levada pela dama do paço; simboliza ancestralidade e presença espiritual no cortejo. Confiança: alta — [Iphan/BCR, Maracatu Nação](https://bcr.iphan.gov.br/bens-culturais/maracatu-nacao/)
+- [NAÇÃO] Ata do Conselho Consultivo do Iphan (dez. 2014): a calunga pode representar, conforme o caso, **eguns (ancestrais), orixás ou entidades da Jurema**. Confiança: alta (fonte primária; texto em OCR) — [Ata da 77ª Reunião](https://bcr.iphan.gov.br/wp-content/uploads/tainacan-items/65968/66971/Maracatu-Nacao_de_077.-Reuniao-Ordinaria-do-Conselho-Consultivo-do-Patrimonio-Cultural-03-e-04.12.2014_.pdf)
+- [NAÇÃO] As calungas são "ícone do fundamento religioso" e marcador de identidade das nações. Confiança: alta — [Agência Brasil, abr. 2025](https://agenciabrasil.ebc.com.br/cultura/noticia/2025-04/reconhecimento-da-unesco-pode-difundir-ainda-mais-maracatu-nacao)
+- [NAÇÃO] Obrigações (só o público): no Encanto da Alegria, após o último ensaio de rua as calungas são recolhidas ao terreiro e só reaparecem no dia do desfile; o grupo faz oferendas a orixás e eguns e renova compromissos com as entidades. A fonte não detalha o rito — manter essa vagueza. Confiança: média — [Marco Zero](https://marcozero.org/do-terreiro-a-rua-maracatu-encanto-da-alegria-mostra-a-conexao-entre-religioes-afro-indigenas-e-o-carnaval/)
+- [NAÇÃO] Estrela Brilhante do Recife: calungas Dona Joventina e Dona Emília; a Joventina antiga ficou décadas fora da nação e hoje há uma nova. Confiança: média — [Geledés](https://www.geledes.org.br/maracatu-se-prepara-para-a-folia-apos-recuperar-calunga-perdida-por-30-anos/); [LeiaJá](https://carnaval.leiaja.com/noticias/2018/01/10/conheca-misteriosa-historia-da-calunga-dona-joventina)
+- [NAÇÃO] Uma fonte diz que em certos grupos desfila uma réplica e a calunga "preparada" não sai do altar. Confiança: baixa (uma fonte, atribuição a conferir; não generalizar) — [Wikipédia, Calunga (boneca)](https://pt.wikipedia.org/wiki/Calunga_(boneca))
+
+**Noite dos Tambores Silenciosos (Pátio do Terço, Recife)**
+- [NAÇÃO] O que é: na segunda-feira de Carnaval as nações se apresentam diante da Igreja do Terço; à meia-noite as luzes se apagam, os tambores silenciam e há cânticos aos orixás e homenagem aos eguns, ancestrais do povo negro. Confiança: alta — [Prefeitura do Recife, 12/02/2026](https://www2.recife.pe.gov.br/noticias/12/02/2026/recife-divulga-programacao-da-noite-dos-tambores-silenciosos); [artigo UnB](https://www.repositorio.unb.br/bitstream/10482/39360/1/ARTIGO_TerritorioMaracatusNacao.pdf)
+- [NAÇÃO] Edição 2026 (16/02): cerimônia mirim (16h–19h) conduzida pela ialorixá Mãe Fátima; cerimônia adulta (20h–3h) conduzida pelo **babalorixá Jorge de Bessen**, sucessor de Tatá Raminho de Oxóssi; 41 maracatus e 2 afoxés. Confiança: alta — [Prefeitura do Recife](https://www2.recife.pe.gov.br/noticias/12/02/2026/recife-divulga-programacao-da-noite-dos-tambores-silenciosos); [CBN Recife](https://www.cbnrecife.com/2026/02/12/noite-dos-tambores-silenciosos-reune-43-grupos-no-patio-do-terco-no-carnaval-2026/)
+- [NAÇÃO] Tatá Raminho de Oxóssi (Severino Martiniano da Silva) morreu em 8/12/2024, aos 88 anos. Confiança: alta — [Diario de Pernambuco](https://www.diariodepernambuco.com.br/noticia/vidaurbana/2024/12/morre-aos-88-anos-raminho-de-oxossi.html)
+- [NAÇÃO] Origem — versão predominante: criada no início dos anos 1960 (1961 na Fundaj e na Wikipédia) por iniciativa do jornalista Paulo Viana; Guillen e Lima a tratam como "invenção de uma tradição". Confiança: média/alta — [Fundaj, Pesquisa Escolar](http://basilio.fundaj.gov.br/pesquisaescolar/index.php?id=198&option=com_content); [Guillen e Lima, Saeculum 2006](https://maracatuteca.com/wp-content/uploads/2017/05/OS-MARACATUS_NACAO-DO-RECIFE-E-A-ESPETACULARIZACAO-DA-CULTURA-POPULAR.pdf)
+- [NAÇÃO] **Divergências sobre a origem** (registrar, não resolver): (a) data — 1960 em dissertação da UFPE, 1961 na Fundaj, 1965 em blog; (b) autoria — reportagem de 2025 atribui a idealização a Badia (Maria de Lourdes Silva), moradora do Pátio; blog de Ciências da Religião da Unicap diz que atribuir tudo a Viana "não é de todo verdade": haveria antes uma celebração discreta de mulheres, que Viana ressignificou com a encenação do poema "Lamento Negro"; (c) no começo era encenação teatral, sem o caráter religioso atual. — [dissertação UFPE](https://repositorio.ufpe.br/bitstream/123456789/16667/1/DISSERTA%c3%87%c3%83OVanessaMaschiodosReis.pdf); [Diario de Pernambuco, 2025](https://www.diariodepernambuco.com.br/noticia/vidaurbana/2025/03/noite-dos-tambores-silenciosos-reune-cerca-de-40-nacoes-de-maracatu.html); [blog CR-Unicap, 2009](https://crunicap.blogspot.com/2009/04/sobre-noite-dos-tambores-silenciosos.html); [Folha PE](https://www.folhape.com.br/noticias/noite-dos-tambores-silenciosos-celebra-a-ancestralidade-negra/258712/)
+- [NAÇÃO] **Divergência sobre Raminho:** a Prefeitura (2026) diz que ele, cunhado de Badia, assumiu a cerimônia religiosa nos anos 1990, quando o evento se sacralizou; matérias antigas dizem que conduzia "desde a primeira edição". Preferir a versão da Prefeitura, coerente com a historiografia; escrever "por décadas". — [Prefeitura do Recife](https://www2.recife.pe.gov.br/noticias/12/02/2026/recife-divulga-programacao-da-noite-dos-tambores-silenciosos); [Vermelho](https://vermelho.org.br/?p=359130)
+- [NAÇÃO] No início a noite foi divulgada como homenagem aos negros que não puderam brincar o Carnaval. Confiança: média — [TCC UFPE](https://repositorio.ufpe.br/jspui/bitstream/123456789/50257/1/TCC%20Matheus%20Fernando%20da%20Silva.docx.pdf)
+- [NAÇÃO] O Pátio do Terço, onde fica a Casa de Badia, foi reduto de terreiros de Xangô e de agremiações negras. Confiança: alta — [Prefeitura do Recife](https://www2.recife.pe.gov.br/noticias/12/02/2026/recife-divulga-programacao-da-noite-dos-tambores-silenciosos)
+- [NAÇÃO] Não confundir: Olinda tem evento próprio, a "Noite para os Tambores Silenciosos" (27ª edição em 2026). — [Diario de Pernambuco, 2026](https://www.diariodepernambuco.com.br/vida-urbana/2026/02/11707294-olinda-realiza-27-noite-dos-tambores-silenciosos-e-celebra-religiosidade-de-matriz-africana.html)
+
+**Rosário dos Homens Pretos e catolicismo negro**
+- [NAÇÃO] A narrativa tradicional liga o maracatu às coroações de Reis do Congo, promovidas pelas Irmandades de N. S. do Rosário dos Homens Pretos. Lima contesta a linha reta: os maracatus "não são resultado de evolução linear" dessas festas, ainda que possam ter aproveitado heranças delas. Confiança: alta (debate bem documentado) — [Lima, 2019](https://www.redalyc.org/journal/3381/338160583019/html/)
+- [NAÇÃO] Guillen discute se a exigência de coroação "verdadeira" diante da Igreja do Rosário é de fato antiga; registra rainha coroada ali em 1922. Confiança: média — [Guillen, "Rainhas coroadas"](https://periodicos.fundaj.gov.br/CAD/article/download/1325/1045/1389)
+
+**O que é "Xangô" em Pernambuco**
+- [NAÇÃO] "Xangô" é, além do orixá, o nome regional da religião dos orixás de tradição nagô em Pernambuco (Motta: "Candomblé, localmente conhecido como Xangô"). Confiança: alta — [REIA/UFPE](https://periodicos.ufpe.br/revistas/reia/article/view/230823); [Lima, Dimensões/UFES](https://periodicos.ufes.br/dimensoes/article/download/5416/4000/11224)
+- [NAÇÃO] Ressalva: há praticantes que preferem "nagô" ou "candomblé" e veem "xangô" como nome dado por gente de fora. Confiança: média — [Pinto Filho, R@U/UFSCar](https://rau2.ufscar.br/index.php/rau/article/download/207/189/190)
+
+**Jurema nas nações**
+- [NAÇÃO] Lima (2019): a relação das nações com o sagrado não se limita aos orixás; alguns grupos incluem Jurema e Umbanda. Confiança: alta — [Lima, 2019](https://www.redalyc.org/journal/3381/338160583019/html/)
+- [NAÇÃO] Há maracatuzeiros que dizem participar só do xangô e negam vínculo com a jurema, embora participem dela — sinal de hierarquia de prestígio entre as religiões. Confiança: média — [Afro-Ásia/SciELO, "Caminhos da visibilidade"](http://www.scielo.br/j/afro/a/NhYg6vqM7ZkkGFjhDjzMPxf/?lang=pt); [Lima, Cadernos de Estudos Sociais/Fundaj](https://fundaj.emnuvens.com.br/CAD/article/download/1338/1058/1402)
+
+### Inferences
+- Para o site: "cada nação tem sua casa e seu fundamento" é mais correto do que uma tabela nação → orixá. Só Porto Rico (Ogum) e Raízes de Pai Adão (Iemanjá) têm fonte aqui.
+- A Noite dos Tambores Silenciosos é tradição do século XX que ganhou sentido religioso com o tempo; dizer isso não a diminui e evita o clichê de "ritual ancestral imutável".
+- Tratar a ligação com os Reis do Congo como "uma das heranças", não como origem única.
+
+### Gaps
+- Dossiê/INRC do Maracatu Nação: texto integral não lido (bloqueio de rede); só a página BCR e a ata.
+- Estrela Brilhante: orixá regente, cores e nome do terreiro sem fonte (só o vínculo geral com Xangô e jurema). Sucessão da rainha no Porto Rico após 2025: sem fonte.
+- Xambá: não encontrei fonte que ligue o terreiro Xambá (Olinda) a uma nação de maracatu; não afirmar.
+- Quem conduziu cada edição antes dos anos 1990 e o papel exato de Paulo Viana: fontes divergem.
+
+---
+
+## (B) MARACATU RURAL / BAQUE SOLTO — vínculos com a Jurema Sagrada (e Umbanda/catimbó)
+
+### Takeaway
+O baque solto é uma brincadeira da Zona da Mata Norte cuja proteção espiritual vem sobretudo da Jurema Sagrada/catimbó (e, em alguns grupos, de casas de umbanda ou xangô). As fontes descrevem o preparo em termos gerais — calço, resguardo, cravo — e os próprios brincantes dizem que o resto é segredo.
+
+### Cited Findings
+
+**O que é a Jurema Sagrada**
+- [RURAL] Religião de matriz indígena e africana do Nordeste, "religião de encantados", com mestres e mestras, caboclos, índios, pretos-velhos, exus e pombagiras; a árvore jurema é sagrada. Mestres são entendidos como pessoas do catimbó já falecidas; caboclos, como ancestrais indígenas. Confiança: alta — [Lima, Fundaj](https://fundaj.emnuvens.com.br/CAD/article/download/1338/1058/1402); [Religare/UFPB](https://periodicos.ufpb.br/index.php/religare/article/download/39955/22035/106908)
+- [RURAL] "Cidades da Jurema" são lugares do arbusto em torno do qual se fazem os ritos do catimbó; o catimbó-jurema é descrito como afro-ameríndio com elementos europeus. Confiança: média — [dissertação UFPB](https://repositorio.ufpb.br/jspui/bitstream/123456789/24258/1/HCSB08082022.pdf)
+- [RURAL] Alhandra (PB) é a referência clássica: René Vandezande (dissertação, 1975) foi o primeiro a descrever as cidades da Jurema; Sandro Guimarães de Salles publicou *À sombra da Jurema encantada: mestres juremeiros na umbanda de Alhandra* (Ed. UFPE, 2010). Confiança: alta (dados bibliográficos) — [WorldCat](https://search.worldcat.org/title/711794966); [Anpuh 2013](http://www.snh2013.anpuh.org/resources/anais/27/1364660679_ARQUIVO_NordesteEncantado_semResumo.pdf)
+- [RURAL] Roberto Motta: "A jurema do Recife: religião indo-afro-brasileira em contexto urbano" (2005); a jurema está presente também em terreiros de candomblé, xangô e umbanda. Confiança: média — [Afro-Ásia/SciELO](http://www.scielo.br/j/afro/a/NhYg6vqM7ZkkGFjhDjzMPxf/?lang=pt)
+
+**O bem cultural**
+- [RURAL] Registrado pelo Iphan em dezembro de 2014 (Livro das Formas de Expressão); pedido do Governo de Pernambuco, processo aberto em 2008 como "Maracatu Rural"; adotou-se "maracatu de baque solto" por ser o termo dos detentores; cerca de 90 grupos, maioria na Zona da Mata Norte; ligado à vida dos trabalhadores da cana. Confiança: alta — [Iphan/BCR](https://bcr.iphan.gov.br/bens-culturais/maracatu-baque-solto/); [Parecer técnico Iphan-PE](https://bcr.iphan.gov.br/wp-content/uploads/tainacan-items/65968/66987/Maracatu-de-Baque-Solto_de_Parecer-Tecnico-IPHAN-PE_.pdf); [INRC/SICG](https://sicg.iphan.gov.br/sicg/bemImaterial/acao/262/)
+- [RURAL] Artigo sobre a patrimonialização: o baque solto é mais que folguedo — sentimento comunitário, religião e relações sociais; a relação com as entidades faz parte dos **segredos** do grupo, e o dono/presidente faz a mediação entre brincantes e protetores espirituais. Confiança: média/alta — ["Maracatu de Baque Solto: de brincadeira a patrimônio cultural"](https://www.redalyc.org/journal/1154/115468015011/html/)
+
+**Preparo espiritual (apenas o que é público)**
+- [RURAL] O **calço** é a preparação espiritual feita perto do Carnaval, em terreiros de umbanda-jurema, catimbó ou xangô; busca proteger o caboclo ("fechar o corpo"), **não** provocar incorporação; há mais de uma forma de fazê-lo. Confiança: alta — [Bonini Baraldi, Sociologia & Antropologia/SciELO, 2021](https://www.scielo.br/j/sant/a/jdP5LbBfdCMJs8qhmcScKJN/?lang=pt)
+- [RURAL] O contexto, segundo Baraldi: no Carnaval os brincantes se sentem expostos ao "olho grande" e à inveja; corpo fechado = corpo protegido e saudável. Confiança: alta — [SciELO](https://www.scielo.br/j/sant/a/jdP5LbBfdCMJs8qhmcScKJN/?lang=pt)
+- [RURAL] Suiá Omim Chaves (*Carnaval em terras de caboclo*, 2008): o calço é conhecido pelo povo do maracatu como preparação espiritual; os "rituais de respeito" estão ligados ao segredo. Confiança: média — [Chaves, dissertação](https://www.livrosgratis.com.br/ler-livro-online-16357/carnaval-em-terras-de-caboclo--uma-etnografia-sobre-maracatus-de-baque-solto)
+- [RURAL] **Resguardo:** abstinência sexual antes e durante o Carnaval e não aceitar bebida de qualquer pessoa; também banhos de ervas, rezas e defumação, em geral com um padrinho ou madrinha espiritual. Um caboclo fala em sete dias. Confiança: alta — [SciELO](https://www.scielo.br/j/sant/a/jdP5LbBfdCMJs8qhmcScKJN/?lang=pt); [Le Monde Diplomatique Brasil](https://diplomatique.org.br/e-de-baque-solto/); [Diario de Pernambuco, jan. 2026](https://www.diariodepernambuco.com.br/vida-urbana/2026/01/11706008-para-maracatus-de-baque-solto-o-carnaval-e-trabalho-diario-e-feito-a-mao.html)
+- [RURAL] **Cravo branco:** levado na boca pelo caboclo de lança como parte da proteção; em Nazaré da Mata o calço é descrito como feito nos cravos. José Alexandre, caboclo de lança, diz que o segredo do cravo é só do caboclo, que "morre com ele" (conferir redação). Confiança: média/alta — [Le Monde Diplomatique Brasil](https://diplomatique.org.br/e-de-baque-solto/); [trabalho UFPB, 2024](https://repositorio.ufpb.br/jspui/handle/123456789/31514)
+- [RURAL] **Azougue:** bebida associada ao caboclo de lança. Uma reportagem publica ingredientes (aguardente com outros, inclusive pólvora). Confiança: baixa quanto à receita (uma fonte jornalística); **não reproduzir** — ver seção final. — [Le Monde Diplomatique Brasil](https://diplomatique.org.br/e-de-baque-solto/)
+- [RURAL] **Guiada (lança):** matéria de 2026 menciona que é cortada e preparada antes do Carnaval. Confiança: baixa/média — [Diario de Pernambuco](https://www.diariodepernambuco.com.br/vida-urbana/2026/01/11706008-para-maracatus-de-baque-solto-o-carnaval-e-trabalho-diario-e-feito-a-mao.html)
+- [RURAL] **Quem precisa de proteção:** caboclo de lança, dama do paço com a calunga (boneca) e o arreiamá — também tuxáua ou caboclo de pena. Confiança: média — [Revista Plura](https://revistaplura.emnuvens.com.br/anais/article/view/1310/1128)
+- [RURAL] O arreiamá/reamar é figura de referência indígena. Confiança: média — [TCC UFPE](https://repositorio.ufpe.br/bitstream/123456789/51269/1/TCC%20Mar%c3%adlia%20Rebeca%20Lima%20de%20Souza.pdf)
+- [RURAL] **Boneca/calunga:** é "calçada", isto é, consagrada com rezas e defumadores. Confiança: média — [Revista Pluriverso](https://revista.pluriverso.online/maracatu-rural/)
+- [RURAL] A dama do paço, pela responsabilidade, deve ser iniciada na Jurema (Sena, 2014, citado em paper). Confiança: baixa/média (atribuição a conferir) — [paper 34ª RBA/UFPB](https://www.abant.org.br/files/34rba_972_59075330_951041.pdf)
+- [RURAL] **Depois do Carnaval:** depoimento de liderança religiosa diz que os brincantes devolvem o cravo para "tirar os calços feitos na Jurema"; uma costureira do Cambinda Brasileira fala em "desmanchar o ponto" na Quarta-feira de Cinzas. As palavras "arreamento" e "entrega" da pauta **não apareceram** nas fontes. Confiança: baixa/média (atribuição a conferir) — [paper 34ª RBA/UFPB](https://www.abant.org.br/files/34rba_972_59075330_951041.pdf); [artigo Redalyc](https://www.redalyc.org/journal/1154/115468015011/html/)
+- [RURAL] Cambinda Brasileira (Nazaré da Mata) é estudado como guardião de tradições do catimbó-jurema. Confiança: média — [UFPB, 2024](https://repositorio.ufpb.br/jspui/handle/123456789/31514)
+- [RURAL] Raquel Dias Teixeira analisa cuidado e rituais de proteção dos brinquedos (cavalo-marinho e maracatu) na Zona da Mata. Confiança: média — [Anuário Antropológico](https://journals.openedition.org/aa/2150)
+
+**Umbanda, xangô, evangélicos**
+- [RURAL] A proteção do caboclo é descrita em um estudo como "armadura espiritual" ligada a entidade de umbanda, muitas vezes a cabocla Jurema; outro fala em rituais praticados "sincreticamente no âmbito da jurema e de outras tradições". Confiança: média (atribuição a conferir) — [Revista Plura](https://revistaplura.emnuvens.com.br/anais/article/view/185/128); [Áltera/UFPB](https://periodicos.ufpb.br/index.php/altera/article/download/30140/18679/86919)
+- [RURAL] Um estudo descreve no baque solto "polivalências religiosas" que entrelaçam rituais da Jurema, da Umbanda e do **catolicismo popular**. Confiança: baixa/média (um trecho; atribuição a conferir entre os anais da Plura) — [Revista Plura, anais](https://revistaplura.emnuvens.com.br/anais/article/view/437/494)
+- [RURAL] Um mestre segue prescrições para fechar o corpo e recorre também a um amigo evangélico — a proteção não passa só pela Jurema. Confiança: baixa/média — [artigo Redalyc](https://www.redalyc.org/journal/1154/115468015011/html/)
+
+### Inferences
+- A formulação segura para o site: "muitos brincantes buscam proteção na Jurema Sagrada antes do Carnaval; como isso é feito pertence a cada grupo". Não dizer que todo brincante é juremeiro.
+- A calunga do baque solto e a da nação têm o mesmo nome e fundamentos diferentes; não transferir eguns/orixás para o rural.
+- O arreiamá como "figura de maior carga espiritual" não foi confirmado; as fontes só o incluem entre os que precisam de proteção.
+
+### Gaps
+- Dossiê do Iphan do Baque Solto, Severino Vicente da Silva (*Festa de caboclo*) e Maria Alice Amorim: não localizados/lidos; não há citações deles aqui.
+- Catolicismo popular no baque solto: só uma menção genérica (acima); nenhum detalhe de práticas. Dizer no máximo que "há também elementos de catolicismo popular e de Umbanda, segundo pesquisadores".
+- *Festa de caboclo* (Severino Vicente da Silva) não apareceu em busca dedicada; do autor só surgiu "O sagrado nos caboclinhos de Goiana", que é sobre caboclinhos, não maracatu.
+- "Arreamento"/"entrega": termo não confirmado.
+- Salles e Motta tratam da Jurema, não especificamente do maracatu rural, nos trechos recuperados.
+
+---
+
+## Para ambos: perseguição, intolerância e situação atual
+
+### Takeaway
+Maracatus e terreiros foram reprimidos pela polícia do século XIX ao Estado Novo, quando Pernambuco fechou terreiros e apreendeu objetos sagrados; hoje ambos são patrimônio nacional, mas o racismo religioso continua documentado.
+
+### Cited Findings
+- [NAÇÃO] 1856: o Diario de Pernambuco noticia a dispersão de um maracatu pela polícia na Praça da Boa Vista; 1868: requerimento à chefatura pedindo licença para brincar. Confiança: média — [Revista NEIAB/UEM](http://siteadmin2.uem.br/neiab/revista-neiab/3-2.pdf); [Mac Cord, Textos Escolhidos/UERJ](https://www.e-publicacoes.uerj.br/tecap/article/download/12594/9775/42763)
+- [NAÇÃO] A imprensa associava maracatus a "arruaças" e a "selvageria e incivilidade africanas". Confiança: média — [Guillen e Lima, Saeculum](https://maracatuteca.com/wp-content/uploads/2017/05/OS-MARACATUS_NACAO-DO-RECIFE-E-A-ESPETACULARIZACAO-DA-CULTURA-POPULAR.pdf)
+- [NAÇÃO] Sob Carlos de Lima Cavalcanti (1930–37) os terreiros foram intensamente vigiados; sob Agamenon Magalhães (1937–45), reprimidos com grande violência. Pais de santo pediam licença para manter maracatu, o que permitia ensaiar e manter o culto às escondidas. Confiança: alta — [Guillen e Lima, Saeculum](https://maracatuteca.com/wp-content/uploads/2017/05/OS-MARACATUS_NACAO-DO-RECIFE-E-A-ESPETACULARIZACAO-DA-CULTURA-POPULAR.pdf); [Negreiros, UFPB](https://periodicos.ufpb.br/index.php/dr/article/download/32971/17661/79692)
+- [AMBAS] A campanha foi divulgada pela *Folha da Manhã*, jornal do próprio interventor; houve batidas, prisões e apreensões; o terreiro de Maria Oyá foi invadido em maio de 1938. A Coleção Xangô Pernambucano (1938–40, 307 objetos apreendidos) está no Museu do Estado. Zuleica Dantas Pereira Campos (Unicap) é a referência, com *O combate ao catimbó* — título que mostra que a Jurema/catimbó também foi alvo. Confiança: média/alta — [CartaCapital](https://www.cartacapital.com.br/?p=463409); [Alma Preta](https://almapreta.com.br/sessao/cotidiano/artefatos-podem-reconstruir-historia-de-africanos-no-brasil/); [TCC UFRPE](https://repository.ufrpe.br/bitstream/123456789/5791/1/tcc_art_luizfelipedesantana.pdf)
+- [AMBAS] Serviço de Higiene Mental: um artigo descreve acordo pelo qual o SHM dava licença de funcionamento em troca de os terreiros se abrirem aos psiquiatras. Confiança: baixa (uma fonte secundária, sem datas) — [Revista Brasileira de História das Religiões/UEM](https://periodicos.uem.br/ojs/index.php/RbhrAnpuh/article/download/26685/14323)
+- [AMBAS] Patrimônio: os dois maracatus foram registrados pelo Iphan em dezembro de 2014. Confiança: alta — [BCR Nação](https://bcr.iphan.gov.br/bens-culturais/maracatu-nacao/); [BCR Baque Solto](https://bcr.iphan.gov.br/bens-culturais/maracatu-baque-solto/)
+- [NAÇÃO] A candidatura do Maracatu Nação à Lista Representativa da Unesco foi entregue em 31/03/2025, com decisão esperada até o fim de 2026. **Resultado não encontrado até 10/11/2026 — conferir antes de publicar.** — [Iphan](https://www.gov.br/iphan/pt-br/assuntos/noticias/conselho-consultivo-aprova-apresentacao-da-candidatura-do-maracatu-nacao-a-patrimonio-da-humanidade); [MinC](https://www.gov.br/cultura/pt-br/assuntos/noticias/maracatu-nacao-pode-se-tornar-patrimonio-cultural-da-humanidade)
+- [RURAL] Jurema: pedido de registro nacional protocolado no Iphan; já é patrimônio imaterial da Paraíba; em Pernambuco, a Alepe indicou em dez. 2024 o "Culto Catimbó Jurema Sagrada" para registro estadual e há o Dia Estadual da Juremeira e do Juremeiro; em junho de 2026 a Alepe debateu a Rua da Guia como território sagrado da Jurema. Confiança: média/alta — [Iphan](https://www.gov.br/iphan/pt-br/assuntos/noticias/iphan-recebe-pedido-de-registro-da-jurema-sagrada); [Alepe Legis](https://legis.alepe.pe.gov.br/texto.aspx?id=81542); [Brasil de Fato, jun. 2026](https://www.brasildefato.com.br/2026/06/18/liderancas-religiosas-pedem-marco-em-rua-no-recife-antigo-onde-se-mestres-e-mestras-da-jurema-se-encontravam-em-vida/)
+- [AMBAS] Lei 14.532, de 11/01/2023: alterou a Lei 7.716/1989 e o Código Penal; a injúria racial passou a ser crime de racismo (art. 2º-A), com reclusão de 2 a 5 anos e multa, e a lei passou a prever o racismo religioso e o recreativo. Confiança: alta quanto à lei e à injúria racial; a pena específica do racismo religioso não foi recuperada — conferir o texto oficial. — [Planalto](https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14532.htm); [ConJur](https://www.conjur.com.br/2023-jan-13/romulo-moreira-lei-1453223-crime-injuria-racial/)
+- [AMBAS] Racismo religioso hoje: levantamento de 2022 acompanhado pelo MPPE (139 lideranças) — cerca de 92% já sofreram racismo religioso; pesquisa da Renafro (511 terreiros) — 80%. Ataque a terreiro de Jurema no Passarinho aos gritos de "macumba aqui não". 20ª Caminhada dos Terreiros no Recife em 4/11/2026. Confiança: média — [ANF](https://www.anf.org.br/ataques-a-terreiros-expoem-casos-de-racismo-religioso-em-pernambuco/); [Marco Zero](https://marcozero.org/terreiros-pedem-criacao-de-delegacia-especializada-em-intolerancia-religiosa-em-pernambuco/); [Diario de Pernambuco, nov. 2026](https://www.diariodepernambuco.com.br/vida-urbana/2026/11/11728386-caminhada-dos-terreiros-reune-fieis-no-recife-a-gente-diz-nao-ao-racismo.html)
+- [NAÇÃO] Tensão com evangélicos: nações perdem integrantes convertidos (três no Leão Coroado); há relatos de fiéis dizendo que maracatu é "coisa do diabo" e tentando tirar grupo de espaço vizinho a igreja; Chacon atribui os ataques também ao racismo. O número de brincantes na rua não cai de forma significativa. Confiança: média/alta — [Marco Zero](https://marcozero.org/o-drama-intimo-dos-maracatus-que-perdem-integrantes-para-os-cultos-evangelicos/); [Observatório Evangélico](https://www.observatorioevangelico.org/carnaval-e-tradicoes-culturais-brasileiras-entram-em-conflito-com-os-evangelicos/)
+- [RURAL] A mesma reportagem cita a dirigente do Cruzeiro do Forte (baque solto do Recife), cujo filho se converteu. Confiança: média — [Marco Zero](https://marcozero.org/o-drama-intimo-dos-maracatus-que-perdem-integrantes-para-os-cultos-evangelicos/)
+
+### Inferences
+- A licença para maracatu como abrigo do culto explica historicamente por que nação e terreiro andam juntos.
+- Há um parecer de reavaliação do registro do Maracatu Nação no Iphan que menciona ameaças ao bem; conteúdo não lido — [parecer](https://bcr.iphan.gov.br/wp-content/uploads/tainacan-items/65968/114271/SEI_IPHAN-6208558-Parecer-Tecnico.pdf).
+
+### Gaps
+- "Fechamento de terreiros em 1938": tenho a invasão de maio de 1938 e a repressão geral; o ato/data exata do fechamento não foi confirmado.
+- Lei 14.532/2023: redação exata do dispositivo sobre racismo religioso não lida; citar a lei de forma geral.
+- Repressão específica ao baque solto: nada encontrado.
+
+---
+
+## Linguagem: termos a usar e a evitar
+
+### Takeaway
+Nomear cada religião pelo nome próprio, usar os títulos que as comunidades usam e preferir "racismo religioso"; evitar rótulos genéricos ou demonizantes. Não encontrei um manual de redação único: as recomendações abaixo combinam cartilhas com inferência minha, sinalizada.
+
+### Cited Findings
+- [AMBAS] O governo federal (Ministério da Igualdade Racial) tem guia/cartilha de enfrentamento ao racismo religioso e usa "Povos e Comunidades Tradicionais de Matriz Africana e Povos de Terreiro". Confiança: alta quanto à existência; texto não lido — [MIR, cartilha](https://www.gov.br/igualdaderacial/pt-br/assuntos/guia-denuncias-racismo-religioso/cartilha-enfrentamento-ao-racismo-religioso.pdf)
+- [AMBAS] "Racismo religioso" é o termo reivindicado pelas comunidades; "intolerância religiosa" pode mascarar a dimensão racial. — [Alma Preta](https://almapreta.com.br/sessao/cotidiano/termo-intolerancia-religiosa-mascara-violencia-racista-contra-religioes-de-matriz-africana/)
+- [AMBAS] "Macumba/macumbeiro", "chuta que é macumba" e "reza de índio/coisa de pajé" aparecem em cartilha como expressões racistas; há adeptos que ressignificam "macumba", mas o uso cabe a quem é de dentro. — [Cartilha de Niterói](https://egg.seplag.niteroi.rj.gov.br/wp-content/uploads/2025/07/CARTILHA-DE-COMBATE-AO-RACISMO-RELIGIOSO2.pdf); [CartaCapital](https://www.cartacapital.com.br/?p=74016)
+- [AMBAS] "Magia negra" é pejorativo e ofende os religiosos. — [Geledés, guia](https://www.geledes.org.br/guia-sobre-religioes-afro-brasileiras/)
+- [AMBAS] Outros materiais: Criola (*Terreiros em Luta*, 2ª ed. 2026), glossário Senac de diversidade religiosa (tem seção "termos a evitar"; não lida). — [Criola](https://criola.org.br/wp-content/uploads/2026/04/Terreiros-em-Luta_VF_Digital.pdf); [Senac](https://ww3.ms.senac.br/Portals/0/adam/Content/YE_jqbqkyUCmn2GV6l96eA/Link/glossario5_Diversidade%20religiosa.pdf)
+- [AMBAS] O Estatuto da Igualdade Racial (Lei 12.288/2010) garante o livre exercício dos cultos de matriz africana. — [cartilha Semipi-PR](https://www.semipi.pr.gov.br/sites/default/arquivos_restritos/files/documento/2025-09/CARTILHA%201_MARCOS%20LEGAIS%20POVOS%20DE%20TERREIRO.pdf)
+
+### Inferences (recomendações minhas, não citação de guia)
+- **Usar:** "religiões de matriz africana"; "religião de matriz indígena e africana" ou "afro-indígena" (Jurema); "povo de terreiro"; "Jurema Sagrada", "juremeiro/juremeira"; "Xangô (nome que o candomblé nagô recebe em Pernambuco)"; "ialorixá/babalorixá", "mãe/pai de santo", "mestre", "rainha"; "fundamento", "obrigação", "calço", "resguardo", "proteção"; "ancestrais (eguns)"; "brincante", "brincadeira", "nação".
+- **Evitar:** "macumba" como rótulo; "seita"; "feitiçaria", "bruxaria", "magia negra"; "possessão" (ainda mais "demoníaca"); "misterioso", "exótico", "primitivo", "folclórico" como sinônimo de menor; "superstição", "crendice"; "boneca de vodu"; verbos no passado para religiões vivas.
+- **Com cuidado:** "sincretismo" (explicar o contexto de repressão; a própria literatura usa a palavra); "culto" (aceito juridicamente, mas "religião" é mais seguro); "folguedo" (os detentores dizem "brincadeira").
+- "Seita" e "sincretismo" não têm orientação explícita nas cartilhas recuperadas; a recomendação é inferência.
+
+### Gaps
+- Cartilhas do MPF, Unesco, Renafro e Iphan sobre redação: não localizadas.
+- Lista oficial de termos do MIR e do Senac: não lida (bloqueio de rede).
+
+---
+
+## O que NÃO publicar (reservado aos iniciados)
+
+### Takeaway
+As fontes e os próprios brincantes dizem que há segredo; o site deve dizer que ele existe e parar aí.
+
+### Cited Findings
+- [RURAL] A relação com as entidades integra os segredos do grupo, mediada pelo dono. — [artigo Redalyc](https://www.redalyc.org/journal/1154/115468015011/html/)
+- [RURAL] O caboclo "morre com o segredo do cravo". — [Le Monde Diplomatique Brasil](https://diplomatique.org.br/e-de-baque-solto/)
+- [RURAL] Rituais de respeito ligados ao segredo (Chaves). — [dissertação](https://www.livrosgratis.com.br/ler-livro-online-16357/carnaval-em-terras-de-caboclo--uma-etnografia-sobre-maracatus-de-baque-solto)
+- [NAÇÃO] Calungas recolhidas para rituais fora da vista do público. — [Marco Zero](https://marcozero.org/do-terreiro-a-rua-maracatu-encanto-da-alegria-mostra-a-conexao-entre-religioes-afro-indigenas-e-o-carnaval/)
+
+### Inferences (lista de não publicação)
+- [RURAL] Ingredientes, receita ou preparo do azougue (mesmo já tendo saído na imprensa; além de segredo, há risco para adolescentes).
+- [RURAL] Como se faz o calço: rezas, pontos, ervas, defumações, pontos do corpo, quem faz e onde.
+- [RURAL] O significado e o preparo do cravo; o preparo da guiada e da boneca.
+- [NAÇÃO] Conteúdo das obrigações às calungas, aos orixás e aos eguns; oferendas; o que ocorre no recolhimento.
+- [NAÇÃO] Detalhes do culto aos eguns e letras/traduções de cânticos reservados da Noite dos Tambores Silenciosos.
+- [AMBAS] Nome de entidade ou orixá pessoal de brincante; filiação religiosa de indivíduos sem declaração pública deles; fotos de assentamentos, quartos de santo ou de pessoas em transe; endereços de terreiros que não se divulgam.
+- [AMBAS] Qualquer "tutorial" ou encenação escolar de rito.
+
+### Gaps
+- Nenhuma fonte traz uma lista formal de temas vedados; a lista acima é inferência a partir do que as fontes calam. Ideal: validar com uma nação e um maracatu de baque solto antes de publicar.
