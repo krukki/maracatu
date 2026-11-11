@@ -1,0 +1,43 @@
+---
+/**
+ * Faixa de cor cheia, de ponta a ponta da tela, para dar ritmo à página.
+ * tom 1 e 2 seguem o esquema de cor da tradição da página (data-baque):
+ * Nação = encarnado / azul real; Rural = magenta / vinho; comum = tinta.
+ * O fundo vaza até as bordas com box-shadow + clip-path (sem rolagem horizontal).
+ */
+import Motivo from './Motivo.astro';
+interface Props { tom?: 1 | 2; motivo?: 'nacao' | 'rural'; tradicao?: 'nacao' | 'rural' }
+const { tom = 1, motivo, tradicao } = Astro.props;
+---
+
+<section class:list={['secao-cor', 'largo', `secao-cor--${tom}`]} data-baque={tradicao}>
+  {motivo && <div class="secao-motivo" aria-hidden="true"><Motivo tipo={motivo} altura={18} /></div>}
+  <div class="secao-corpo"><slot /></div>
+</section>
+
+<style>
+  .secao-cor {
+    --fundo: var(--forte-1);
+    background: var(--fundo);
+    box-shadow: 0 0 0 100vmax var(--fundo);
+    clip-path: inset(0 -100vmax);
+    color: var(--sobre-forte);
+    --acento-texto: var(--sobre-forte);
+    --acento: var(--sobre-forte);
+    padding-block: var(--e-6);
+    margin-block: var(--e-6);
+    position: relative;
+  }
+  .secao-cor--2 { --fundo: var(--forte-2); --acento-texto: var(--forte-2-acento); --acento: var(--forte-2-acento); }
+  .secao-motivo { position: absolute; left: calc(50% - 50vw); right: calc(50% - 50vw); top: 0; }
+  .secao-corpo { display: grid; gap: var(--e-4); max-width: var(--medida); }
+  .secao-cor :global(h2) {
+    color: var(--sobre-forte);
+    border-top: 0; padding-top: 0; margin-top: var(--e-3);
+    font-size: clamp(var(--t-4), 6vw, var(--t-5));
+  }
+  .secao-cor :global(a) { color: var(--acento-texto); }
+  .secao-cor :global(.fonte-margem) { display: none !important; }
+  .secao-cor :global(.etiqueta) { color: var(--sobre-forte); }
+  :global(:root[data-tema='escuro']) .secao-cor, .secao-cor { outline: none; }
+</style>

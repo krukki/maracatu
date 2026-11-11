@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/PaginaLayout.astro
 titulo: "Personagens e indumentária"
-resumo: "Na frente, figuras cômicas abrem caminho; ao redor, os caboclos de lança protegem o miolo do cortejo, onde seguem as baianas, a boneca, a bandeira e a corte."
+resumo: "Figuras cômicas abrem caminho, caboclos de lança protegem e, no miolo, seguem baianas, boneca, bandeira e corte."
 descricao: "Caboclo de lança, arreiamá, Mateus, Catirina, burra, baianas e a corte do maracatu de baque solto, e como é feita a gola do caboclo."
 baque: rural
 rota: /rural/personagens-e-indumentaria/
@@ -13,34 +13,52 @@ import Ficha from '../../components/Ficha.astro';
 import Ilustracao from '../../components/Ilustracao.astro';
 import Aviso from '../../components/Aviso.astro';
 import CabocloAnotado from '../../components/CabocloAnotado.astro';
+import Destaques from '../../components/Destaques.astro';
+import SaibaMais from '../../components/SaibaMais.astro';
+import SecaoCor from '../../components/SecaoCor.astro';
+
+<Destaques itens={[
+  { grande: 'Na frente', texto: 'Mateus, Catirina e a burra abrem caminho.' },
+  { grande: 'Ao redor', texto: 'Caboclos de lança em trincheiras.' },
+  { grande: 'No miolo', texto: 'Baianas, boneca, bandeira e corte.' },
+  { grande: 'Um mês', texto: 'Tempo que uma gola pode levar para ficar pronta.' },
+]} />
 
 ## Como o cortejo se organiza
 
-Uma pesquisa sobre o Cambinda Brasileira descreve o cortejo em três partes.<Fonte id="souza-tcc-ufpe" />
+Três partes, segundo uma pesquisa sobre o Cambinda Brasileira.<Fonte id="souza-tcc-ufpe" />
 
-1. **Na frente:** Mateus, Catirina e a burra, figuras cômicas que abrem caminho.
-2. **Ao redor:** os caboclos de lança, em fileiras chamadas **trincheiras**, protegendo o centro.
-3. **No miolo:** a bandeira, a boneca, a corte, o arreiamá e as baianas.
+1. **Na frente:** Mateus, Catirina e a burra.
+2. **Ao redor:** os caboclos de lança, em fileiras chamadas **trincheiras**.
+3. **No miolo:** bandeira, boneca, corte, arreiamá e baianas.
 
-Atrás vêm o terno, que faz a música, e o mestre com seu apito.
+Atrás vêm o terno e o mestre com seu apito.
 
 <Figura id="rural-leao-serra" />
 
 ## O caboclo de lança
 
-É o personagem principal e o símbolo do baque solto.<Fonte id="fcc-educa" /> Sua função no cortejo é proteger o miolo: a corte, a dama do paço e as baianas. Ele corre, gira e faz manobras com a guiada, e o som dos chocalhos anuncia sua chegada.
+O símbolo do baque solto.<Fonte id="fcc-educa" /> Protege o miolo do cortejo, corre, gira e faz manobras com a guiada. Os chocalhos anunciam sua chegada.
 
 <CabocloAnotado />
 
-### A gola, feita à mão
+<SecaoCor tom={2} motivo="rural">
 
-A <Termo id="gola">gola</Termo> é uma das peças mais importantes e trabalhosas do baque solto. É feita de veludo bordado com lantejoulas e miçangas e pode levar até um mês para ficar pronta.<Fonte id="nazare-gola" /> Muitas vezes quem borda é o próprio brincante ou alguém da família, gente que durante o dia trabalha no corte da cana.<Fonte id="dp-baque-solto-2026" />
+## A gola, feita à mão
 
-Cada gola é única. O desenho, as cores e os brilhos dizem algo sobre o caboclo e sobre o grupo.
+Veludo bordado com lantejoulas e miçangas. Uma <Termo id="gola">gola</Termo> pode levar até um mês para ficar pronta.<Fonte id="nazare-gola" />
 
-<Aviso titulo="Quanto pesa o traje?" tipo="nota">
-  <p>Sites e reportagens citam números diferentes para o peso da gola com o surrão, e não encontramos fonte confiável que confirme algum deles. Por isso este site não informa o peso.</p>
-</Aviso>
+<SaibaMais sobre="quem borda as golas">
+
+Muitas vezes quem borda é o próprio brincante ou alguém da família, gente que durante o dia trabalha no corte da cana.<Fonte id="dp-baque-solto-2026" /> Cada gola é única: o desenho, as cores e os brilhos dizem algo sobre o caboclo e sobre o grupo.
+
+Sites e reportagens citam números diferentes para o peso da gola com o surrão, e não encontramos fonte confiável que confirme algum deles. Por isso este site não informa o peso.
+
+</SaibaMais>
+
+</SecaoCor>
+
+
 
 <Figura id="rural-caboclo-camelo" />
 
@@ -81,9 +99,12 @@ Cada gola é única. O desenho, as cores e os brilhos dizem algo sobre o caboclo
 </Ficha>
 
 <Ficha nome="Rei e rainha" id="rei-e-rainha">
-  <p>Muitos grupos de baque solto desfilam com um casal real no miolo. A Federação Carnavalesca, criada nos anos 1930, pressionou os grupos de baque solto a se parecer mais com os maracatus do Recife<Fonte id="maracatuteca-indiano" />, mas não encontramos fonte que date quando o casal real entrou no baque solto.</p>
+  <p>Muitos grupos de baque solto desfilam com um casal real no miolo.</p>
+  <SaibaMais sobre="o casal real no baque solto">
+  <p>A Federação Carnavalesca, criada nos anos 1930, pressionou os grupos de baque solto a se parecer mais com os maracatus do Recife<Fonte id="maracatuteca-indiano" />, mas não encontramos fonte que date quando o casal real entrou no baque solto.</p>
+  </SaibaMais>
 </Ficha>
 
 ## Trincheiras e manobras
 
-Os caboclos de lança evoluem em trincheiras. Cada trincheira segue um **caboclo de frente**, que puxa as manobras que o mestre ordena com o apito.<Fonte id="campos-tcc-ufpe" /> Visto de fora, parece um movimento solto; na verdade, é coreografia combinada e treinada nos ensaios.
+Cada trincheira segue um **caboclo de frente**, que puxa as manobras que o mestre ordena com o apito.<Fonte id="campos-tcc-ufpe" /> Parece solto, mas é coreografia treinada nos ensaios.

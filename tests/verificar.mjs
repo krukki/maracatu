@@ -85,7 +85,7 @@ for (const rota of rotas) {
   // Links internos e âncoras
   const html = readFileSync(join(DIST, rota, 'index.html'), 'utf8');
   for (const [, href] of html.matchAll(/href="([^"]+)"/g)) {
-    if (/^(https?:|mailto:)/.test(href)) continue;
+    if (/^(https?:|mailto:)/.test(href) || href.includes("${")) continue;
     const [caminho, ancora] = href.split('#');
     let alvo;
     if (!caminho) alvo = html;
@@ -100,6 +100,50 @@ for (const rota of rotas) {
     if (ancora && alvo && !alvo.includes(`id="${ancora}"`)) falhar(`${rota}: âncora inexistente: ${href}`);
   }
 }
+// 5. Interações: mapa clicável, "Saiba mais", cartões, navegação com transições, movimento reduzido
+{
+  const pg = await navegador.newPage({ viewport: { width: 390, height: 800 } });
+  await pg.goto(ORIGEM + BASE + '/');
+  await pg.click('.mapa-botao[data-cidade="Nazaré da Mata"]');
+  const painel = await pg.textContent('.mapa-painel');
+  const link = await pg.getAttribute('.mapa-painel a', 'href');
+  if (!painel.includes('Nazaré da Mata') || link !== `${BASE}/rural/`) falhar(`mapa: painel não mostrou Nazaré da Mata (${link})`);
+  await pg.keyboard.press('Escape');
+  if (!(await pg.textContent('.mapa-painel')).includes('Toque em uma cidade')) falhar('mapa: Esc não limpou o painel');
+
+  await pg.goto(ORIGEM + BASE + '/nacao/');
+  await pg.click('.saiba-mais summary');
+  if (!(await pg.evaluate(() => document.querySelector('.saiba-mais').open))) falhar('"Saiba mais" não abriu');
+
+  await pg.goto(ORIGEM + BASE + '/comparativo/');
+  await pg.click('.cartao .cb--rural');
+  if ((await pg.getAttribute('.cartao', 'data-lado')) !== 'rural') falhar('cartão do comparativo não virou');
+
+  // Navegação com View Transitions: depois de trocar de página, menu e tema continuam funcionando
+  await pg.goto(ORIGEM + BASE + '/');
+  await pg.click('.metade--rural');
+  await pg.waitForURL('**/rural/');
+  await pg.waitForTimeout(600);
+  await pg.click('.nav-botao');
+  if ((await pg.getAttribute('.nav-botao', 'aria-expanded')) !== 'true') falhar('menu não abre depois da navegação');
+  await pg.keyboard.press('Escape');
+  const antes = await pg.evaluate(() => document.documentElement.dataset.tema ?? 'sistema');
+  await pg.click('.tema-toggle');
+  const depois = await pg.evaluate(() => document.documentElement.dataset.tema);
+  if (!depois || depois === antes) falhar('tema não muda depois da navegação');
+  await pg.close();
+
+  // Movimento reduzido: nenhuma animação rodando
+  const rm = await navegador.newPage({ viewport: { width: 1280, height: 800 }, reducedMotion: 'reduce' });
+  for (const r of ['/', '/nacao/', '/rural/personagens-e-indumentaria/', '/historia/']) {
+    await rm.goto(ORIGEM + BASE + r);
+    await rm.waitForTimeout(300);
+    const n = await rm.evaluate(() => document.getAnimations().filter((a) => a.playState === 'running' && (a.effect?.getComputedTiming().duration ?? 0) > 50).length);
+    if (n) falhar(`${r}: ${n} animação(ões) rodando com movimento reduzido`);
+  }
+  await rm.close();
+}
+
 await navegador.close();
 servidor.close();
 

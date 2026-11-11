@@ -1,0 +1,51 @@
+---
+/**
+ * "Saiba mais": o texto completo de uma seção, recolhido para quem quer se aprofundar.
+ * As chamadas <Fonte/> continuam funcionando dentro dele.
+ */
+interface Props { sobre?: string; rotulo?: string }
+const { sobre, rotulo = 'Saiba mais' } = Astro.props;
+---
+
+<details class="saiba-mais">
+  <summary><span class="sm-icone" aria-hidden="true"></span>{rotulo}{sobre && <span class="sr-only"> sobre {sobre}</span>}</summary>
+  <div class="sm-corpo"><slot /></div>
+</details>
+
+<style>
+  .saiba-mais { max-width: var(--medida); }
+  .saiba-mais summary {
+    display: inline-flex; align-items: center; gap: var(--e-2);
+    min-height: 44px; padding: var(--e-1) var(--e-4) var(--e-1) var(--e-2);
+    border: 2px solid var(--acento); border-radius: 999px;
+    font-weight: 700; cursor: pointer; list-style: none;
+    color: var(--tinta);
+  }
+  .saiba-mais summary::-webkit-details-marker { display: none; }
+  .saiba-mais summary:hover { background: color-mix(in srgb, var(--acento) 12%, transparent); }
+  .sm-icone {
+    width: 1.5rem; height: 1.5rem; border-radius: 50%;
+    background: var(--acento); position: relative; flex: none;
+  }
+  .sm-icone::before, .sm-icone::after {
+    content: ''; position: absolute; left: 50%; top: 50%;
+    width: 0.7rem; height: 2px; background: var(--papel);
+    transform: translate(-50%, -50%);
+    transition: transform 0.25s;
+  }
+  .sm-icone::after { transform: translate(-50%, -50%) rotate(90deg); }
+  .saiba-mais[open] .sm-icone::after { transform: translate(-50%, -50%) rotate(0deg); }
+  .sm-corpo { display: grid; gap: var(--e-4); padding: var(--e-4) 0 var(--e-2) var(--e-4); border-left: 3px solid var(--acento); margin-top: var(--e-3); }
+  .sm-corpo :global(ul) { padding-left: 1.25em; margin: 0; }
+  :global(.secao-cor) .saiba-mais summary { color: var(--sobre-forte); border-color: var(--sobre-forte); }
+  :global(.secao-cor) .sm-icone { background: var(--sobre-forte); }
+  :global(.secao-cor) .sm-icone::before, :global(.secao-cor) .sm-icone::after { background: var(--fundo); }
+  :global(.secao-cor) .sm-corpo { border-color: var(--sobre-forte); }
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (interpolate-size: allow-keywords) {
+      .saiba-mais { interpolate-size: allow-keywords; }
+      .saiba-mais::details-content { block-size: 0; overflow: hidden; transition: block-size 0.4s ease, content-visibility 0.4s allow-discrete; }
+      .saiba-mais[open]::details-content { block-size: auto; }
+    }
+  }
+</style>

@@ -43,6 +43,7 @@ const nomes = { nacao: 'Nação', rural: 'Rural', ambas: 'As duas' } as const;
 </section>
 
 <script>
+  document.addEventListener('astro:page-load', () => {
   const raiz = document.querySelector<HTMLElement>('.ldt');
   const grupo = raiz?.querySelector<HTMLElement>('.ldt-filtro');
   const status = document.getElementById('ldt-status');
@@ -62,6 +63,7 @@ const nomes = { nacao: 'Nação', rural: 'Rural', ambas: 'As duas' } as const;
       if (status) status.textContent = `${n} marcos visíveis.`;
     }));
   }
+  });
 </script>
 
 <style>

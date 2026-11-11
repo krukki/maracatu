@@ -6,6 +6,7 @@
  */
 import mapa from '../data/mapa.json';
 import { lugares } from '../data/lugares';
+import { url } from '../lib/url';
 
 const { detalhe, localizador } = mapa;
 const [lon0, lat0, lon1, lat1] = detalhe.caixa;
@@ -23,6 +24,22 @@ const pontos = lugares.map((l) => {
   const desloc = l.nome === 'Recife' || l.nome === 'Olinda' ? (l.tradicao === 'nacao' ? 9 : -9) : 0;
   return { ...l, x: x + desloc, y };
 });
+// Um botão por cidade (Recife e Olinda têm as duas tradições, mostradas em blocos separados no painel)
+const cidades = [...new Set(lugares.map((l) => l.nome))].map((nome) => {
+  const itens = lugares.filter((l) => l.nome === nome);
+  const [x, y] = proj(itens[0].lon, itens[0].lat);
+  return {
+    nome,
+    x: (x / detalhe.largura) * 100,
+    y: (y / detalhe.altura) * 100,
+    itens: itens.map((l) => ({
+      tradicao: l.tradicao,
+      grupos: l.grupos,
+      rota: url(l.tradicao === 'nacao' ? '/nacao/' : '/rural/'),
+    })),
+  };
+});
+const nomeTradicao = { nacao: 'Maracatu Nação', rural: 'Maracatu Rural' } as const;
 const nacao = lugares.filter((l) => l.tradicao === 'nacao');
 const rural = lugares.filter((l) => l.tradicao === 'rural');
 ---
@@ -31,7 +48,7 @@ const rural = lugares.filter((l) => l.tradicao === 'rural');
   <div class="mapa-quadro">
     <svg viewBox={`0 0 ${detalhe.largura} ${detalhe.altura}`} role="img" aria-labelledby="mapa-titulo mapa-desc">
       <title id="mapa-titulo">Mapa da Região Metropolitana do Recife e da Zona da Mata Norte de Pernambuco</title>
-      <desc id="mapa-desc">O Maracatu Nação está em Recife, Olinda, Igarassu e Jaboatão dos Guararapes, no litoral. O Maracatu Rural está nos municípios da Zona da Mata Norte, a oeste e ao norte, como Nazaré da Mata, Aliança, Carpina e Goiana, e também em Olinda e no Recife. A lista completa está logo abaixo do mapa.</desc>
+      <desc id="mapa-desc">O Maracatu Nação está em Recife, Olinda, Igarassu e Jaboatão dos Guararapes, no litoral. O Maracatu Rural está nos municípios da Zona da Mata Norte, a oeste e ao norte, como Nazaré da Mata, Aliança, Carpina e Goiana, e também em Olinda e no Recife. Cada cidade tem um botão que mostra os grupos de lá; a lista completa também está logo abaixo do mapa.</desc>
       <rect width="100%" height="100%" class="mar" />
       {detalhe.terra.map((d) => <path d={d} class="terra" />)}
       <path d={detalhe.mar} class="mar" />
@@ -76,6 +93,22 @@ const rural = lugares.filter((l) => l.tradicao === 'rural');
       </g>
       <text x="16" y={detalhe.altura - 22 - localizador.altura * 0.36} class="rotulo-loc">Pernambuco</text>
     </svg>
+    <div class="mapa-botoes" hidden>
+      {cidades.map((c) => (
+        <button
+          type="button"
+          class="mapa-botao"
+          style={`left:${c.x.toFixed(2)}%;top:${c.y.toFixed(2)}%`}
+          aria-pressed="false"
+          aria-label={`${c.nome}: ${c.itens.map((i) => nomeTradicao[i.tradicao]).join(' e ')}`}
+          data-cidade={c.nome}
+          data-itens={JSON.stringify(c.itens)}
+        ></button>
+      ))}
+    </div>
+  </div>
+  <div class="mapa-painel" aria-live="polite" hidden>
+    <p class="painel-convite">Toque em uma cidade do mapa para ver os grupos de lá.</p>
   </div>
   <figcaption>
     <span class="leg"><span class="leg-nacao" aria-hidden="true"></span> Maracatu Nação</span>
@@ -97,8 +130,89 @@ const rural = lugares.filter((l) => l.tradicao === 'rural');
   </details>
 </figure>
 
+<script>
+  const nomes = { nacao: 'Maracatu Nação', rural: 'Maracatu Rural' } as Record<string, string>;
+  const conviteHTML = '<p class="painel-convite">Toque em uma cidade do mapa para ver os grupos de lá.</p>';
+  function escapar(t: string) { const d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
+
+  document.addEventListener('astro:page-load', () => {
+    const mapa = document.querySelector<HTMLElement>('.mapa');
+    if (!mapa) return;
+    const caixa = mapa.querySelector<HTMLElement>('.mapa-botoes')!;
+    const painel = mapa.querySelector<HTMLElement>('.mapa-painel')!;
+    const botoes = [...caixa.querySelectorAll<HTMLButtonElement>('.mapa-botao')];
+    caixa.hidden = false;
+    painel.hidden = false;
+
+    const limpar = () => {
+      botoes.forEach((b) => b.setAttribute('aria-pressed', 'false'));
+      painel.innerHTML = conviteHTML;
+      painel.classList.remove('painel--ativo');
+    };
+    botoes.forEach((b) => b.addEventListener('click', () => {
+      if (b.getAttribute('aria-pressed') === 'true') { limpar(); return; }
+      botoes.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      const itens = JSON.parse(b.dataset.itens!) as { tradicao: string; grupos: string; rota: string }[];
+      painel.innerHTML = `<p class="painel-cidade">${escapar(b.dataset.cidade!)}</p>` + itens.map((i) => `
+        <div class="painel-item painel-item--${i.tradicao}">
+          <span class="etiqueta etiqueta--${i.tradicao}">${nomes[i.tradicao]}</span>
+          <p>${escapar(i.grupos)}.</p>
+          <a href="${i.rota}">Conhecer o ${nomes[i.tradicao]}</a>
+        </div>`).join('');
+      painel.classList.remove('painel--ativo');
+      void painel.offsetWidth;
+      painel.classList.add('painel--ativo');
+    }));
+    mapa.addEventListener('keydown', (e) => { if (e.key === 'Escape') limpar(); });
+  });
+</script>
+
 <style>
   .mapa { margin: 0; max-width: 48rem; }
+  .mapa-quadro { position: relative; }
+  .mapa-botoes[hidden], .mapa-painel[hidden] { display: none; }
+  .mapa-botao {
+    position: absolute;
+    width: clamp(24px, 7%, 44px); aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 0; padding: 0; cursor: pointer;
+    background: transparent;
+  }
+  .mapa-botao::after {
+    content: ''; position: absolute; inset: 12%;
+    border-radius: 50%; border: 3px solid transparent;
+  }
+  .mapa-botao:hover::after { border-color: var(--tinta); }
+  .mapa-botao[aria-pressed='true']::after { border-color: var(--tinta); background: color-mix(in srgb, var(--amarelo) 45%, transparent); }
+  .mapa-botao:focus-visible { outline: 3px solid var(--foco); outline-offset: 2px; }
+  .mapa-painel {
+    margin-top: var(--e-3);
+    padding: var(--e-4);
+    border-radius: 14px;
+    background: var(--papel-2);
+    border: 2px solid var(--tinta);
+    display: grid; gap: var(--e-3);
+    min-height: 5rem;
+  }
+  .mapa-painel :global(.painel-convite) { font-weight: 600; color: var(--tinta-suave); }
+  .mapa-painel :global(.painel-cidade) { font-family: var(--fonte-titulo); font-size: var(--t-3); line-height: 1.1; }
+  .mapa-painel :global(.painel-item) { display: grid; gap: var(--e-2); justify-items: start; padding-left: var(--e-3); border-left: 5px solid; }
+  .mapa-painel :global(.painel-item--nacao) { border-color: var(--encarnado); }
+  .mapa-painel :global(.painel-item--rural) { border-color: var(--magenta); }
+  .mapa-painel :global(.painel-item a) {
+    display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; color: var(--tinta);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .pt-nacao, .pt-rural { transform-box: fill-box; transform-origin: center; animation: pulsa 2.4s ease-in-out infinite; }
+    .pt-nacao { animation-name: pulsa-losango; }
+    .pontos g:nth-child(3n) .pt-nacao, .pontos g:nth-child(3n) .pt-rural { animation-delay: 0.6s; }
+    .pontos g:nth-child(3n+1) .pt-nacao, .pontos g:nth-child(3n+1) .pt-rural { animation-delay: 1.2s; }
+    .mapa-painel:global(.painel--ativo) { animation: painel-entra 0.45s cubic-bezier(.2,.9,.3,1.25); }
+  }
+  @keyframes pulsa { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.35); } }
+  @keyframes pulsa-losango { 0%, 100% { transform: rotate(45deg) scale(1); } 50% { transform: rotate(45deg) scale(1.35); } }
+  @keyframes painel-entra { from { transform: translateY(12px) scale(0.97); } to { transform: none; } }
   .mapa-quadro { border: 2px solid var(--tinta); border-radius: var(--raio); overflow: hidden; background: var(--papel); }
   .mapa svg { display: block; width: 100%; height: auto; }
   .mar { fill: color-mix(in srgb, var(--azul-real) 12%, var(--papel)); }

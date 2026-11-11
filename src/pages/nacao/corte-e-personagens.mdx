@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/PaginaLayout.astro
 titulo: "Corte e personagens"
-resumo: "O cortejo do Maracatu Nação é uma corte real em movimento, com estandarte, damas, nobres, baianas, o rei e a rainha sob o pálio e, fechando, o batuque."
+resumo: "Uma corte real em movimento: estandarte, damas, nobres, baianas, o rei e a rainha sob o pálio e, fechando, o batuque."
 descricao: "Quem é quem no cortejo do Maracatu Nação, o que é a calunga e por que a boneca Dona Joventina está em um museu."
 baque: nacao
 rota: /nacao/corte-e-personagens/
@@ -12,20 +12,42 @@ import Figura from '../../components/Figura.astro';
 import Ficha from '../../components/Ficha.astro';
 import Ilustracao from '../../components/Ilustracao.astro';
 import Aviso from '../../components/Aviso.astro';
+import Destaques from '../../components/Destaques.astro';
+import SaibaMais from '../../components/SaibaMais.astro';
+import SecaoCor from '../../components/SecaoCor.astro';
+
+<Destaques itens={[
+  { grande: 'Estandarte', texto: 'Abre o cortejo com o nome da nação.' },
+  { grande: 'Calunga', texto: 'A boneca sagrada, levada pela dama do paço.' },
+  { grande: 'Rei e rainha', texto: 'Seguem no centro, sob o pálio.' },
+  { grande: 'Batuque', texto: 'Os tambores fecham o cortejo.' },
+]} />
 
 ## Uma corte que desfila
 
-O Iphan lista como personagens do Maracatu Nação "o rei, a rainha, damas do paço, príncipes, princesas, baianas, caboclos, soldados, escravos de balé, entre outros".<Fonte id="iphan-bcr-nacao" /> Cada nação tem sua própria formação: nem todas têm todos os personagens, e os nomes mudam.
+Cada nação monta a sua corte. A ordem mais comum:<Fonte id="reis-tcc-ufpe" />
 
-Uma ordem comum é esta: o estandarte abre o cortejo; logo atrás vêm as damas do paço com as calungas; depois os casais de nobres, as baianas e, no centro, o rei e a rainha protegidos pelo pálio. O batuque fecha o cortejo.<Fonte id="reis-tcc-ufpe" />
+1. estandarte;
+2. damas do paço com as calungas;
+3. nobres e baianas;
+4. rei e rainha sob o pálio;
+5. batuque.
+
+<SaibaMais sobre="a lista oficial de personagens">
+
+O Iphan lista como personagens do Maracatu Nação "o rei, a rainha, damas do paço, príncipes, princesas, baianas, caboclos, soldados, escravos de balé, entre outros".<Fonte id="iphan-bcr-nacao" /> Nem todas as nações têm todos os personagens, e os nomes mudam de uma para outra.
+
+</SaibaMais>
 
 <Figura id="nacao-rei-rainha" largo />
 
 ## Personagens
 
 <Ficha nome="Rei e rainha" id="rei-e-rainha">
-  <p>São as figuras mais altas da corte. A rainha é, em muitas nações, a autoridade principal: costuma ser também a líder religiosa e a presidente.</p>
+  <p>As figuras mais altas da corte. Em muitas nações, a rainha é também a líder religiosa e a presidente.</p>
+  <SaibaMais sobre="a coroação das rainhas">
   <p>Coroar uma rainha é um acontecimento para a comunidade. Mãe Elda de Oxóssi, da Nação Porto Rico, foi coroada em 1980 dentro da Igreja do Rosário dos Homens Pretos do Recife. Depois disso, coroações dentro de igrejas católicas foram proibidas, e hoje elas acontecem em outros espaços.<Fonte id="dp-elda" /></p>
+  </SaibaMais>
 </Ficha>
 
 <Ficha nome="Príncipe, princesa e outros nobres" id="nobres" outrosNomes="duque, duquesa, conde, condessa, embaixador">
@@ -60,21 +82,29 @@ Uma ordem comum é esta: o estandarte abre o cortejo; logo atrás vêm as damas 
 
 <Figura id="nacao-damas" />
 
+<SecaoCor tom={2}>
+
 ## A calunga
 
-A calunga é uma boneca de feições negras, feita de madeira ou de pano, que "simboliza a ancestralidade" e a presença espiritual no cortejo, segundo o Iphan.<Fonte id="iphan-bcr-nacao" /> Para as nações, ela é sagrada. Mestre Gilmar, do Estrela Brilhante de Igarassu, resumiu assim: a calunga "é a dona de tudo".<Fonte id="bdf-gilmar" />
+Boneca de feições negras, de madeira ou de pano, que "simboliza a ancestralidade".<Fonte id="iphan-bcr-nacao" /> Para Mestre Gilmar, do Estrela Brilhante de Igarassu, ela "é a dona de tudo".<Fonte id="bdf-gilmar" />
 
-Cada calunga tem nome. O Elefante desfilava com três, quando o comum era ter duas: Dona Leopoldina, Dom Luís e Dona Emília.<Fonte id="cravo-elefante" />
+Cada calunga tem nome. O Elefante desfilava com três: Dona Leopoldina, Dom Luís e Dona Emília.<Fonte id="cravo-elefante" />
 
-<Aviso titulo="O que fica de fora desta página" tipo="cuidado">
-  <p>A calunga tem fundamento religioso. Os cuidados que ela recebe antes e depois do Carnaval são assunto das nações e dos terreiros, e não são explicados aqui. Veja <a href="../../raizes-religiosas/">Raízes religiosas</a>.</p>
-</Aviso>
+A calunga tem fundamento religioso. Os cuidados que ela recebe são assunto das nações e dos terreiros, e não são explicados aqui. Veja [Raízes religiosas](../../raizes-religiosas/).
+
+</SecaoCor>
 
 ### O caso de Dona Joventina
+
+Uma calunga do Estrela Brilhante que está num museu do Recife desde 1996, e cuja história duas nações contam de jeitos diferentes.
+
+<SaibaMais sobre="o caso de Dona Joventina">
 
 Dona Joventina é uma calunga do Maracatu Estrela Brilhante. Ficou por cerca de 30 anos (1965 a 1996) com a antropóloga norte-americana Katarina Real, que a doou ao Museu do Homem do Nordeste, no Recife, onde está até hoje.<Fonte id="muhne-joventina" />
 
 Duas nações com o mesmo nome, Estrela Brilhante do Recife e Estrela Brilhante de Igarassu, têm visões diferentes sobre a história da boneca. Igarassu entende que ela era sua e deveria ter voltado para a nação.<Fonte id="kubrusly-2008" /> O caso mostra uma pergunta que vale para muitos museus: a quem pertencem objetos sagrados de comunidades vivas?
+
+</SaibaMais>
 
 ## O que muda de nação para nação
 
@@ -82,4 +112,4 @@ Duas nações com o mesmo nome, Estrela Brilhante do Recife e Estrela Brilhante 
 - **Personagens:** caboclos, soldados e outros aparecem em algumas nações e não em outras.
 - **Calungas:** o número, os nomes e quem as carrega variam.
 
-Por isso, quando uma fonte diz "o maracatu nação tem tais personagens", vale perguntar: em qual nação?
+Quando uma fonte disser "o maracatu nação tem tais personagens", vale perguntar: em qual nação?

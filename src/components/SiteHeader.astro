@@ -61,30 +61,30 @@ const maisAtivo = mais.some((m) => ativa(m.rota));
 
 <script>
   // Menu do celular e submenu "Mais páginas": padrão de divulgação (disclosure).
-  const raiz = document.documentElement;
-  raiz.classList.add('js');
-
-  const botao = document.querySelector<HTMLButtonElement>('.nav-botao');
-  const lista = document.getElementById('menu-principal');
-  const mais = document.querySelector<HTMLButtonElement>('.nav-mais-botao');
-
-  function alternar(b: HTMLButtonElement | null, abrir?: boolean) {
+  // Os elementos são trocados a cada navegação; os eventos do documento são ligados uma vez só.
+  const alternar = (b: HTMLButtonElement | null, abrir?: boolean) => {
     if (!b) return;
-    const aberto = abrir ?? b.getAttribute('aria-expanded') !== 'true';
-    b.setAttribute('aria-expanded', String(aberto));
-  }
-  botao?.addEventListener('click', () => alternar(botao));
-  mais?.addEventListener('click', () => alternar(mais));
+    b.setAttribute('aria-expanded', String(abrir ?? b.getAttribute('aria-expanded') !== 'true'));
+  };
+  const botao = () => document.querySelector<HTMLButtonElement>('.nav-botao');
+  const mais = () => document.querySelector<HTMLButtonElement>('.nav-mais-botao');
 
+  document.addEventListener('astro:page-load', () => {
+    document.documentElement.classList.add('js');
+    botao()?.addEventListener('click', () => alternar(botao()));
+    mais()?.addEventListener('click', () => alternar(mais()));
+  });
   document.addEventListener('keydown', (e) => {
     if (e.key !== 'Escape') return;
-    if (mais?.getAttribute('aria-expanded') === 'true') { alternar(mais, false); mais.focus(); return; }
-    if (botao?.getAttribute('aria-expanded') === 'true') { alternar(botao, false); botao.focus(); }
+    const m = mais(), b = botao();
+    if (m?.getAttribute('aria-expanded') === 'true') { alternar(m, false); m.focus(); return; }
+    if (b?.getAttribute('aria-expanded') === 'true') { alternar(b, false); b.focus(); }
   });
   document.addEventListener('click', (e) => {
     const alvo = e.target as Node;
-    if (mais && !mais.parentElement?.contains(alvo)) alternar(mais, false);
-    if (botao && lista && !botao.contains(alvo) && !lista.contains(alvo)) alternar(botao, false);
+    const m = mais(), b = botao(), lista = document.getElementById('menu-principal');
+    if (m && !m.parentElement?.contains(alvo)) alternar(m, false);
+    if (b && lista && !b.contains(alvo) && !lista.contains(alvo)) alternar(b, false);
   });
 </script>
 
