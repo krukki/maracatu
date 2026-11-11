@@ -166,12 +166,168 @@ Um único momento orquestrado: na capa, os dois motivos "entram" em pulso, como 
 - Script Playwright em todas as páginas, nas larguras 360, 390, 768 e 1280: sem rolagem horizontal, capturas de tela para revisão visual e axe-core com zero violações AA.
 - Lighthouse (Chromium local) em celular, com meta de 95+.
 - Verificador de links internos e âncoras.
-- **Teste de não-mistura:** cada tradição tem uma lista de termos exclusivos. Na Nação, por exemplo, *calunga*, *alfaia*, *agbê*, *dama do paço* e *baque virado*; no Rural, *caboclo de lança*, *gola*, *guiada*, *surrão*, *mateus*, *catirina*, *sambada* e *orquestra de metais*. O teste falha se um termo exclusivo do Rural aparecer em página da Nação, ou o contrário, fora de um `Aviso` marcado com `data-cruzamento`.
-
-**Atenção:** a lista acima é provisória. Pelo prompt do brief, a calunga também existe no Rural ("a boneca"), o que precisa ser confirmado. A lista final sai da pesquisa e fica restrita a termos realmente exclusivos.
-
+- **Teste de não-mistura** (listas da pesquisa, `maracatu_rural.md`):
+  - **Exclusivos do Rural:** caboclo de lança, guiada, arreiamá / caboclo de pena, Mateus, Catirina, burra, trincheira, gola, surrão, terno de sopros, sambada, folgazão.
+  - **Exclusivos da Nação:** alfaia, baque virado, Reis do Congo, Noite dos Tambores Silenciosos, príncipe, princesa, guarda real, pajens.
+  - **Regra:** o teste falha se um termo exclusivo de uma tradição aparecer na página da outra, salvo dentro de um `Aviso` marcado com `data-cruzamento` ("isso só existe no baque solto").
+  - **Termos compartilhados não são proibidos:** calunga/boneca, dama do paço, baianas, rei, rainha, estandarte, mestre, Jurema. Eles existem nas duas tradições, com sentidos próprios.
+  - **"Lanceiros" não entra na lista de proibidos.** A corte da Nação tem lanceiros, que não são caboclos de lança.
 - Revisões finais: accessibility-review, design-critique e design-review, com correções, e verification-before-completion antes de dizer que terminou.
 
-## 8. Roteiro de conteúdo por página
+## 8. Política de fontes
 
-*(Preenchido a partir da pesquisa. Ver seção seguinte.)*
+A pesquisa (pasta `research_notes/`) passou por duas rodadas. A segunda conferiu os fatos nas fontes originais, mas alguns sites ficaram inacessíveis: o dossiê do Iphan, a Fundaj, o SciELO e o Redalyc. Por isso cada afirmação entra no site em um de três níveis:
+
+1. **Confirmado com fonte aberta:** afirmado normalmente, com a nota de fonte.
+2. **Tradição oral ou data reivindicada pelo grupo:** dito como tal. Exemplo: "o Elefante tem como data de fundação 1800, segundo a tradição da nação".
+3. **Sem fonte aberta ou com fontes divergentes:** fica de fora ou aparece explicitamente como divergência. Exemplo: "as fontes datam a primeira Noite dos Tambores entre 1961 e 1965".
+
+O que **não** entra como fato:
+
+- coroações "em 1674" e o "registro de 1711";
+- coroação de Dona Santa em 1947;
+- peso e custo da gola;
+- 1966 como fundação do Estrela de Ouro;
+- 1989 do Maracatu Nação Pernambuco;
+- 1938 como ato formal de fechamento de terreiros (o tema entra como repressão no Estado Novo, sem ato nem data).
+
+A Associação dos Maracatus de Baque Solto entra como "fundada no fim dos anos 1980 por Mestre Salustiano; o primeiro Encontro foi em 1990".
+
+**Religião:** o site diz que existe fundamento religioso e segredo, e para aí. Ficam de fora:
+
+- preparo, ervas e bebidas;
+- detalhes do calço;
+- obrigações;
+- o que acontece à meia-noite no Pátio do Terço, além de que é um momento de silêncio e homenagem aos ancestrais.
+
+Linguagem: "religiões de matriz africana", "Jurema Sagrada", "povo de terreiro", "racismo religioso". Nunca "seita", "magia", "possessão" nem "macumba" como rótulo.
+
+## 9. Roteiro de conteúdo por página
+
+Cada página abre com uma frase que resume a ideia, segue em seções curtas com intertítulos que respondem a uma pergunta do leitor e fecha com "Para ir além" (próxima página da trilha e fontes principais).
+
+**1. Início (`/`)**
+- Capa dividida: "Dois Baques", com Nação de um lado e Rural do outro.
+  - Nação: "batuque de alfaias e corte real, nas comunidades do Recife, Olinda e Igarassu".
+  - Rural: "caboclos de lança, terno de sopros e versos de improviso, nos engenhos da Zona da Mata Norte".
+- "Não é a mesma coisa": três diferenças em uma linha cada (som, personagens, território), com link para o Comparativo.
+- Mapa ilustrado de onde cada tradição vive.
+- "Patrimônio do Brasil desde 3 de dezembro de 2014": registros separados no mesmo dia.
+- Caminhos de leitura: começar pela História, pela Nação ou pelo Rural.
+
+**2. História e origens (`/historia/`)**
+- **Antes do nome:** coroações de reis do Congo nas irmandades do Rosário dos Homens Pretos (século XVII, anos 1680).
+- **O debate:** a versão tradicional da linha reta contra a historiografia recente (Mac Cord, Lima, Guillen), que reconhece o parentesco mas não a continuidade direta.
+- **A palavra "maracatu":** etimologia incerta (hipóteses tupi e africanas); registro mais antigo conhecido em 22/12/1840, no *Diário de Pernambuco*, em tom pejorativo.
+- **Repressão:** proibições no século XIX (postura de Olinda, 1861), terreiros perseguidos nos anos 1930 e no Estado Novo, e a Federação Carnavalesca (1935) disciplinando o Carnaval e pressionando o baque solto a imitar o virado (caso do Maracatu Indiano, 1957).
+- **O baque solto nos engenhos:** fim do século XIX e início do XX, cambindas e outros folguedos; Cambindinha de Araçoiaba (1914) e Cambinda Brasileira (1918).
+- **Os nomes:** Guerra-Peixe (1955) separa baque virado e baque solto; Katarina Real (1967) propõe "rural"; os brincantes dizem "baque solto" ou "maracatu de orquestra".
+- **Quase desaparecer e renascer:** nos anos 1960 restavam poucas nações; a partir dos anos 1990 elas se multiplicam; a Associação do baque solto cresce de nove para cerca de cem grupos.
+- **Reconhecimento:** 1º de agosto, Dia Estadual (1997) e Nacional (2024), em homenagem a Mestre Luiz de França; Iphan em 2014 e revalidação em 2026; candidatura do Maracatu Nação à Unesco enviada em 2025, ainda sem decisão.
+- **Linha do tempo** com duas trilhas e marcos comuns. Os anteriores a 1840 ficam rotulados como "antes do maracatu: as coroações".
+
+**3. Maracatu Nação (`/nacao/`)**
+- **O que é uma nação:** comunidade, sede, terreiro, rainha, mestre e presidente; não é um grupo qualquer.
+- **Onde estão:** Recife, Olinda, Igarassu e Jaboatão; entre 25 e cerca de 30 nações, conforme a fonte.
+- **Nações de referência:** Elefante, Leão Coroado, Estrela Brilhante do Recife e de Igarassu, Porto Rico, Encanto do Pina e outras, com as datas como "fundação declarada pela nação".
+- **Pessoas:** Dona Santa (Elefante, †1962), Mestre Luiz de França (Leão Coroado), Mestre Afonso Aguiar (†2018), Mãe Elda Viana (Porto Rico, coroada em 1980, †2025).
+- **Quando ver:** abertura do Carnaval no Marco Zero, Noite dos Tambores Silenciosos (segunda-feira de Carnaval, Pátio do Terço), concurso, 1º de agosto e ensaios. Inclui um bloco "Como assistir com respeito", com recomendações de bom senso marcadas como tal.
+- Vídeo do Iphan "Maracatu Nação"; fotos da trilha Nação.
+
+**4. Corte e personagens (`/nacao/corte-e-personagens/`)**
+- **O cortejo como corte real:** a ordem mais comum é estandarte, damas do paço com a calunga, nobres, baianas, rei e rainha sob o pálio e, fechando, o batuque. Avisa que ordem e lista variam entre nações.
+- **Fichas:** rei, rainha, príncipe e princesa, damas do paço, porta-estandarte, baianas, lanceiros da corte, guarda real, pajens e batuqueiros.
+- **A calunga:** boneca sagrada levada pela dama do paço, ligada aos ancestrais e à força espiritual da nação. Inclui os casos de Dona Joventina (no Museu do Homem do Nordeste desde 1996, reivindicada por duas nações) e das três calungas do Elefante. Os detalhes de fundamento ficam de fora.
+- **Estandarte, pálio e cores:** só o que tem fonte.
+
+**5. Instrumentos e baque virado (`/nacao/instrumentos-e-baque/`)**
+- **Fichas ilustradas:** alfaia (macaíba ou compensado, pele, cordas e afinação), caixa ou tarol, gonguê, mineiro. Agbê e atabaque aparecem como "acréscimos recentes, adotados por algumas nações e recusados por outras".
+- **"Virado" quer dizer "dobrado":** o toque com vários bombos, segundo Guerra-Peixe.
+- **O mestre e o apito; as toadas** (solo e coro).
+- **Baques:** Luanda, Arrasto, Martelo, Parada, Imalê. Os nomes vêm com o aviso de que a padronização é recente e cada nação tem os seus.
+- Vídeo do Iphan.
+
+**6. Maracatu Rural (`/rural/`)**
+- **O que é:** brinquedo dos trabalhadores da cana na Zona da Mata Norte; por que se diz "baque solto" e "de orquestra"; "rural" é termo de pesquisadores.
+- **Onde:** Nazaré da Mata ("terra do maracatu", com 18 a 19 grupos), Aliança (sede da Associação), Tracunhaém, Goiana, Glória do Goitá, Araçoiaba e Olinda. Os números divergem entre 90 e 130 grupos.
+- **Grupos de referência:** Cambindinha de Araçoiaba (1914), Cambinda Brasileira (1918), Piaba de Ouro (Olinda, 1977), Estrela Brilhante de Nazaré (2001), Coração Nazareno (2004).
+- **Pessoas:** Mestre Salustiano (1945–2008), Mestre Zé Duda (1939–2023), Mestra Gil (†2024); Barachinha e Anderson Miguel em atividade.
+- **Mulheres no baque solto:** os papéis femininos eram feitos por homens; o Coração Nazareno é o maracatu feminino de Nazaré da Mata.
+- **Quando ver:** ensaios e sambadas antes do Carnaval; Encontro em Nazaré da Mata (segunda e terça de Carnaval); Encontro Estadual.
+- Vídeo do Iphan "Maracatu de Baque Solto"; fotos da trilha Rural.
+
+**7. Personagens e indumentária (`/rural/personagens-e-indumentaria/`)**
+- **Três blocos do cortejo:**
+  - as figuras que abrem caminho: Mateus, Catirina e burra;
+  - os caboclos: de lança e de pena (arreiamá, com machadinha);
+  - o miolo: baianas, dama do paço com a boneca, estandarte, rei e rainha.
+- **Caboclo de lança** em ilustração anotada: gola bordada de lantejoulas, surrão com chocalhos, chapéu com cabeleira de fitas, guiada (lança de fitas, com cerca de 2 m), cravo branco, óculos e rosto pintado. Sem peso nem custo.
+- **Trincheiras e o caboclo de frente;** as manobras comandadas pelo mestre.
+- **"Porta-machado":** não aparece nas fontes como personagem. A machadinha é do arreiamá (ver nota à parte).
+
+**8. Orquestra e sambada (`/rural/orquestra-e-sambada/`)**
+- **O terno:** bombo, tarol, gonguê, mineiro e porca na percussão, mais três ou quatro sopros (trombone, clarinete, às vezes trompete). Explica a alternância entre os versos do mestre e as respostas do terno.
+- **Mestre e contramestre;** a improvisação. As formas de verso (marcha, samba curto, samba comprido, galope) entram como "formas citadas por pesquisadores", porque não tiveram confirmação em fonte aberta.
+- **A sambada:** dois mestres, dois ternos, desafio até o amanhecer, nos meses antes do Carnaval.
+- **Calendário do ciclo,** do ensaio ao Carnaval.
+- Vídeo do Iphan "Maracatu Baque Solto".
+
+**9. Comparativo (`/comparativo/`)**
+- Tabela linha a linha:
+  - nome e baque;
+  - território;
+  - origem;
+  - quem brinca;
+  - música (batuque só de percussão × terno com sopros);
+  - figura central (corte real × caboclo de lança);
+  - a calunga em cada uma;
+  - religião (terreiros de Xangô, Jurema e Umbanda × Jurema Sagrada);
+  - calendário;
+  - organização (AMANPE × Associação dos Maracatus de Baque Solto);
+  - patrimônio (registros separados em 2014).
+- "Palavras iguais, sentidos diferentes": dama do paço, rei e rainha, lanceiros × caboclo de lança.
+
+**10. Raízes religiosas (`/raizes-religiosas/`)**
+- "Não é religião, mas tem fundamento": seções separadas para Nação e Rural.
+- **Nação:** terreiros de Xangô (nome regional do candomblé nagô), Jurema e Umbanda; rainhas que são ialorixás; a calunga como ícone do fundamento; a Noite dos Tambores Silenciosos como homenagem aos ancestrais, com seus condutores (Raminho de Oxóssi, †2024; Jorge de Bessen desde 2025).
+- **Rural:** Jurema Sagrada; a proteção do brincante antes do Carnaval e o cravo branco, nomeados mas sem detalhes, porque há segredo.
+- **Perseguição e racismo religioso,** de ontem a hoje.
+- **Como falar com respeito:** pequeno guia de termos.
+
+**11. Além de Pernambuco e Mangue Beat (`/alem-de-pernambuco/`)**
+- **Mangue Beat:** manifesto "Caranguejos com Cérebro" (1992, Fred Zero Quatro); Chico Science & Nação Zumbi (Chico: 1966–1997). Os tambores vieram do bloco afro Lamento Negro, não de uma nação. "Maracatu Atômico" é de Jorge Mautner e Nelson Jacobina (1974). O mangue cita e reinterpreta o maracatu, não o toca. Siba e a Fuloresta, com mestres do baque solto.
+- **Grupos percussivos:** de 1997 em diante, pelo Brasil e pelo mundo; exemplos verificados.
+- **Nação ou grupo?** A diferença entre comunidade e repertório; as críticas de mestres e pesquisadores.
+- **Se você toca fora de Pernambuco:** boas práticas apresentadas como lições dos debates, não como norma oficial.
+- **Destaque fixo:** "Desdobramento, não substituto".
+- **Nota curta sobre o maracatu cearense:** outra tradição.
+- Vídeos do canal oficial da Nação Zumbi.
+
+**12. Glossário, fontes e sobre (`/fontes/`)**
+- **Glossário:** cada termo com uma etiqueta (Nação, Rural ou as duas).
+- **Fontes numeradas,** agrupadas por página.
+- **Créditos de imagem:** autor, licença e link.
+- **Sobre o trabalho:** Ronaldo Heitor, 4º semestre de INF, IFMT, 2026; objetivo e limites (o que não foi possível confirmar). Inclui um convite para correções.
+
+### Mídia
+- **Fotos:** 40 verificadas no Wikimedia Commons, todas CC BY ou CC BY-SA. Uso só as classificadas com segurança (Nação ou Rural) e confiro cada uma visualmente antes de publicar. Ficam de fora as "incertas" e as cenas encenadas sem aviso.
+- **Faltam fotos livres** de close de alfaia, gonguê, agbê, calunga, burra e arreiamá. Esses entram como ilustração própria em SVG.
+- **Vídeos:**
+  - Nação: Iphan `uX5wx0hycwg`;
+  - Rural: Iphan `OlEcKMzCSoY` e `XoaeZQ8nmSw`;
+  - nota sobre o patrimônio, servindo às duas: TV Brasil `N9HR9cm6ZDE`;
+  - Mangue Beat: Nação Zumbi `pYWfLGi8f3w` e `j299EbU-UnQ`.
+  - Os vídeos de tradição "incerta" ficam de fora.
+- **Mapa:** coordenadas do Nominatim (OSM, ODbL, com atribuição). Contorno do estado e dos municípios pela malha do IBGE; se a API seguir fora do ar, uso os polígonos do OSM.
+
+## 10. Etapas de construção
+
+1. **Base:** projeto Astro, GitHub Pages (base `/maracatu`), fontes, tokens de cor e tipografia, temas claro e escuro, `BaseLayout` com SEO, cabeçalho, rodapé e 404.
+2. **Componentes:** `Motivo` (cordame e gola), `PageHero`, `Fonte`, `Termo`, `Figura`, `VideoClique`, `Aviso`, `NavPaginas`, `TemaToggle`.
+3. **Dados:** `fontes.ts`, `glossario.ts`, `linha-do-tempo.ts`, `lugares.ts`, `imagens.ts`, `videos.ts`, preenchidos a partir das notas.
+4. **Trilha Nação:** as páginas 3 a 5, com fichas e ilustrações (alfaia, gonguê, calunga estilizada, pálio).
+5. **Trilha Rural:** as páginas 6 a 8, com fichas e ilustrações (caboclo de lança anotado, arreiamá, terno).
+6. **Páginas comuns:** Início, História com `LinhaDoTempo`, Comparativo, Raízes religiosas, Além de Pernambuco, Fontes, e o `Mapa`.
+7. **Fotos:** baixar, conferir visualmente, otimizar e creditar.
+8. **Verificação:** testes (sem rolagem horizontal, axe, não-mistura, links), Lighthouse, revisões de acessibilidade e de design, correções.
+9. **Publicação:** commit e push no branch, com o workflow do Pages pronto para você ativar.
