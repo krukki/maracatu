@@ -22,5 +22,6 @@ const { titulo, tipo = 'nota' } = Astro.props;
   }
   .aviso--cruzamento { border-left-style: double; border-left-width: 8px; }
   .aviso-titulo { font-weight: 700; margin-bottom: var(--e-2); }
+  .aviso :global(a) { color: var(--tinta); text-decoration-color: var(--acento); text-decoration-thickness: 2px; }
   .aviso-corpo > :global(* + *) { margin-top: var(--e-3); }
 </style>

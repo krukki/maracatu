@@ -92,6 +92,20 @@ export const imagens: Imagem[] = [
     autor: 'Projeto Transite', licenca: 'CC BY-SA 4.0',
     origem: 'https://commons.wikimedia.org/wiki/File:O_Mateus_do_Maracatu_Rural_de_Nazar%C3%A9_da_Mata_-_PE_Carnaval_de_2016.jpg',
   },
+  {
+    id: 'rural-caboclos-grupo', arquivo: 'rural-caboclos-grupo.jpg', tradicao: 'rural',
+    alt: 'Quatro caboclos de lança lado a lado numa avenida à noite, com cabeleiras de fitas vermelhas, douradas e verdes e golas bordadas.',
+    legenda: 'Caboclos de lança no Carnaval de Pernambuco.',
+    autor: 'Projeto Transite', licenca: 'CC BY-SA 2.0',
+    origem: 'https://commons.wikimedia.org/wiki/File:Grupo_de_caboclos_de_lan%C3%A7a_no_carnaval_pernambucano.jpg',
+  },
+  {
+    id: 'rural-parque', arquivo: 'rural-parque.jpg', tradicao: 'rural',
+    alt: 'Esculturas gigantes e coloridas de caboclos de lança sobre um gramado, no Parque dos Lanceiros.',
+    legenda: 'Esculturas de caboclos de lança no Parque dos Lanceiros, em Nazaré da Mata.',
+    autor: 'Ministério Público de Pernambuco', licenca: 'CC BY 2.0',
+    origem: 'https://commons.wikimedia.org/wiki/File:Parque_dos_lanceiros_-_Nazar%C3%A9_da_Mata_-_PE.jpg',
+  },
 ];
 
 export const imagemPorId = (id: string) => {

@@ -33,6 +33,8 @@ const rural = lugares.filter((l) => l.tradicao === 'rural');
       <title id="mapa-titulo">Mapa da Região Metropolitana do Recife e da Zona da Mata Norte de Pernambuco</title>
       <desc id="mapa-desc">O Maracatu Nação está em Recife, Olinda, Igarassu e Jaboatão dos Guararapes, no litoral. O Maracatu Rural está nos municípios da Zona da Mata Norte, a oeste e ao norte, como Nazaré da Mata, Aliança, Carpina e Goiana, e também em Olinda e no Recife. A lista completa está logo abaixo do mapa.</desc>
       <rect width="100%" height="100%" class="mar" />
+      {detalhe.terra.map((d) => <path d={d} class="terra" />)}
+      <path d={detalhe.mar} class="mar" />
       <g class="municipios">
         {detalhe.municipios.map((m) => (
           <path
@@ -46,7 +48,9 @@ const rural = lugares.filter((l) => l.tradicao === 'rural');
           />
         ))}
       </g>
-      <text x={detalhe.largura - 16} y={detalhe.altura * 0.62} class="rotulo-oceano" text-anchor="end">Oceano Atlântico</text>
+      <text x={detalhe.largura - 16} y={detalhe.altura * 0.62} class="rotulo-oceano" text-anchor="end">Oceano</text>
+      <text x={detalhe.largura - 16} y={detalhe.altura * 0.62 + 22} class="rotulo-oceano" text-anchor="end">Atlântico</text>
+      <text x="200" y="40" class="rotulo-estado">Paraíba</text>
       <g class="pontos">
         {pontos.map((p) => (
           p.tradicao === 'nacao' ? (
@@ -98,6 +102,7 @@ const rural = lugares.filter((l) => l.tradicao === 'rural');
   .mapa-quadro { border: 2px solid var(--tinta); border-radius: var(--raio); overflow: hidden; background: var(--papel); }
   .mapa svg { display: block; width: 100%; height: auto; }
   .mar { fill: color-mix(in srgb, var(--azul-real) 12%, var(--papel)); }
+  .terra { fill: var(--papel); stroke: var(--tinta-suave); stroke-width: 1.2; }
   .mun { fill: var(--papel-2); stroke: var(--linha); stroke-width: 1; }
   .mun--rmr { fill: color-mix(in srgb, var(--encarnado) 10%, var(--papel)); }
   .mun--nacao { fill: color-mix(in srgb, var(--encarnado) 22%, var(--papel)); stroke: var(--encarnado); }
@@ -107,15 +112,21 @@ const rural = lugares.filter((l) => l.tradicao === 'rural');
   .pt-brilho { fill: #fff; opacity: 0.6; }
   .rotulo {
     font-family: var(--fonte-texto);
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 700;
     paint-order: stroke;
     stroke: var(--papel);
     stroke-width: 4px;
     stroke-linejoin: round;
   }
+  @media (max-width: 40rem) {
+    .rotulo { font-size: 25px; stroke-width: 6px; }
+    .rotulo-oceano { font-size: 24px; }
+    .rotulo-estado, .rotulo-loc { font-size: 20px; }
+  }
   .rotulo--nacao { fill: var(--encarnado); }
   .rotulo--rural { fill: var(--magenta); }
+  .rotulo-estado { font-family: var(--fonte-texto); font-size: 14px; font-weight: 700; fill: var(--tinta-suave); letter-spacing: 0.04em; }
   .rotulo-oceano { font-family: var(--fonte-titulo); font-size: 18px; fill: var(--tinta-suave); }
   .loc-fundo { fill: var(--papel); stroke: var(--tinta); stroke-width: 3; }
   .loc-estado { fill: var(--papel-2); stroke: var(--tinta-suave); stroke-width: 2; }
