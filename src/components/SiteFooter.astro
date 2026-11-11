@@ -1,0 +1,59 @@
+---
+import { url } from '../lib/url';
+import { paginas } from '../data/navegacao';
+const grupos = [
+  { titulo: 'Maracatu Nação', itens: paginas.filter((p) => p.trilha === 'nacao') },
+  { titulo: 'Maracatu Rural', itens: paginas.filter((p) => p.trilha === 'rural') },
+  { titulo: 'Para entender', itens: paginas.filter((p) => p.trilha === 'geral') },
+];
+---
+
+<footer class="site-rodape" id="rodape">
+  <div class="rodape-interno">
+    <div class="rodape-marca">
+      <p class="rodape-nome">Dois Baques</p>
+      <p>Maracatu Nação e Maracatu Rural de Pernambuco. Duas tradições vivas, cada uma com sua história, seus mestres e seu fundamento.</p>
+    </div>
+    <nav aria-label="Mapa do site" class="rodape-mapa">
+      {grupos.map((g) => (
+        <div>
+          <p class="rodape-grupo">{g.titulo}</p>
+          <ul>
+            {g.itens.map((p) => <li><a href={url(p.rota)}>{p.titulo}</a></li>)}
+          </ul>
+        </div>
+      ))}
+    </nav>
+    <div class="rodape-sobre">
+      <p>Trabalho escolar de Ronaldo Heitor, 4º semestre de Informática, IFMT, 2026. Textos escritos a partir das fontes listadas em cada página; encontrou um erro? Veja como avisar em <a href={url('/fontes/#sobre')}>Sobre o trabalho</a>.</p>
+      <p>Fotos com licenças livres, com crédito em cada legenda. Mapa com dados © colaboradores do OpenStreetMap.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-rodape {
+    background: var(--tinta);
+    color: var(--papel);
+    margin-top: var(--e-8);
+  }
+  .site-rodape a { color: var(--papel); }
+  .rodape-interno {
+    max-width: var(--largura);
+    margin-inline: auto;
+    padding: var(--e-7) var(--gutter);
+    display: grid;
+    gap: var(--e-6);
+  }
+  @media (min-width: 60rem) {
+    .rodape-interno { grid-template-columns: 1fr 2fr; }
+    .rodape-sobre { grid-column: 1 / -1; }
+  }
+  .rodape-nome { font-family: var(--fonte-titulo); font-size: var(--t-3); margin-bottom: var(--e-2); }
+  .rodape-mapa { display: grid; gap: var(--e-5); }
+  @media (min-width: 40rem) { .rodape-mapa { grid-template-columns: repeat(3, 1fr); } }
+  .rodape-grupo { font-weight: 700; margin-bottom: var(--e-2); }
+  .rodape-mapa ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--e-1); }
+  .rodape-mapa a { display: inline-block; padding-block: var(--e-1); }
+  .rodape-sobre { font-size: var(--t-0); display: grid; gap: var(--e-2); border-top: 1px solid color-mix(in srgb, var(--papel) 25%, transparent); padding-top: var(--e-4); }
+</style>

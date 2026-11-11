@@ -1,0 +1,55 @@
+---
+/**
+ * Tabela comparativa. No desktop: tabela de três colunas. No celular: cada linha vira um bloco
+ * com os dois valores rotulados (os rótulos vêm de data-rotulo, e o cabeçalho continua no HTML).
+ */
+import { comparativo } from '../data/comparativo';
+---
+
+<div class="comparativo largo">
+  <table role="table">
+    <caption class="sr-only">Comparação entre o Maracatu Nação e o Maracatu Rural, aspecto por aspecto</caption>
+    <thead>
+      <tr>
+        <th scope="col">Aspecto</th>
+        <th scope="col" class="col-nacao">Maracatu Nação</th>
+        <th scope="col" class="col-rural">Maracatu Rural</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      {comparativo.map((l) => (
+        <tr role="row">
+          <th scope="row" role="rowheader">{l.aspecto}</th>
+          <td role="cell" class="col-nacao" data-rotulo="Nação">{l.nacao}</td>
+          <td role="cell" class="col-rural" data-rotulo="Rural">{l.rural}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .comparativo { max-width: 64rem; }
+  table { border-collapse: separate; border-spacing: 0; width: 100%; }
+  thead th { font-family: var(--fonte-titulo); font-weight: 400; font-size: var(--t-2); padding-bottom: var(--e-3); vertical-align: bottom; }
+  thead .col-nacao { color: var(--encarnado); border-bottom: 6px solid var(--encarnado); }
+  thead .col-rural { color: var(--magenta); border-bottom: 6px solid var(--magenta); }
+  thead th:first-child { border-bottom: 6px solid var(--tinta); }
+  tbody th { font-weight: 700; width: 22%; }
+  td, tbody th { padding: var(--e-3) var(--e-4) var(--e-3) 0; border-bottom: 1px solid var(--linha); vertical-align: top; }
+  td.col-nacao { border-right: 3px dotted var(--linha); }
+  td.col-rural { padding-left: var(--e-4); }
+
+  @media (max-width: 47.99rem) {
+    thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    table, tbody, tr, th, td { display: block; width: 100%; }
+    tr { padding-block: var(--e-4); border-bottom: 2px solid var(--tinta); }
+    tbody th { width: auto; border: 0; padding: 0 0 var(--e-2); font-family: var(--fonte-titulo); font-weight: 400; font-size: var(--t-2); }
+    td { border: 0; padding: var(--e-2) 0 var(--e-2) var(--e-4); }
+    td.col-nacao { border-right: 0; border-left: 4px solid var(--encarnado); }
+    td.col-rural { border-left: 4px solid var(--magenta); margin-top: var(--e-2); }
+    td::before { content: attr(data-rotulo); display: block; font-weight: 700; font-size: var(--t-0); }
+    td.col-nacao::before { color: var(--encarnado); }
+    td.col-rural::before { color: var(--magenta); }
+  }
+</style>

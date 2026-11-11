@@ -1,0 +1,44 @@
+---
+import { url } from '../lib/url';
+import { vizinhas } from '../data/navegacao';
+interface Props { rota: string }
+const { anterior, proxima } = vizinhas(Astro.props.rota);
+---
+
+<nav class="nav-paginas" aria-label="Continuar a leitura">
+  {anterior && (
+    <a class="np np--ant" href={url(anterior.rota)} rel="prev">
+      <span class="np-rotulo">Anterior</span>
+      <span class="np-titulo">{anterior.titulo}</span>
+    </a>
+  )}
+  {proxima && (
+    <a class="np np--prox" href={url(proxima.rota)} rel="next">
+      <span class="np-rotulo">Próxima</span>
+      <span class="np-titulo">{proxima.titulo}</span>
+    </a>
+  )}
+</nav>
+
+<style>
+  .nav-paginas {
+    display: grid;
+    gap: var(--e-3);
+    margin-top: var(--e-7);
+    max-width: var(--medida);
+  }
+  @media (min-width: 40rem) { .nav-paginas { grid-template-columns: 1fr 1fr; } }
+  .np {
+    display: grid;
+    gap: var(--e-1);
+    padding: var(--e-4);
+    border: 2px solid var(--tinta);
+    border-radius: var(--raio);
+    color: var(--tinta);
+    text-decoration: none;
+  }
+  .np:hover { background: var(--papel-2); }
+  .np--prox { text-align: right; grid-column: -2; }
+  .np-rotulo { font-size: var(--t-0); color: var(--tinta-suave); }
+  .np-titulo { font-family: var(--fonte-titulo); font-size: var(--t-2); line-height: 1.15; }
+</style>

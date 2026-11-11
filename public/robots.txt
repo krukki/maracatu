@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://krukki.github.io/maracatu/sitemap-index.xml

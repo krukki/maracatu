@@ -1,0 +1,16 @@
+---
+// Link para um termo do glossário. Uso no MDX: <Termo id="calunga">calunga</Termo>
+import { url } from '../lib/url';
+import { glossario } from '../data/glossario';
+
+interface Props { id: string }
+const { id } = Astro.props;
+const termo = glossario.find((t) => t.id === id);
+if (!termo) throw new Error(`Termo do glossário não encontrado: ${id}`);
+---
+
+<a class="termo" href={url(`/fontes/#termo-${id}`)} title={termo.definicao}><slot /></a>
+
+<style>
+  .termo { text-decoration-style: dotted; }
+</style>

@@ -1,0 +1,217 @@
+---
+import { url } from '../lib/url';
+import TemaToggle from './TemaToggle.astro';
+
+interface Props { rota: string }
+const { rota } = Astro.props;
+
+const principais = [
+  { rota: '/nacao/', texto: 'Maracatu Nação', marca: 'nacao' },
+  { rota: '/rural/', texto: 'Maracatu Rural', marca: 'rural' },
+  { rota: '/historia/', texto: 'História' },
+  { rota: '/comparativo/', texto: 'Comparativo' },
+];
+const mais = [
+  { rota: '/raizes-religiosas/', texto: 'Raízes religiosas' },
+  { rota: '/alem-de-pernambuco/', texto: 'Além de Pernambuco e Mangue Beat' },
+  { rota: '/fontes/', texto: 'Glossário, fontes e sobre' },
+];
+const ativa = (r: string) => (r === '/' ? rota === '/' : rota.startsWith(r));
+const maisAtivo = mais.some((m) => ativa(m.rota));
+---
+
+<header class="site-cabecalho">
+  <div class="barra">
+    <a class="marca" href={url('/')} aria-current={rota === '/' ? 'page' : undefined}>
+      <span class="marca-sinal" aria-hidden="true"><span></span><span></span></span>
+      Dois Baques
+    </a>
+
+    <nav class="nav" aria-label="Principal">
+      <button class="nav-botao botao" type="button" aria-expanded="false" aria-controls="menu-principal">
+        <span class="nav-botao-icone" aria-hidden="true"></span>
+        Menu
+      </button>
+      <ul id="menu-principal" class="nav-lista">
+        {principais.map((p) => (
+          <li>
+            <a
+              href={url(p.rota)}
+              class:list={['nav-link', p.marca && `nav-link--${p.marca}`]}
+              aria-current={ativa(p.rota) ? 'page' : undefined}
+            >{p.texto}</a>
+          </li>
+        ))}
+        <li class="nav-mais">
+          <button class="nav-mais-botao" type="button" aria-expanded="false" aria-controls="menu-mais" data-ativo={maisAtivo ? '' : undefined}>
+            Mais páginas
+          </button>
+          <ul id="menu-mais" class="nav-sub">
+            {mais.map((m) => (
+              <li><a href={url(m.rota)} class="nav-link" aria-current={ativa(m.rota) ? 'page' : undefined}>{m.texto}</a></li>
+            ))}
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <TemaToggle />
+  </div>
+</header>
+
+<script>
+  // Menu do celular e submenu "Mais páginas": padrão de divulgação (disclosure).
+  const raiz = document.documentElement;
+  raiz.classList.add('js');
+
+  const botao = document.querySelector<HTMLButtonElement>('.nav-botao');
+  const lista = document.getElementById('menu-principal');
+  const mais = document.querySelector<HTMLButtonElement>('.nav-mais-botao');
+
+  function alternar(b: HTMLButtonElement | null, abrir?: boolean) {
+    if (!b) return;
+    const aberto = abrir ?? b.getAttribute('aria-expanded') !== 'true';
+    b.setAttribute('aria-expanded', String(aberto));
+  }
+  botao?.addEventListener('click', () => alternar(botao));
+  mais?.addEventListener('click', () => alternar(mais));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if (mais?.getAttribute('aria-expanded') === 'true') { alternar(mais, false); mais.focus(); return; }
+    if (botao?.getAttribute('aria-expanded') === 'true') { alternar(botao, false); botao.focus(); }
+  });
+  document.addEventListener('click', (e) => {
+    const alvo = e.target as Node;
+    if (mais && !mais.parentElement?.contains(alvo)) alternar(mais, false);
+    if (botao && lista && !botao.contains(alvo) && !lista.contains(alvo)) alternar(botao, false);
+  });
+</script>
+
+<style>
+  .site-cabecalho {
+    border-bottom: 1px solid var(--linha);
+    background: var(--papel);
+    position: relative;
+    z-index: 20;
+  }
+  .barra {
+    max-width: var(--largura);
+    margin-inline: auto;
+    padding: var(--e-3) var(--gutter);
+    display: flex;
+    align-items: center;
+    gap: var(--e-3);
+    flex-wrap: wrap;
+  }
+  .marca {
+    font-family: var(--fonte-titulo);
+    font-size: var(--t-2);
+    color: var(--tinta);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--e-2);
+    min-height: 44px;
+    margin-right: auto;
+  }
+  /* Sinal da marca: dois discos, um de cada tradição */
+  .marca-sinal { display: inline-flex; }
+  .marca-sinal span {
+    width: 0.9rem; height: 0.9rem; border-radius: 50%;
+    display: block;
+  }
+  .marca-sinal span:first-child { background: var(--encarnado); box-shadow: inset 0 0 0 3px var(--ouro); }
+  .marca-sinal span:last-child { background: var(--magenta); box-shadow: inset 0 0 0 3px var(--amarelo); margin-left: -0.2rem; }
+
+  .nav { order: 3; width: 100%; }
+  .nav-botao { display: none; }
+  .nav-lista, .nav-sub { list-style: none; margin: 0; padding: 0; }
+  .nav-lista { display: flex; flex-direction: column; gap: var(--e-1); padding-block: var(--e-2); }
+  .nav-link, .nav-mais-botao {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: var(--e-2) var(--e-3);
+    color: var(--tinta);
+    text-decoration: none;
+    border-radius: var(--raio);
+    font-weight: 600;
+  }
+  .nav-link:hover { background: var(--papel-2); }
+  .nav-link[aria-current='page'] { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 0.35em; }
+  .nav-link--nacao { color: var(--encarnado); }
+  .nav-link--rural { color: var(--magenta); }
+  .nav-link--nacao::before, .nav-link--rural::before {
+    content: ''; width: 0.6rem; height: 0.6rem; border-radius: 50%; margin-right: var(--e-2); flex: none;
+  }
+  .nav-link--nacao::before { background: var(--encarnado); }
+  .nav-link--rural::before { background: var(--magenta); }
+
+  /* Celular: sem JS a lista fica visível; com JS vira menu recolhível */
+  .nav-mais-botao { display: none; }
+  .nav-sub { padding-left: 0; }
+  :global(html.js) .nav-botao { display: inline-flex; }
+  :global(html.js) .nav { order: 0; width: auto; }
+  :global(html.js) .nav-lista { display: none; }
+  :global(html.js) .nav-botao[aria-expanded='true'] + .nav-lista {
+    display: flex;
+    position: absolute;
+    left: 0; right: 0; top: 100%;
+    background: var(--papel);
+    border-bottom: 2px solid var(--tinta);
+    padding: var(--e-3) var(--gutter) var(--e-5);
+    box-shadow: 0 12px 24px -12px rgb(0 0 0 / 0.35);
+  }
+  .nav-botao-icone {
+    width: 1.1rem; height: 0.8rem;
+    border-block: 2px solid currentColor;
+    position: relative;
+  }
+  .nav-botao-icone::after {
+    content: ''; position: absolute; left: 0; right: 0; top: 50%;
+    border-top: 2px solid currentColor; transform: translateY(-50%);
+  }
+
+  /* Desktop: barra horizontal + submenu "Mais páginas" */
+  @media (min-width: 60rem) {
+    .nav, :global(html.js) .nav { order: 0; width: auto; }
+    .nav-botao, :global(html.js) .nav-botao { display: none; }
+    .nav-lista, :global(html.js) .nav-lista {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: var(--e-1);
+      padding: 0;
+      position: static;
+      box-shadow: none;
+      border: 0;
+    }
+    :global(html.js) .nav-mais-botao { display: flex; }
+    .nav-mais { position: relative; }
+    .nav-mais-botao {
+      background: none; border: 0; font: inherit; font-weight: 600; cursor: pointer; gap: var(--e-2);
+    }
+    .nav-mais-botao::after {
+      content: ''; width: 0.45rem; height: 0.45rem;
+      border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+      transform: translateY(-25%) rotate(45deg);
+      transition: transform 0.15s;
+    }
+    .nav-mais-botao[aria-expanded='true']::after { transform: translateY(10%) rotate(-135deg); }
+    .nav-mais-botao[data-ativo] { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 0.35em; }
+    :global(html.js) .nav-sub {
+      display: none;
+      position: absolute;
+      right: 0; top: calc(100% + var(--e-2));
+      min-width: 17rem;
+      background: var(--papel);
+      border: 2px solid var(--tinta);
+      border-radius: var(--raio);
+      padding: var(--e-2);
+      box-shadow: 0 12px 24px -12px rgb(0 0 0 / 0.35);
+    }
+    :global(html.js) .nav-mais-botao[aria-expanded='true'] + .nav-sub { display: block; }
+    .nav-sub { display: flex; gap: var(--e-1); }
+  }
+</style>

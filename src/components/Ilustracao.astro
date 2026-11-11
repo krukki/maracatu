@@ -1,0 +1,169 @@
+---
+/**
+ * Ilustrações originais (SVG) dos instrumentos e objetos. Traço na cor do texto; preenchimentos nas cores
+ * da tradição. Decorativas quando acompanham uma ficha que já descreve o objeto (aria-hidden).
+ */
+type Nome = 'alfaia' | 'gongue' | 'tarol' | 'mineiro' | 'agbe' | 'apito' | 'palio' | 'estandarte' | 'bombo' | 'trombone' | 'clarinete' | 'porca' | 'guiada' | 'gola' | 'surrao' | 'chapeu';
+interface Props { nome: Nome }
+const { nome } = Astro.props;
+---
+
+<svg class="ilu" viewBox="0 0 120 120" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+  {nome === 'alfaia' && (
+    <g>
+      <ellipse cx="60" cy="28" rx="40" ry="10" class="f-pele" />
+      <path d="M20 28 v62 a40 10 0 0 0 80 0 v-62" class="f-corpo" />
+      <ellipse cx="60" cy="28" rx="40" ry="10" />
+      <path d="M20 34 a40 10 0 0 0 80 0 M20 84 a40 10 0 0 0 80 0" stroke-width="5" class="s-aro" />
+      <path d="M26 38 L38 82 L50 40 L62 84 L74 40 L86 82 L96 38" class="s-corda" />
+      <path d="M33 64 h10 M57 66 h10 M81 64 h10" stroke-width="6" class="s-tirante" />
+    </g>
+  )}
+  {nome === 'gongue' && (
+    <g>
+      <path d="M44 24 h32 l10 64 a26 8 0 0 1 -52 0 z" class="f-metal" />
+      <path d="M60 24 v-10 M54 14 h12" />
+      <path d="M86 40 l20 -20" stroke-width="4" />
+      <circle cx="106" cy="20" r="3" />
+    </g>
+  )}
+  {nome === 'tarol' && (
+    <g>
+      <ellipse cx="60" cy="46" rx="42" ry="12" class="f-pele" />
+      <path d="M18 46 v24 a42 12 0 0 0 84 0 v-24" class="f-corpo" />
+      <ellipse cx="60" cy="46" rx="42" ry="12" />
+      <path d="M26 52 v22 M42 56 v22 M60 58 v22 M78 56 v22 M94 52 v22" stroke-width="2" />
+      <path d="M30 20 l26 22 M92 18 l-26 24" stroke-width="4" />
+    </g>
+  )}
+  {nome === 'mineiro' && (
+    <g>
+      <rect x="14" y="48" width="92" height="24" rx="12" class="f-metal" />
+      <path d="M30 48 v24 M46 48 v24 M62 48 v24 M78 48 v24 M94 48 v24" stroke-width="2" />
+    </g>
+  )}
+  {nome === 'agbe' && (
+    <g>
+      <path d="M60 18 c-8 0 -10 10 -10 16 c-18 6 -30 22 -30 42 c0 22 18 34 40 34 s40 -12 40 -34 c0 -20 -12 -36 -30 -42 c0 -6 -2 -16 -10 -16 z" class="f-cabaca" />
+      <path d="M26 62 q34 14 68 0 M22 80 q38 16 76 0 M30 98 q30 10 60 0 M44 44 q16 8 32 0" stroke-width="2" />
+      <g class="f-conta" stroke-width="1.5">
+        <circle cx="34" cy="68" r="3.5" /><circle cx="52" cy="73" r="3.5" /><circle cx="70" cy="73" r="3.5" /><circle cx="88" cy="68" r="3.5" />
+        <circle cx="30" cy="86" r="3.5" /><circle cx="50" cy="92" r="3.5" /><circle cx="72" cy="92" r="3.5" /><circle cx="92" cy="86" r="3.5" />
+      </g>
+    </g>
+  )}
+  {nome === 'apito' && (
+    <g>
+      <path d="M20 54 h52 a22 22 0 1 1 -8 30 h-44 z" class="f-metal" />
+      <circle cx="80" cy="70" r="8" />
+      <path d="M20 54 v30" />
+      <path d="M96 40 l12 -12 M100 52 l14 -2 M88 34 l2 -14" stroke-width="2.5" />
+    </g>
+  )}
+  {nome === 'palio' && (
+    <g>
+      <path d="M12 54 q48 -46 96 0 z" class="f-palio" />
+      <path d="M12 54 q8 10 16 0 q8 10 16 0 q8 10 16 0 q8 10 16 0 q8 10 16 0 q8 10 16 0" class="f-franja" />
+      <path d="M60 18 v94" stroke-width="4" />
+      <circle cx="60" cy="14" r="4" class="f-ouro" />
+    </g>
+  )}
+  {nome === 'estandarte' && (
+    <g>
+      <path d="M30 10 v104" stroke-width="4" />
+      <path d="M30 18 h66 v60 l-33 14 l-33 -14 z" class="f-estandarte" />
+      <circle cx="63" cy="48" r="13" class="f-ouro" />
+      <path d="M22 18 h16" stroke-width="4" />
+    </g>
+  )}
+  {nome === 'bombo' && (
+    <g>
+      <ellipse cx="60" cy="40" rx="38" ry="9" class="f-pele" />
+      <path d="M22 40 v40 a38 9 0 0 0 76 0 v-40" class="f-corpo" />
+      <ellipse cx="60" cy="40" rx="38" ry="9" />
+      <path d="M30 46 l10 40 M50 49 l0 40 M70 49 l0 40 M90 46 l-10 40" stroke-width="2" />
+      <path d="M96 20 l-24 18" stroke-width="4" />
+    </g>
+  )}
+  {nome === 'trombone' && (
+    <g>
+      <path d="M10 46 h72 a10 10 0 0 1 0 20 h-62 M20 66 h60" class="s-metal" />
+      <path d="M82 40 l26 -12 v48 l-26 -12 z" class="f-metal" />
+      <path d="M40 46 v20" />
+    </g>
+  )}
+  {nome === 'clarinete' && (
+    <g>
+      <path d="M58 8 h6 l2 86 h-10 z" class="f-madeira" />
+      <path d="M52 94 h18 l10 18 h-38 z" class="f-madeira" />
+      <circle cx="61" cy="30" r="2.5" /><circle cx="61" cy="44" r="2.5" /><circle cx="61" cy="58" r="2.5" /><circle cx="61" cy="72" r="2.5" />
+    </g>
+  )}
+  {nome === 'porca' && (
+    <g>
+      <path d="M34 30 h52 v62 a26 8 0 0 1 -52 0 z" class="f-corpo" />
+      <ellipse cx="60" cy="30" rx="26" ry="8" class="f-pele" />
+      <path d="M60 30 v-22" stroke-width="3" />
+    </g>
+  )}
+  {nome === 'guiada' && (
+    <g>
+      <path d="M14 106 L100 20" stroke-width="5" />
+      <path d="M100 20 l8 -8" stroke-width="3" />
+      <path d="M92 28 q-10 30 -2 60 M88 32 q-18 22 -18 54 M96 24 q4 30 14 50" class="s-fita1" stroke-width="3" />
+      <path d="M84 36 q-24 18 -30 46 M98 22 q12 20 14 40" class="s-fita2" stroke-width="3" />
+    </g>
+  )}
+  {nome === 'gola' && (
+    <g>
+      <path d="M8 40 q52 -30 104 0 l-10 52 q-42 22 -84 0 z" class="f-gola" />
+      <path d="M44 32 q16 10 32 0" stroke-width="3" />
+      <g stroke-width="1.2">
+        <circle cx="26" cy="52" r="5" class="f-l1" /><circle cx="40" cy="58" r="5" class="f-l2" /><circle cx="54" cy="62" r="5" class="f-l3" />
+        <circle cx="68" cy="62" r="5" class="f-l1" /><circle cx="82" cy="58" r="5" class="f-l2" /><circle cx="96" cy="52" r="5" class="f-l3" />
+        <circle cx="32" cy="72" r="5" class="f-l3" /><circle cx="48" cy="78" r="5" class="f-l1" /><circle cx="64" cy="80" r="5" class="f-l2" />
+        <circle cx="80" cy="76" r="5" class="f-l3" /><circle cx="94" cy="68" r="5" class="f-l1" />
+      </g>
+    </g>
+  )}
+  {nome === 'surrao' && (
+    <g>
+      <rect x="30" y="20" width="60" height="72" rx="10" class="f-la" />
+      <path d="M30 40 h60 M30 60 h60" stroke-width="2" />
+      <g class="f-metal">
+        <path d="M38 92 l-4 16 h16 l-4 -16 z" /><path d="M56 92 l-4 16 h16 l-4 -16 z" /><path d="M74 92 l-4 16 h16 l-4 -16 z" />
+      </g>
+    </g>
+  )}
+  {nome === 'chapeu' && (
+    <g>
+      <path d="M30 56 q30 -40 60 0 z" class="f-gola" />
+      <path d="M20 56 h80" stroke-width="4" />
+      <path d="M26 58 v46 M36 58 v52 M46 58 v44 M56 58 v54 M66 58 v46 M76 58 v52 M86 58 v44 M94 58 v40" class="s-fita1" stroke-width="3" />
+    </g>
+  )}
+</svg>
+
+<style>
+  .ilu .f-pele { fill: #f3e2bf; }
+  .ilu .f-corpo { fill: color-mix(in srgb, var(--acento) 30%, var(--papel)); }
+  .ilu .s-aro { stroke: var(--azul-real); }
+  .ilu .s-corda { stroke: var(--ouro); stroke-width: 3.5; }
+  .ilu .s-tirante { stroke: #f3e2bf; }
+  .ilu .f-metal { fill: color-mix(in srgb, var(--ouro) 45%, var(--papel)); }
+  .ilu .s-metal { stroke: var(--ouro); stroke-width: 5; }
+  .ilu .f-cabaca { fill: color-mix(in srgb, var(--ouro) 35%, var(--papel)); }
+  .ilu .f-conta { fill: var(--encarnado); }
+  .ilu .f-palio { fill: var(--encarnado); }
+  .ilu .f-franja { fill: var(--ouro); }
+  .ilu .f-ouro { fill: var(--ouro); }
+  .ilu .f-estandarte { fill: var(--azul-real); }
+  .ilu .f-madeira { fill: color-mix(in srgb, var(--tinta) 75%, var(--papel)); }
+  .ilu .f-gola { fill: var(--magenta); }
+  .ilu .f-la { fill: color-mix(in srgb, var(--magenta) 25%, var(--papel)); }
+  .ilu .f-l1 { fill: var(--amarelo); }
+  .ilu .f-l2 { fill: var(--turquesa); }
+  .ilu .f-l3 { fill: var(--papel); }
+  .ilu .s-fita1 { stroke: var(--magenta); }
+  .ilu .s-fita2 { stroke: var(--turquesa); }
+</style>

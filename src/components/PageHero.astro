@@ -1,0 +1,49 @@
+---
+import Motivo from './Motivo.astro';
+import TrilhaNav from './TrilhaNav.astro';
+interface Props {
+  titulo: string;
+  resumo: string;
+  baque: 'nacao' | 'rural' | 'comum';
+  rota: string;
+  rotulo?: string;
+}
+const { titulo, resumo, baque, rota, rotulo } = Astro.props;
+const trilha = baque === 'comum' ? undefined : baque;
+const nomeTradicao = baque === 'nacao' ? 'Maracatu Nação, de baque virado' : baque === 'rural' ? 'Maracatu Rural, de baque solto' : undefined;
+---
+
+<div class="hero" data-hero={baque}>
+  {baque === 'comum' ? (
+    <div class="hero-faixas" aria-hidden="true">
+      <Motivo tipo="nacao" altura={28} />
+      <span class="costura"></span>
+      <Motivo tipo="rural" altura={28} />
+    </div>
+  ) : (
+    <Motivo tipo={baque} altura={baque === 'nacao' ? 64 : 60} />
+  )}
+  <div class="hero-texto">
+    {nomeTradicao && <p class="hero-tradicao">{rotulo ?? nomeTradicao}</p>}
+    <h1>{titulo}</h1>
+    <p class="resumo">{resumo}</p>
+    {trilha && <TrilhaNav trilha={trilha} rota={rota} />}
+  </div>
+</div>
+
+<style>
+  .hero { margin-bottom: var(--e-6); }
+  .hero-faixas { display: grid; grid-template-columns: 1fr 6px 1fr; align-items: stretch; }
+  .costura {
+    background: repeating-linear-gradient(180deg, var(--tinta) 0 4px, transparent 4px 7px);
+  }
+  .hero-texto {
+    max-width: var(--largura);
+    margin-inline: auto;
+    padding: var(--e-6) var(--gutter) 0;
+    display: grid;
+    gap: var(--e-4);
+  }
+  .hero-tradicao { font-weight: 700; color: var(--acento-texto); }
+  h1 { max-width: 18ch; }
+</style>

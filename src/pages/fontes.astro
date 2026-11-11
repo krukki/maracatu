@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import NavPaginas from '../components/NavPaginas.astro';
+import { glossario } from '../data/glossario';
+import { fontes } from '../data/fontes';
+import { imagens } from '../data/imagens';
+import { url } from '../lib/url';
+
+const termos = [...glossario].sort((a, b) => a.termo.localeCompare(b.termo, 'pt-BR'));
+const nomes = { nacao: 'Nação', rural: 'Rural', ambas: 'As duas' } as const;
+const grupos = [
+  { tipo: 'instituicao', titulo: 'Instituições públicas' },
+  { tipo: 'lei', titulo: 'Leis' },
+  { tipo: 'academico', titulo: 'Pesquisas acadêmicas e livros' },
+  { tipo: 'referencia', titulo: 'Obras de referência' },
+  { tipo: 'imprensa', titulo: 'Imprensa' },
+] as const;
+const ordenar = (lista: typeof fontes) => [...lista].sort((a, b) => a.autor.localeCompare(b.autor, 'pt-BR'));
+---
+
+<BaseLayout
+  titulo="Glossário, fontes e sobre"
+  descricao="Glossário dos termos dos maracatus de Pernambuco, lista completa de fontes, créditos das imagens e informações sobre este trabalho escolar."
+  rota="/fontes/"
+>
+  <PageHero
+    titulo="Glossário, fontes e sobre"
+    resumo="As palavras dos maracatus explicadas, todas as fontes consultadas e quem fez este site."
+    baque="comum"
+    rota="/fontes/"
+  />
+  <div class="conteudo">
+    <nav class="indice" aria-label="Nesta página">
+      <a href="#glossario">Glossário</a>
+      <a href="#fontes">Fontes</a>
+      <a href="#imagens">Créditos das imagens</a>
+      <a href="#sobre">Sobre o trabalho</a>
+    </nav>
+
+    <section id="glossario" aria-labelledby="t-glossario">
+      <h2 id="t-glossario">Glossário</h2>
+      <p class="intro">Cada termo traz uma etiqueta que indica em qual tradição ele é usado. Quando aparece "As duas", a palavra existe nos dois maracatus, mas com sentidos próprios em cada um.</p>
+      <dl class="glossario">
+        {termos.map((t) => (
+          <div class="termo-item" id={`termo-${t.id}`}>
+            <dt>
+              <span class="termo-nome">{t.termo}</span>
+              <span class:list={['etiqueta', `etiqueta--${t.tradicao}`]}>{nomes[t.tradicao]}</span>
+            </dt>
+            <dd>
+              {t.definicao}
+              {t.pagina && <> <a href={url(t.pagina)}>Saiba mais<span class="sr-only"> sobre {t.termo}</span></a>.</>}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    <section id="fontes" aria-labelledby="t-fontes">
+      <h2 id="t-fontes">Fontes</h2>
+      <p class="intro">Todas as fontes citadas no site, agrupadas por tipo. Em cada página, os números no texto levam à fonte de cada informação.</p>
+      {grupos.map((g) => (
+        <>
+          <h3>{g.titulo}</h3>
+          <ul class="lista-fontes">
+            {ordenar(fontes.filter((f) => f.tipo === g.tipo)).map((f) => (
+              <li>
+                {f.autor}. {f.url ? <a href={f.url} rel="noopener">{f.titulo}</a> : <cite>{f.titulo}</cite>}{f.veiculo && `. ${f.veiculo}`}{f.ano !== 's.d.' ? `, ${f.ano}` : ''}.
+                {f.acesso && <span class="acesso"> Acesso em {f.acesso}.</span>}
+              </li>
+            ))}
+          </ul>
+        </>
+      ))}
+    </section>
+
+    <section id="imagens" aria-labelledby="t-imagens">
+      <h2 id="t-imagens">Créditos das imagens</h2>
+      <p class="intro">As fotos são do Wikimedia Commons e têm licenças livres que permitem o uso com crédito. Os desenhos, os padrões gráficos e o mapa foram feitos para este site; os contornos do mapa usam dados do OpenStreetMap.</p>
+      <ul class="lista-fontes">
+        {imagens.map((i) => (
+          <li>{i.legenda} Foto: {i.autor}. Licença <a href={i.origem} rel="noopener">{i.licenca}</a>.</li>
+        ))}
+        <li>Contornos do mapa: © colaboradores do <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap</a>, licença ODbL.</li>
+      </ul>
+    </section>
+
+    <section id="sobre" aria-labelledby="t-sobre">
+      <h2 id="t-sobre">Sobre o trabalho</h2>
+      <div class="sobre">
+        <p><strong>Dois Baques</strong> é um trabalho escolar de <strong>Ronaldo Heitor</strong>, do 4º semestre do curso de Informática do IFMT, feito em 2026.</p>
+        <p>O objetivo é apresentar, com o mesmo cuidado, as duas tradições de maracatu de Pernambuco, sem misturá-las, e ajudar estudantes, professores e visitantes a entendê-las e respeitá-las.</p>
+        <h3>Como as informações foram escolhidas</h3>
+        <p>Os textos foram escritos a partir das fontes listadas acima, com preferência para instituições públicas (Iphan, Fundaj, governos), pesquisas acadêmicas e a imprensa de Pernambuco. Quando as fontes discordam, o texto diz isso. Datas de fundação de grupos aparecem como "declaradas pelo grupo" quando vêm da tradição oral.</p>
+        <p>Algumas informações que circulam na internet ficaram de fora por não termos encontrado fonte confiável, como o peso do traje do caboclo de lança e datas antigas sem documento. Alguns documentos importantes, como os dossiês completos do Iphan, não puderam ser consultados na íntegra durante a pesquisa.</p>
+        <h3>O que este site não faz</h3>
+        <p>Não fala em nome de nenhuma nação ou grupo de maracatu e não descreve o que é reservado aos terreiros. Para conhecer cada grupo, procure os canais oficiais das nações, dos maracatus de baque solto e das associações.</p>
+        <h3>Encontrou um erro?</h3>
+        <p>Correções são bem-vindas, principalmente de quem faz parte das tradições. Abra uma sugestão no <a href="https://github.com/krukki/maracatu/issues" rel="noopener">repositório do projeto no GitHub</a>, dizendo qual página e qual informação estão erradas e, se possível, a fonte correta.</p>
+      </div>
+    </section>
+
+    <NavPaginas rota="/fontes/" />
+  </div>
+</BaseLayout>
+
+<style>
+  .indice { display: flex; flex-wrap: wrap; gap: var(--e-2); margin-bottom: var(--e-6); }
+  .indice a {
+    display: inline-flex; align-items: center; min-height: 44px; padding: var(--e-1) var(--e-4);
+    border: 1.5px solid var(--tinta); border-radius: 999px; color: var(--tinta); text-decoration: none; font-weight: 600;
+  }
+  .indice a:hover { background: var(--papel-2); }
+  section { max-width: var(--medida); margin-top: var(--e-7); scroll-margin-top: var(--e-4); }
+  section h2 { padding-top: var(--e-4); border-top: 2px solid var(--tinta); margin-bottom: var(--e-3); }
+  section h3 { margin-top: var(--e-6); margin-bottom: var(--e-3); }
+  .intro { margin-bottom: var(--e-4); }
+  .glossario { margin: 0; }
+  .termo-item { padding-block: var(--e-4); border-bottom: 1px solid var(--linha); scroll-margin-top: var(--e-4); }
+  .termo-item:target { background: var(--papel-2); outline: 2px solid var(--tinta); outline-offset: 4px; }
+  dt { display: flex; flex-wrap: wrap; align-items: center; gap: var(--e-2); }
+  .termo-nome { font-family: var(--fonte-titulo); font-size: var(--t-2); }
+  dd { margin: var(--e-2) 0 0; }
+  .lista-fontes { margin: 0; padding-left: 1.2em; display: grid; gap: var(--e-3); font-size: var(--t-0); line-height: 1.5; }
+  .lista-fontes a { overflow-wrap: anywhere; }
+  .acesso { color: var(--tinta-suave); }
+  .sobre { display: grid; gap: var(--e-3); }
+  .sobre h3 { margin-top: var(--e-4); margin-bottom: 0; }
+</style>

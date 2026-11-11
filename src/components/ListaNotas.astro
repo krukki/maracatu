@@ -1,0 +1,41 @@
+---
+// Lista "Fontes desta página", montada a partir das chamadas <Fonte/> usadas no conteúdo.
+import { fontePorId } from '../data/fontes';
+import { url } from '../lib/url';
+const locals = Astro.locals as { notas?: { id: string; detalhe?: string }[] };
+const notas = (locals.notas ?? []).map((n) => ({ ...n, fonte: fontePorId(n.id) }));
+---
+
+{notas.length > 0 && (
+  <section class="notas" aria-labelledby="titulo-notas">
+    <h2 id="titulo-notas">Fontes desta página</h2>
+    <ol>
+      {notas.map(({ fonte, detalhe }, i) => (
+        <li id={`nota-${i + 1}`}>
+          {fonte.autor}. {fonte.url ? <a href={fonte.url} rel="noopener">{fonte.titulo}</a> : <cite>{fonte.titulo}</cite>}
+          {fonte.veiculo && `. ${fonte.veiculo}`}{fonte.ano !== 's.d.' ? `, ${fonte.ano}` : ''}{detalhe && ` (${detalhe})`}.
+          {fonte.acesso && <span class="acesso"> Acesso em {fonte.acesso}.</span>}
+        </li>
+      ))}
+    </ol>
+    <p class="notas-mais">Lista completa e créditos de imagem em <a href={url('/fontes/')}>Glossário, fontes e sobre</a>.</p>
+  </section>
+)}
+
+<style>
+  .notas {
+    margin-top: var(--e-8);
+    padding-top: var(--e-4);
+    border-top: 2px solid var(--tinta);
+    max-width: var(--medida);
+    font-size: var(--t-0);
+    line-height: 1.5;
+  }
+  .notas h2 { font-size: var(--t-2); margin-bottom: var(--e-4); }
+  .notas ol { padding-left: 1.6em; margin: 0; display: grid; gap: var(--e-3); }
+  .notas li { scroll-margin-top: var(--e-6); }
+  .notas li:target { background: var(--papel-2); outline: 2px solid var(--acento); outline-offset: 4px; }
+  .notas a { overflow-wrap: anywhere; }
+  .acesso { color: var(--tinta-suave); }
+  .notas-mais { margin-top: var(--e-4); }
+</style>

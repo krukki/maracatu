@@ -1,0 +1,91 @@
+---
+layout: ../../layouts/PaginaLayout.astro
+titulo: "Orquestra e sambada"
+resumo: "Um terno pequeno, com percussão e sopros, acompanha o mestre, que improvisa versos. Na sambada, dois mestres se desafiam até o dia clarear."
+descricao: "O terno do maracatu de baque solto, o mestre e o contramestre, as formas de verso e como funciona a sambada."
+baque: rural
+rota: /rural/orquestra-e-sambada/
+---
+import Fonte from '../../components/Fonte.astro';
+import Termo from '../../components/Termo.astro';
+import Figura from '../../components/Figura.astro';
+import Ficha from '../../components/Ficha.astro';
+import Ilustracao from '../../components/Ilustracao.astro';
+import Aviso from '../../components/Aviso.astro';
+import VideoClique from '../../components/VideoClique.astro';
+
+## O terno
+
+A música do baque solto é feita por um conjunto pequeno, o <Termo id="terno">terno</Termo>. Ele junta percussão com três ou quatro instrumentos de sopro. Para o Iphan, são os sopros que dão a "essência" ao baque solto, e por isso ele também é chamado de maracatu de orquestra.<Fonte id="palmares-2014" />
+
+"A música do baque solto orienta o cortejo, marca a passagem dos personagens e sustenta a fala dos mestres que, com o apito, comandam o conjunto", resumiu uma reportagem de 2026.<Fonte id="dp-baque-solto-2026" />
+
+<Ficha nome="Bombo" id="bombo">
+  <Ilustracao nome="bombo" slot="ilustracao" />
+  <p>Tambor grave que marca a base. Segundo o maestro Guerra-Peixe, o nome "baque solto" vem daí: no maracatu de orquestra toca um só bombo, e o toque fica "solto".<Fonte id="afroasia-guerra-peixe" /></p>
+</Ficha>
+
+<Ficha nome="Tarol" id="tarol">
+  <Ilustracao nome="tarol" slot="ilustracao" />
+  <p>Tambor de som seco e agudo, tocado com baquetas.</p>
+</Ficha>
+
+<Ficha nome="Gonguê" id="gongue">
+  <Ilustracao nome="gongue" slot="ilustracao" />
+  <p>Sino de metal tocado com uma baqueta, que marca o ritmo.</p>
+</Ficha>
+
+<Ficha nome="Mineiro" id="mineiro" outrosNomes="ou ganzá">
+  <Ilustracao nome="mineiro" slot="ilustracao" />
+  <p>Chocalho de metal em forma de tubo. Pesquisadores veem nele uma marca da herança indígena do baque solto.<Fonte id="souza-tcc-ufpe" /></p>
+</Ficha>
+
+<Ficha nome="Porca" id="porca">
+  <Ilustracao nome="porca" slot="ilustracao" />
+  <p>Instrumento de fricção parecido com a cuíca, que faz um som rouco.</p>
+</Ficha>
+
+<Ficha nome="Sopros" id="sopros" outrosNomes="trombone, clarinete e, em muitos grupos, trompete">
+  <Ilustracao nome="trombone" slot="ilustracao" />
+  <p>Tocam as melodias entre os versos do mestre. O trombone é tão importante que o baque solto também é chamado de "maracatu de trombone".<Fonte id="alepe-2023" /></p>
+</Ficha>
+
+{/* FOTO: rural-caboclo-noelia */}
+
+## O mestre e o contramestre
+
+O mestre, também chamado de mestre de apito ou mestre de toadas, comanda o grupo e improvisa os versos. Ao lado dele fica o contramestre. "O terno de músicos, o mestre e o contramestre completam o cortejo."<Fonte id="altera-ufpb" />
+
+O mestre canta, o terno para e escuta; quando ele termina, o terno responde com a música. Essa alternância é o coração do baque solto.
+
+Ninguém aprende a ser mestre em escola: o ofício passa de um mestre para outro na convivência. Mestre Barachinha, por exemplo, foi contramestre antes de comandar o próprio grupo e depois formou novos mestres.<Fonte id="continente-barachinha" />
+
+### As formas do verso
+
+Estudos e depoimentos de mestres citam quatro formas principais de verso, cada uma usada em um momento diferente:<Fonte id="massa-podcast" />
+
+- **Marcha:** quatro versos, cantados na chegada e na despedida;
+- **Samba curto:** em geral seis versos;
+- **Samba comprido** ou samba em dez: em geral dez versos, cantado no meio da apresentação;
+- **Galope:** em geral seis versos.
+
+<Aviso titulo="Sobre as formas do verso" tipo="nota">
+  <p>Não conseguimos conferir essas formas em documento oficial, só em pesquisas e entrevistas. O número de versos muda de mestre para mestre.</p>
+</Aviso>
+
+## A sambada
+
+A <Termo id="sambada">sambada</Termo> é o encontro em que dois mestres, cada um com seu terno, se desafiam em versos improvisados. Ela entra pela madrugada e, tradicionalmente, só acaba quando o dia clareia, e os primeiros raios de sol mostram quem venceu.<Fonte id="lab-sambada" />
+
+De madrugada a disputa esquenta, com sambas e galopes cada vez mais afiados.<Fonte id="alcantara-tese-ufpb" /> O público acompanha, torce e reage a cada resposta.
+
+Os grupos também chamam de sambada os ensaios em que se reúnem para tocar e cantar, nas sedes ou nos terreiros, nos meses antes do Carnaval.<Fonte id="dp-baque-solto-2026" />
+
+## O ano de um maracatu
+
+1. **Depois do Carnaval:** fim de uma temporada e começo da próxima.
+2. **Ao longo do ano:** encontros, ensaios e o trabalho manual nas golas, chapéus e guiadas.
+3. **Meses antes do Carnaval:** sambadas e ensaios ficam mais frequentes.
+4. **Carnaval:** o auge, com apresentações em Nazaré da Mata, Aliança, Olinda e no Recife.<Fonte id="dp-nazare-70" />
+
+<VideoClique video="iphan-baque-solto-2" legenda="Documentário do Iphan sobre o Maracatu Baque Solto, com o terno e os versos dos mestres." />
