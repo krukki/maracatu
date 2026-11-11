@@ -188,7 +188,7 @@ a:hover { text-decoration-thickness: 0.16em; }
   max-width: var(--largura);
   margin-inline: auto;
   padding-inline: var(--gutter);
-  padding-block: var(--e-6) var(--e-8);
+  padding-block: var(--e-4) var(--e-8);
 }
 
 /* Prosa: coluna de leitura + coluna de margem (notas) a partir de 1024px */
@@ -212,6 +212,7 @@ a:hover { text-decoration-thickness: 0.16em; }
   border-top: 2px solid var(--acento);
   max-width: var(--medida);
 }
+.prosa > h2:first-child { margin-top: 0; }
 .prosa > h3 { margin-top: var(--e-5); }
 .prosa > h2 + *, .prosa > h3 + * { margin-top: calc(var(--e-2) * -1); }
 .prosa ul, .prosa ol { padding-left: 1.25em; margin: 0; }

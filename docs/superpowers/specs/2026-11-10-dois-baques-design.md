@@ -85,7 +85,7 @@ Cada página declara `data-baque="nacao" | "rural" | "comum"` no `<body>`. Isso 
 ### Layout
 - Mobile-first, em uma coluna de leitura.
 - A partir de 1024 px entra uma **coluna de margem** à direita, para notas de fonte e legendas. As fontes ficam ao lado do parágrafo, como num livro.
-- No celular, cada nota vira uma chamada numerada que abre logo abaixo do parágrafo, com `<details>`.
+- No celular, o número no texto leva à lista "Fontes desta página", no fim da página. (Decisão de implementação: mais robusto e acessível que `<details>` dentro de parágrafos.)
 - Alinhamento à esquerda e sem justificação, por legibilidade.
 
 ```
@@ -139,7 +139,7 @@ Um único momento orquestrado: na capa, os dois motivos "entram" em pulso, como 
 | `SiteFooter` | mapa completo do site, autoria, licença do conteúdo, aviso sobre as fontes |
 | `Motivo` | SVG do cordame (Nação) ou da gola (Rural), em faixa ou em bloco |
 | `PageHero` | título, resumo de uma frase, motivo da tradição, trilha de navegação |
-| `Fonte` | chamada numerada que liga a `fontes.ts`; nota na margem no desktop e `<details>` no celular |
+| `Fonte` | chamada numerada que liga a `fontes.ts`; nota na margem no desktop e lista "Fontes desta página" no fim |
 | `Termo` | link para o termo no glossário, com `title` acessível |
 | `Figura` | `<figure>` com imagem otimizada, legenda, autor e licença |
 | `VideoClique` | capa desenhada localmente; o iframe `youtube-nocookie` só carrega no clique; fallback em link |
