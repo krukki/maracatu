@@ -458,6 +458,7 @@ A diferença central é musical e de personagens: o baque solto tem terno pequen
 | mestre (e apito) | rodada 1 | TCC-Marília: "mestre de apito" |
 | mineiro/ganzá, gonguê, tarol/caixa | Lima 2014 cita "toques" de alfaias; lista com gonguê/tarol/mineiro: rodada 1 (Claves/UFPB, resumo de busca) — **não relido** | TCC-Marília: "mineiro ou ganzá"; gonguê/tarol: rodada 1, não relido |
 | Jurema (e Umbanda) | Lima 2014: "vínculos com a religião dos orixás, umbanda e com a jurema, podendo ser com as três ao mesmo tempo ou com uma destas apenas" (p. 321) | TCC-Marília: "raiz religiosa… Jurema Sagrada" |
-| terreiro, brincante, patrimônio do Iphan (2014), Dia do Maracatu (1º/ago) | Palmares/Iphan | Palmares/Iphan |
+| terreiro, brincante, patrimônio do Iphan (2014) | Palmares/Iphan | Palmares/Iphan |
+| Dia do Maracatu (1º/ago) | rodada 1 (Agência Senado/FPE), **não relido** | idem |
 
 > **Instrução para o teste:** (1) termos EXCLUSIVOS não podem aparecer na página da outra tradição **sem** marcação explícita de contraste ("só existe no baque solto"); (2) termos COMPARTILHADOS exigem etiqueta [NAÇÃO] ou [RURAL] na mesma frase; (3) "caixa" **não foi verificada** em nenhuma das duas — manter fora do teste ou tratar como "tarol" só depois de checar; (4) "lanceiros" e "caboclo de lança" **não são** sinônimos.
